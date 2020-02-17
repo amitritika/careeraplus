@@ -1,0 +1,136 @@
+
+.examplan{
+  width: 100%;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.col-12 {
+    margin: 2% 0;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem
+}
+
+.week-day-name{
+    background-color: rgba(83, 99, 159,0.7);
+    border: 1px solid rgb(83, 99, 159);
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin-left: 2%;
+}
+
+.month-name{
+    background-color: rgba(56, 61, 65, 0.7);
+    border: 1px solid rgb(6, 61, 65);
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin-left: 2%;
+}
+
+.col-1{
+  padding: 0;
+  margin-top: 1%;
+}
+
+.date-calendar{
+  height: 100px;
+  border-radius: 10px;
+  text-align: left;
+  padding: 1px;
+  border: 1px solid rgb(83, 99, 159);
+  margin-left: 2%;
+}
+
+.date-calendar-topic{
+  font-size: 0.6rem;
+  margin: 0;
+  line-height: 0.6rem;
+}
+
+.date-calendar-date{
+  margin: 2px;
+}
+.date-calendar-header{
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.menu-button{
+  width: 20rem;
+  height: 4rem;
+  line-height: 3rem;
+  font: 2rem;
+}
+
+@media screen and (max-width: 1100px){
+	.date-calendar {
+	height: 80px;
+}
+	.date-calendar-date{
+	font-size: 0.9rem;
+}
+.date-calendar-header{
+	font-size: 0.65rem;
+}
+.date-calendar-topic{
+	font-size: 0.45rem;
+}
+}
+
+@media screen and (max-width: 900px){
+
+	.date-calendar {
+	height: 70px;
+}
+	.date-calendar-date{
+	font-size: 0.8rem;
+}
+.date-calendar-header{
+	font-size: 0.5rem;
+}
+.date-calendar-topic{
+	font-size: 0.35rem;
+}
+	
+}
+
+@media screen and (max-width: 680px){
+
+	.date-calendar {
+	height: 60px;
+}
+	.date-calendar-date{
+	font-size: 0.7rem;
+}
+.date-calendar-header{
+	font-size: 0.35rem;
+}
+.date-calendar-topic{
+	font-size: 0.25rem;
+}
+}
+
+@media screen and (max-width: 440px){
+	
+	.date-calendar {
+	height: 50px;
+}
+	.date-calendar-date{
+	font-size: 0.6rem;
+}
+.date-calendar-header{
+	font-size: 0.2rem;
+}
+.date-calendar-topic{
+	font-size: 0.15rem;
+}
+}

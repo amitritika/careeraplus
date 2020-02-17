@@ -1,0 +1,884 @@
+:root{
+	--fac: 5;
+}
+@media screen and (max-width: 1200px){
+	:root{
+	--fac: 4;
+}
+}
+@media screen and (max-width: 900px){
+	:root{
+	--fac: 3;
+}
+}
+
+@media screen and (max-width: 600px){
+	:root{
+	--fac: 2;
+}
+}
+
+@media screen and (max-width: 320px){
+	:root{
+	--fac: 1;
+}
+}
+
+
+
+
+
+
+
+#main-block{
+	/*display: none;*/
+	margin-top: 10px;
+	width: 100%;
+	height: 100%;
+	background-color: grey;
+}
+
+#resume{
+	--width: calc(210px * var(--fac));
+width: var(--width);
+	--height: calc(297px * var(--fac));
+height: var(--height);
+background-color: white;
+margin: 10px auto;
+}
+
+#left-block{
+	position: absolute;
+	--height: calc(297px * var(--fac));
+	height: var(--height);
+	--width: calc(80px * var(--fac));
+	width: var(--width);
+	margin: 0;
+}
+
+#profile-container {
+	--width: calc(53px * var(--fac));
+	width: var(--width);
+	--height: calc(53px * var(--fac));
+	height: var(--height);
+    overflow: hidden;
+	margin:0;
+	position: absolute;
+	--top: calc(10px * var(--fac));
+	top: var(--top);
+	--left: calc(13px * var(--fac));
+	left: var(--left);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container img {
+   --width: calc(53px * var(--fac));
+	width: var(--width);
+	--height: calc(53px * var(--fac));
+	height: var(--height);
+}
+
+.leftblock-headings{
+	color: white;
+	font-family: calibri;
+	--font: calc(6pt * var(--fac));
+	font-size: var(--font);
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+}
+
+.leftblock-headings{
+	color: white;
+	font-family: calibri;
+	--font: calc(6pt * var(--fac));
+	font-size: var(--font);
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+}
+
+.leftblock-icon{
+	position: absolute;
+	--left: calc(6px * var(--fac));
+	left: var(--left);
+	color: white;
+	--font: calc(4pt * var(--fac));
+	font-size: var(--font);
+}
+
+.leftblock-text{
+	--width: calc(44px * var(--fac));
+	width: var(--width);
+	--height: calc(7px * var(--fac));
+	height: var(--height);
+	--line: calc(7px * var(--fac));
+	line-height: var(--line);
+	position: absolute;
+	--left: calc(15px * var(--fac));
+	left: var(--left);
+	color: white;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	font-weight: regular;
+}
+
+#contact-resume{
+	--width: calc(40px * var(--fac));
+	width: var(--width);
+	--height: calc(12px * var(--fac));
+	height: var(--height);
+	--line: calc(12px * var(--fac));
+	line-height: var(--line);
+	--top: calc(68px * var(--fac));
+	top: var(--top);
+	--left: calc(16px * var(--fac));
+	left: var(--left);
+}
+
+
+#phone-icon{
+	--top: calc(80px * var(--fac));
+	top: var(--top);
+}
+
+#contactphone-resume{
+	--top: calc(80px * var(--fac));
+	top: var(--top);
+}
+
+#contactemail-resume{
+	--top: calc(91px * var(--fac));
+	top: var(--top);
+}
+
+#email-icon{
+	--top: calc(91px * var(--fac));
+	top: var(--top);
+}
+
+#home-icon{
+	--top: calc(102px * var(--fac));
+	top: var(--top);
+}
+
+#contacthome-resume{
+	--top: calc(102px * var(--fac));
+	top: var(--top);
+}
+
+#profile-resume{
+	--width: calc(40px * var(--fac));
+	width: var(--width);
+	--height: calc(12px * var(--fac));
+	height: var(--height);
+	--line: calc(12px * var(--fac));
+	line-height: var(--line);
+	--top: calc(118px * var(--fac));
+	top: var(--top);
+	--left: calc(16px * var(--fac));
+	left: var(--left);
+}
+
+#profiletext-resume{
+	--width: calc(76px * var(--fac));
+	width: var(--width);
+	--height: calc(28px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	--top: calc(126px * var(--fac));
+	top: var(--top);
+	--left: calc(2px * var(--fac));
+	left: var(--left);
+	color: white;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	--line: calc(28px * var(--fac));
+	line-height: var(--line);
+	
+}
+
+
+#profiletext1-resume{
+	display: inline-block;
+  vertical-align: middle;
+line-height: normal;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+text-align: justify;
+}
+
+#skills-resume{
+	--width: calc(40px * var(--fac));
+	width: var(--width);
+	--height: calc(12px * var(--fac));
+	height: var(--height);
+	--line: calc(12px * var(--fac));
+	line-height: var(--line);
+	--top: calc(156px * var(--fac));
+	top: var(--top);
+	--left: calc(16px * var(--fac));
+	left: var(--left);
+}
+.skilldiv-resume{
+	position: absolute;
+	color: white;
+	font-family: calibri;
+	text-align: left;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	text-align: justify;
+	--width: calc(69px * var(--fac));
+	width: var(--width);
+	--height: calc(12px * var(--fac));
+	height: var(--height);
+	--left: calc(4px * var(--fac));
+	left: var(--left);
+
+}
+
+.skilldiv-resume p{
+	margin: 0;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+.skillrating-resume{
+	position: absolute;
+	width: 100%;
+	--height: calc(4px * var(--fac));
+	height: var(--height);
+	background-color: white;
+}
+
+.skillratingfill-resume{
+	position: absolute;
+	--height: calc(4px * var(--fac));
+	height: var(--height);
+	z-index: 2;
+	width: 80%;
+}
+
+#skill1div-resume{
+	--top: calc(166px * var(--fac));
+	top: var(--top);
+}
+
+
+#skill2div-resume{
+	--top: calc(183px * var(--fac));
+	top: var(--top)
+}
+
+#skill3div-resume{
+	--top: calc(200px * var(--fac));
+	top: var(--top)
+}
+
+#skill4div-resume{
+	--top: calc(217px * var(--fac));
+	top: var(--top)
+}
+
+#skill5div-resume{
+	--top: calc(234px * var(--fac));
+	top: var(--top)
+}
+
+#skill6div-resume{
+	--top: calc(251px * var(--fac));
+	top: var(--top)
+}
+
+#skill7div-resume{
+	--top: calc(268px * var(--fac));
+	top: var(--top)
+}
+
+#hobbies-resume{
+	--width: calc(40px * var(--fac));
+	width: var(--width);
+	--height: calc(12px * var(--fac));
+	height: var(--height);
+	--line: calc(12px * var(--fac));
+	line-height: var(--line);
+	--top: calc(254px * var(--fac));
+	top: var(--top);
+	--left: calc(16px * var(--fac));
+	left: var(--left);
+}
+
+#hobbies1-icon{
+	--top: calc(265px * var(--fac));
+	top: var(--top);
+	top: 1325px;
+}
+
+#hobbies1-resume{
+	--top: calc(265px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies2-icon{
+	--top: calc(276px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies2-resume{
+	--top: calc(276px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies3-icon{
+	--top: calc(287px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies3-resume{
+	--top: calc(287px * var(--fac));
+	top: var(--top);
+}
+
+
+
+
+
+
+
+#right-block{
+	position: absolute;
+	--width: calc(130px * var(--fac));
+	width: var(--width);
+	--height: calc(297px * var(--fac));
+	height: var(--height);
+	--margin: calc(80px * var(--fac));
+	margin-left: var(--margin);
+	background-color: white;
+}
+
+#name-resume{
+	--width: calc(105px * var(--fac));
+	width: var(--width);
+	--height: calc(20px * var(--fac));
+	height: var(--height);
+	--line: calc(20px * var(--fac));
+	line-height: var(--line);
+	position: absolute;
+	top: 0px;
+	--left: calc(6px * var(--fac));
+	left: var(--left);
+	font-family: calibri;
+	--font: calc(9.6pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	font-weight: bold;
+
+}
+
+#designation-resume{
+	--width: calc(105px * var(--fac));
+	width: var(--width);
+	--height: calc(11px * var(--fac));
+	height: var(--height);
+	--line: calc(11px * var(--fac));
+	line-height: var(--line);
+	position: absolute;
+	--top: calc(14px * var(--fac));
+	top: var(--top);
+	--left: calc(6px * var(--fac));
+	left: var(--left);
+	font-family: calibri;
+	--font: calc(6pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+}
+
+#vl{
+	--height: calc(243px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	--top: calc(43px * var(--fac));
+	top: var(--top);
+	--left: calc(12px * var(--fac));
+	left: var(--left);
+	--bo: calc(1px * var(--fac));
+	border-left: var(--bo) solid rgb(1, 51, 66);
+}
+
+
+.rightblock-headings{
+	--width: calc(66px * var(--fac));
+	width: var(--width);
+	--height: calc(13px * var(--fac));
+	height: var(--height);
+	--line: calc(13px * var(--fac));
+	line-height: var(--line);
+	font-family: calibri;
+	--font: calc(6pt * var(--fac));
+	font-size: var(--font);
+	text-align: center;
+	font-weight: bold;	
+	position: absolute;
+}
+
+.right-block-logo-div{
+	position: absolute;
+	text-align: center;
+	border-radius: 50%;
+	--left: calc(6px * var(--fac));
+	left: var(--left);
+}
+
+.rightblock-dot{
+	--width: calc(3px * var(--fac));
+	width: var(--width);
+	--height: calc(3px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	text-align: center;
+	border-radius: 50%;
+	--left: calc(11px * var(--fac));
+	left: var(--left);
+}
+
+.rightblock-year{
+	position: absolute;
+	text-align: left;
+	font-family: calibri;
+	--font: calc(4pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	font-weight: bold;
+	--width: calc(30px * var(--fac));
+	width: var(--width);
+	--height: calc(8px * var(--fac));
+	height: var(--height);
+	--line: calc(8px * var(--fac));
+	line-height: var(--line);
+	--left: calc(18px * var(--fac));
+	left: var(--left);
+}
+
+.details-resume{
+	--width: calc(44px * var(--fac));
+	width: var(--width);
+	--height: calc(18px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	--left: calc(56px * var(--fac));
+	left: var(--left);
+	text-align: left;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+.degree-resume{
+	margin:0;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	font-weight: bold;
+	line-height: normal;
+}
+
+.college-resume{
+	margin:0;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	line-height: normal;
+}
+
+.cgpa-resume{
+	margin:0;
+	font-weight: bold;
+	line-height: normal;
+	--width: calc(44px * var(--fac));
+	width: var(--width);
+	--height: calc(18px * var(--fac));
+	height: var(--height);
+	text-align: left;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+.right-block-logo{
+	color:white;
+	--font: calc(6pt * var(--fac));
+	font-size: var(--font);
+	--line: calc(13px * var(--fac));
+	line-height: var(--line);
+	--width: calc(13px * var(--fac));
+	width: var(--width);
+	--height: calc(13px * var(--fac));
+	height: var(--height);
+	
+}
+
+#educationlogo-resume{
+	--top: calc(30px * var(--fac));
+	top: var(--top);
+}
+
+#education-resume{
+	
+	--top: calc(30px * var(--fac));
+	top: var(--top);
+	--left: calc(30px * var(--fac));
+	left: var(--left);
+}
+
+
+#graduationdot-resume{
+	--top: calc(49px * var(--fac));
+	top: var(--top);
+}
+
+#graduationyear-resume{
+	--top: calc(47px * var(--fac));
+	top: var(--top);
+}
+
+#graduationdetails-resume{
+	--top: calc(44px * var(--fac));
+	top: var(--top);
+}
+
+#graduationcgpa-resume{
+  position: absolute;
+	--top: calc(44px * var(--fac));
+	top: var(--top);
+	--left: calc(100px * var(--fac));
+	left: var(--left);
+}
+
+#hscdot-resume{
+	--top: calc(62px * var(--fac));
+	top: var(--top);
+}
+
+#hscyear-resume{
+	--top: calc(59px * var(--fac));
+	top: var(--top);
+}
+
+#hscdetails-resume{
+	--top: calc(58px * var(--fac));
+	top: var(--top);
+}
+
+#hsccgpa-resume{
+	position: absolute;
+	--top: calc(58px * var(--fac));
+	top: var(--top);
+	--left: calc(100px * var(--fac));
+	left: var(--left);
+}
+
+#sscdot-resume{
+	--top: calc(75px * var(--fac));
+	top: var(--top);
+}
+
+#sscyear-resume{
+	--top: calc(72px * var(--fac));
+	top: var(--top);
+}
+
+#sscdetails-resume{
+	--top: calc(71px * var(--fac));
+	top: var(--top);
+}
+
+#ssccgpa-resume{
+	position: absolute;
+	--top: calc(71px * var(--fac));
+	top: var(--top);
+	--left: calc(100px * var(--fac));
+	left: var(--left);
+}
+
+
+
+.project-resume{
+  color: black;
+	font-style: italic;
+	font-weight: bold;
+}
+#projectlogo-resume{
+	--top: calc(84px * var(--fac));
+	top: var(--top);
+
+}
+
+#project-resume{
+	--top: calc(84px * var(--fac));
+	top: var(--top);
+	--left: calc(30px * var(--fac));
+	left: var(--left);
+}
+
+
+#majproject-resume p, #minproject-resume p{
+	margin: 0px;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+#majproject-resume, #minproject-resume, #training1-resume, #training2-resume {
+	--width: calc(113px * var(--fac));
+	width: var(--width);
+	--height: calc(39px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	--left: calc(17px * var(--fac));
+	left: var(--left);
+	text-align: left;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+	text-align: left;
+}
+
+#majproject1dot-resume{
+	--top: calc(98px * var(--fac));
+	top: var(--top);
+	
+}
+
+#majproject-resume{
+	
+	--top: calc(95px * var(--fac));
+	top: var(--top);
+	
+}
+
+#minproject1dot-resume{
+	--top: calc(126px * var(--fac));
+	top: var(--top);
+}
+
+#minproject-resume{
+	--top: calc(122px * var(--fac));
+	top: var(--top);
+}
+
+#traininglogo-resume{
+	--top: calc(152px * var(--fac));
+	top: var(--top);
+
+}
+
+#training-resume{
+	--width: calc(88px * var(--fac));
+	width: var(--width);
+	--top: calc(152px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+}
+
+#training1-resume p, #training2-resume p{
+	margin: 0px;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+#training1dot-resume{
+	--top: calc(166px * var(--fac));
+	top: var(--top);
+}
+
+#training1-resume{
+	
+	--top: calc(162px * var(--fac));
+	top: var(--top);
+}
+
+
+
+#training2dot-resume{
+	--top: calc(198px * var(--fac));
+	top: var(--top);
+}
+
+#training2-resume{
+	--top: calc(194px * var(--fac));
+	top: var(--top);
+}
+
+
+#arealogo-resume{
+	--top: calc(224px * var(--fac));
+	top: var(--top);
+}
+
+#area-resume{
+	--width: calc(88px * var(--fac));
+	width: var(--width);
+	--top: calc(224px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+}
+
+#areaintrest-resume{
+	--width: calc(113px * var(--fac));
+	width: var(--width);
+	--height: calc(18px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	--top: calc(236px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+	font-family: calibri;
+	--font: calc(2.1pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+#areaintrest1-resume, #areaintrest2-resume, #areaintrest3-resume {
+	--width: calc(36px * var(--fac));
+	width: var(--width);
+	height: 100%;
+	text-align: center;
+	position: absolute;
+}
+
+#areaintrestlogo1-resume, #areaintrestlogo2-resume, #areaintrestlogo3-resume {
+	--width: calc(8px * var(--fac));
+	width: var(--width);
+	--height: calc(8px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	color: white;
+	--font: calc(4pt * var(--fac));
+	font-size: var(--font);
+	--line: calc(8px * var(--fac));
+	line-height: var(--line);
+}
+
+#areaintresttext1-resume, #areaintresttext2-resume, #areaintresttext3-resume{
+	--width: calc(36px * var(--fac));
+	width: var(--width);
+	--height: calc(8px * var(--fac));
+	height: var(--height);
+	--line: calc(8px * var(--fac));
+	line-height: var(--line);
+	position: absolute;
+	--top: calc(8px * var(--fac));
+	top: var(--top);
+	text-align: center;
+}
+
+#areaintrestlogo1-resume{
+	--left: calc(14px * var(--fac));
+	left: var(--left);
+}
+
+#areaintresttext1-resume{
+	left: 0px;
+}
+
+
+#areaintrestlogo2-resume{
+	--left: calc(50px * var(--fac));
+	left: var(--left);
+}
+
+#areaintresttext2-resume{
+	--left: calc(36px * var(--fac));
+	left: var(--left);
+}
+
+#areaintrestlogo3-resume{
+	--left: calc(86px * var(--fac));
+	left: var(--left);
+}
+
+#areaintresttext3-resume{
+	--left: calc(72px * var(--fac));
+	left: var(--left);
+}
+
+.extra {
+	--width: calc(113px * var(--fac));
+	width: var(--width);
+	/*height: 195px;*/
+	position: absolute;
+	--left: calc(17px * var(--fac));
+	left: var(--left);
+	text-align: left;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+#extralogo-resume{
+--top: calc(256px * var(--fac));
+	top: var(--top);
+}
+
+#extra-resume{
+	--width: calc(88px * var(--fac));
+	width: var(--width);
+	--top: calc(256px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+}
+
+#extra1dot-resume{
+	--top: calc(272px * var(--fac));
+	top: var(--top);
+}
+
+#extra1-resume{
+	--top: calc(269px * var(--fac));
+	top: var(--top);
+}
+
+#extra2dot-resume{
+	--top: calc(278px * var(--fac));
+	top: var(--top);
+}
+
+#extra2-resume{
+	--top: calc(275px * var(--fac));
+	top: var(--top);
+}
+
+#extra3dot-resume{
+	--top: calc(284px * var(--fac));
+	top: var(--top);
+}
+
+#extra3-resume{
+	--top: calc(281px * var(--fac));
+	top: var(--top);
+}
