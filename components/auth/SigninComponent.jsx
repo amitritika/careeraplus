@@ -5,8 +5,8 @@ import Link from 'next/link';
 import LoginGoogle from './LoginGoogle';
 const SigninComponent = () => {
     const [values, setValues] = useState({
-        email: 'parsai.amit@gmail.com',
-        password: 'Password@1234',
+        email: '',
+        password: '',
         error: '',
         loading: false,
         message: '',

@@ -11,7 +11,7 @@ import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, router }) => {
     const head = () => (
         <Head>
-            <title>Programming blogs | {APP_NAME}</title>
+            <title>Career blogs | {APP_NAME}</title>
             <meta
                 name="description"
                 content="Programming blogs and tutorials on react node next vue php laravel and web developoment"
@@ -56,7 +56,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
             size > 0 &&
             size >= limit && (
                 <button onClick={loadMore} className="btn btn-outline-primary btn-lg">
-                    Load mmore
+                    Load More
                 </button>
             )
         );
@@ -107,7 +107,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                         <header>
                             <div className="col-md-12 pt-3">
                                 <h1 className="display-4 font-weight-bold text-center">
-                                    Programming blogs and tutorials
+                                    Career Blogs & Tutorials 
                                 </h1>
                             </div>
                             <section>
