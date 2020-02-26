@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Container, Row, Col, Button, NavLink } from 'reactstrap';
 import { getVisualResume, updateVisualResume } from '../../../actions/visualresume';
 import { getCookie, isAuth } from '../../../actions/auth';
 import { getProfile, update } from '../../../actions/user';
 import { API } from '../../../config';
+import dynamic from 'next/dynamic';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+import '../../../node_modules/react-quill/dist/quill.snow.css';
+import { QuillModules, QuillFormats } from '../../../helpers/quill';
+import {hobbies, areaOfIntrest} from "../../../helpers/visualresume/fresher"
 
 const UserInformation = (props) => {
     const [values, setValues] = useState({
@@ -27,142 +32,15 @@ const UserInformation = (props) => {
         
     });
 	
-		const hobbies = [
-			{value: "Running", name: "Running"},
-			{value: "Tennis", name: "Tennis"},
-			{value: "Table Tennis", name: "Table Tennis"},
-			{value: "Cricket", name: "Cricket"},
-			{value: "Football", name: "Football"},
-			{value: "Chess", name: "Chess"},
-			{value: "Swimming", name: "Swimming"},
-			{value: "Listening Music", name: "Listening Music"},
-			{value: "Playing Guitar", name: "Playing Guitar"},
-			{value: "Playing Keyboard", name: "Playing Keyboard"},
-			{value: "Playing Violin", name: "Playing Violin"},
-			{value: "Playing Flute", name: "Playing Flute"},
-			{value: "Singing", name: "Singing"},
-			{value: "Dancing", name: "Dancing"},
-			{value: "Travelling", name: "Travelling"},
-			{value: "Social Work", name: "Social Work"},
-			{value: "Drama", name: "Drama"},
-			{value: "Acting", name: "Acting"},
-			{value: "Painting", name: "Painting"},
-			{value: "Reading", name: "Reading"},
-			{value: "Writing", name: "Writing"},
-			{value: "Gaming", name: "Gaming"},
-			{value: "Browsing", name: "Browsing"},
-			{value: "Movies", name: "Movies"},
-			{value: "Gardening", name: "Gardening"},
-			{value: "Animal Care", name: "Animal Care"}
-		]
-		
-		const areaOfIntrest = {
-			subject: [
-				{value:"ME", name: "Mechanical Engineering"},
-				{value:"CE", name: "Civil Engineering"},
-				{value:"ECE", name: "Electronics & Communication Engineering"},
-				{value:"CSE", name: "Computer Science Engineering"},
-				{value:"EE", name: "Electrical Engineering"},
-				{value:"CHE", name: "Chemical Engineering"},
-				{value:"IE", name: "Instrumentation Engineering"}
-			],
-			topics: {
-				"ME": [
-					{value: "Engineering Mechanics", name: "Engineering Mechanics"},
-					{value: "Strength of Materials", name: "Strength of Materials"},
-					{value: "Theory Of machines", name: "Theory Of machines"},
-					{value: "Machine Design", name: "Machine Design"},
-					{value: "Fluid Mechanics", name: "Fluid Mechanics"},
-					{value: "Heat Tranfer", name: "Heat Tranfer"},
-					{value: "Thermodynamics", name: "Thermodynamics"},
-					{value: "Refrigeration & Air Cond", name: "Refrigeration & Air Cond"},
-					{value: "Manufacturing Eng", name: "Manufacturing Eng"},
-					{value: "Industrial Eng", name: "Industrial Eng"}
-				],
-				
-				"CE": [
-				{name: "Solid Mechanics", value: "Solid Mechanics" },
-				{name: "Structural Analysis", value: "Structural Analysis"},
-				{name: "RCC Structures", value: "RCC Structures"},
-				{name: "Design of Steel Structures", value: "Design of Steel Structures"},
-				{name: "Geotechnical Engineering", value: "Geotechnical Engineering"},
-				{name: "Fluid Mechanics & Machines", value: "Fluid Mechanics & Machines"},
-				{name: "Environmental Engineering", value: "Environmental Engineering"},
-				{name: "Irrigation Engineering", value: "Irrigation Engineering"},
-				{name: "Engineering Hydrology", value: "Engineering Hydrology"},
-				{name: "Transportation Engineering", value: "Transportation Engineering"},
-				{name: "Geometics Engineering", value: "Geometics Engineering"},
-				{name: "CMM and Eng Mech", value: "CMM and Eng Mech"}],
-				
-				"ECE": [
-					{value: "Network Theory", name: "Network Theory"},
-					{value: "Electromagnetics", name: "Electromagnetics"},
-					{value: "Control Systems", name: "Control Systems"},
-					{value: "Electronic Device & Circuits", name: "Electronic Device & Circuits"},
-					{value: "Analog Circuits", name: "Analog Circuits"},
-					{value: "Digital Circuits", name: "Digital Circuits"},
-					{value: "Microprocessors", name: "Microprocessors"},
-					{value: "Signals & Systems", name: "Signals & Systems"},
-					{value: "Communication Systems", name: "Communication Systems"}
-					
-				],
-				
-				"CSE": [
-					{value:"Theory of Comput", name:"Theory of Comput"},
-					{value:"Digital Logic", name:"Digital Logic"},
-					{value:"Comp Org & Architecture", name:"Comp Org & Architecture"},
-					{value:"Prog & Data Structures", name:"Prog & Data Structures"},
-					{value:"Algorithms", name:"Algorithms"},
-					{value:"Compiler Design", name:"Compiler Design"},
-					{value:"Operating Systems", name:"Operating Systems"},
-					{value:"Databases", name:"Databases"},
-					{value:"Computer Networks", name:"Computer Networks"}
-					
-				],
-				
-				"EE": [
-					{value:"Electric Circuits", name: "Electric Circuits"},
-					{value:"Signal & Systems", name: "Signal & Systems"},
-					{value:"Electrical Machines", name: "Electrical Machines"},
-					{value:"Power Systems", name: "Power Systems"},
-					{value:"Control Systems", name: "Control Systems"},
-					{value:"Measurement", name: "Measurement"},
-					{value:"Analog Circuits", name: "Analog Circuits"},
-					{value:"Digital Electronics", name: "Digital Electronics"},
-					{value:"Power Electronics", name: "Power Electronics"},
-					{value:"Electromagnetic Theory", name: "Electromagnetic Theory"}
-				],
-				
-				"CHE": [
-					{name:"Process Calculations", value:"Process Calculations"},
-					{name:"Thermodynamics", value:"Thermodynamics"},
-					{name:"Fluid Mechanics", value:"Fluid Mechanics"},
-					{name:"Mechanical Operations", value:"Mechanical Operations"},
-					{name:"Heat Transfer", value:"Heat Transfer"},
-					{name:"Mass Transfer", value:"Mass Transfer"},
-					{name:"Chemical Reaction Eng", value:"Chemical Reaction Eng"},
-					{name:"Instrumentation", value:"Instrumentation"},
-					{name:"Process Control", value:"Process Control"},
-					{name:"Plant Design & Economics", value:"Plant Design & Economics"},
-					{name:"Chemical Technology", value:"Chemical Technology"}
-					
-				],
-				
-				"IE": [
-					{name:"Network Theory", value:"Network Theory"},
-					{name:"Instrumentation", value:"Instrumentation"},
-					{name:"Ananalog Electronics", value:"Ananalog Electronics"},
-					{name:"Signal & System", value:"Signal & System"},
-					{name:"Communication Sys", value:"Communication Sys"},
-					{name:"Contorl System", value:"Contorl System"},
-					{name:"Process Control", value:"Process Control"},
-					{name:"Digital Electronics", value:"Digital Electronics"},
-					{name:"Measurement", value:"Measurement"},
-					{name:"Optical Instrumentation", value:"Optical Instrumentation"}
-				]
-			}
-			
-		}
+	const [skills, setSkills] = useState({
+		skill6Display : false,
+		skill7Display : false,
+		trainingDisplay: false,
+		extra4Display: false,
+		extra5Display: false
+	})
+
+		const {skill6Display, skill7Display, trainingDisplay, extra4Display, extra5Display} = skills;
     const { message, success, error, name, email, photo, visualresume, personalInformationshow,personalInformation, educationalInformationshow, projectInformationshow, trainingInformationshow,
           skillsshow, hobbiesshow, areaOfIntrestshow, extraCurricularshow} = values;
     const token = getCookie('token');
@@ -197,6 +75,20 @@ const UserInformation = (props) => {
 								photo: `${API}/user/photo/${data.username}`,
               	personalInformationshow: true
             });
+						if(!data.visualresume.skills.skill6Display){
+								setSkills({...skills, skill6Display: false, 
+													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
+													 extra4Display: data.visualresume.extraCurricular.extra4Display,
+													 extra5Display: data.visualresume.extraCurricular.extra5Display
+													});
+							}else{
+								setSkills({...skills, skill6Display: data.visualresume.skills.skill6Display, 
+													 skill7Display: data.visualresume.skills.skill7Display, 
+													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
+													 extra4Display: data.visualresume.extraCurricular.extra4Display,
+													 extra5Display: data.visualresume.extraCurricular.extra5Display
+													});
+							}
 					}else{
 						props.pr({
 							name: data.name,
@@ -211,8 +103,24 @@ const UserInformation = (props) => {
                 visualresume: data.visualresume,
               personalInformationshow: true
             });
+						if(!data.visualresume.skills.skill6Display){
+								setSkills({...skills, skill6Display: false, 
+													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
+													 extra4Display: data.visualresume.extraCurricular.extra4Display,
+													 extra5Display: data.visualresume.extraCurricular.extra5Display
+													});
+							}else{
+								setSkills({...skills, skill6Display: data.visualresume.skills.skill6Display, 
+													 skill7Display: data.visualresume.skills.skill7Display, 
+													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
+													 extra4Display: data.visualresume.extraCurricular.extra4Display,
+													 extra5Display: data.visualresume.extraCurricular.extra5Display
+													});
+							}
 					}
-            
+           
+					
+					
           
         }
     });
@@ -223,6 +131,7 @@ const UserInformation = (props) => {
 			
   }, []);
 
+	const quill = useRef(null);
     
 
     const clickSubmit = e => {
@@ -323,6 +232,13 @@ const UserInformation = (props) => {
         props.vr(visualresumeCopy);
         setValues({ ...values, visualresume: visualresumeCopy, error: false, success: false });
     };
+	const handleChangeProjectInformationQuill = n => e => {
+      let visualresumeCopy = visualresume;
+      visualresumeCopy.projectInformation[n] = e;
+        props.vr(visualresumeCopy);
+        setValues({ ...values, visualresume: visualresumeCopy, error: false, success: false });
+				
+    };
   
   const projectInformationBack = () => {
     setValues({...values, projectInformationshow: false, educationalInformationshow: true});
@@ -339,6 +255,27 @@ const UserInformation = (props) => {
       visualresumeCopy.trainingInformation[n] = e.target.value;
         props.vr(visualresumeCopy);
         setValues({ ...values, visualresume: visualresumeCopy, error: false, success: false });
+    };
+	const handleChangeTrainingInformationQuill = n => e => {
+      let visualresumeCopy = visualresume;
+      visualresumeCopy.trainingInformation[n] = e;
+        props.vr(visualresumeCopy);
+        setValues({ ...values, visualresume: visualresumeCopy, error: false, success: false });
+    };
+	
+	const handleChangeTrainingInformationCheck = e => {
+			let visualresumeCopy = visualresume;
+			if(e.target.checked){
+				visualresumeCopy.trainingInformation.trainingDisplay = true;
+				setSkills({...skills, trainingDisplay: true});
+				props.vr(visualresumeCopy);
+				setValues({ ...values, visualresume: visualresumeCopy });
+			}else{
+				visualresumeCopy.trainingInformation.trainingDisplay = false;
+				setSkills({...skills, trainingDisplay: false});
+				props.vr(visualresumeCopy);
+				setValues({ ...values, visualresume: visualresumeCopy });
+			}
     };
   
   const trainingInformationBack = () => {
@@ -367,6 +304,8 @@ const UserInformation = (props) => {
     setValues({...values, hobbiesshow: false, areaOfIntrestshow: true});
     //console.log(visualresume)
   }
+	
+	
 	
 	const handleChangeArea = n => e => {
       let visualresumeCopy = visualresume;
@@ -402,6 +341,59 @@ const UserInformation = (props) => {
     //console.log(visualresume)
   }
 	
+	const skillsInformationAdd = () => {
+		let visualresumeCopy = visualresume;
+      
+    if(!skill6Display){
+			visualresumeCopy.skills.skill6Display = true;
+			setSkills({...skills, skill6Display: true});
+			setValues({ ...values, visualresume: visualresumeCopy});
+			props.skills.skill6Add();
+			props.vr(visualresumeCopy);
+		}else{
+			setSkills({...skills, skill7Display: true});
+			props.skills.skill7Add();
+			visualresumeCopy.skills.skill7Display = true;
+			setValues({ ...values, visualresume: visualresumeCopy});
+			props.vr(visualresumeCopy);
+		}
+  }
+	
+	const skillsInformationSkill6Delete = () => {
+   let visualresumeCopy = visualresume;
+		if (skill7Display){
+			setSkills({...skills, skill7Display: false});
+			props.skills.skill7Del();
+			visualresumeCopy.skills.skill7Display = false;
+			visualresumeCopy.skills.skill6 = visualresumeCopy.skills.skill7;
+			visualresumeCopy.skills.rating6 = visualresumeCopy.skills.rating7;
+			visualresumeCopy.skills.skill7 = "Skill 7";
+			visualresumeCopy.skills.rating7 = "4";
+			props.vr(visualresumeCopy);
+      setValues({ ...values, visualresume: visualresumeCopy });
+		}else{
+			setSkills({...skills, skill6Display: false});
+			props.skills.skill6Del();
+			visualresumeCopy.skills.skill6Display = false;
+			visualresumeCopy.skills.skill6 = "Skill 6";
+			visualresumeCopy.skills.rating6 = "4";
+			props.vr(visualresumeCopy);
+			visualresumeCopy.skills.skill6Display = false;
+      setValues({ ...values, visualresume: visualresumeCopy });
+		}
+  }
+	
+	const skillsInformationSkill7Delete = () => {
+		let visualresumeCopy = visualresume;
+   	setSkills({...skills, skill7Display: false});
+		props.skills.skill7Del();
+		visualresumeCopy.skills.skill7Display = false;
+		visualresumeCopy.skills.skill7 = "Skill 7";
+		visualresumeCopy.skills.rating7 = "4";
+		props.vr(visualresumeCopy);
+		setValues({ ...values, visualresume: visualresumeCopy });
+  }
+	
 	const handleChangeExtraCurricular = n => e => {
       let visualresumeCopy = visualresume;
       visualresumeCopy.extraCurricular[n] = e.target.value;
@@ -417,6 +409,59 @@ const UserInformation = (props) => {
   const extraInformationNext = () => {
     setValues({...values, extraCurricularshow: true});
     //console.log(visualresume)
+  }
+	
+	const extraInformationAdd = () => {
+		let visualresumeCopy = visualresume;
+      
+    if(!extra4Display){
+			visualresumeCopy.extraCurricular.extra4Display = true;
+			setSkills({...skills, extra4Display: true});
+			setValues({ ...values, visualresume: visualresumeCopy});
+			
+			props.vr(visualresumeCopy);
+		}else{
+			setSkills({...skills, extra5Display: true});
+			
+			visualresumeCopy.extraCurricular.extra5Display = true;
+			setValues({ ...values, visualresume: visualresumeCopy});
+			props.vr(visualresumeCopy);
+		}
+  }
+	
+	const extraInformationExtra4Delete = () => {
+   let visualresumeCopy = visualresume;
+		if (extra5Display){
+			setSkills({...skills, extra5Display: false});
+			
+			visualresumeCopy.extraCurricular.extra5Display = false;
+			visualresumeCopy.extraCurricular.extra4 = visualresumeCopy.extraCurricular.extra5;
+			
+			visualresumeCopy.extraCurricular.extra5 = "Extracurricluar Activity 5";
+			
+			props.vr(visualresumeCopy);
+      setValues({ ...values, visualresume: visualresumeCopy });
+		}else{
+			setSkills({...skills, extra4Display: false});
+			
+			visualresumeCopy.extraCurricular.extra4Display = false;
+			visualresumeCopy.extraCurricular.extra4 = "Extracurricluar Activity 4";
+			
+			props.vr(visualresumeCopy);
+			
+      setValues({ ...values, visualresume: visualresumeCopy });
+		}
+  }
+	
+	const extraInformationExtra5Delete = () => {
+		let visualresumeCopy = visualresume;
+   	setSkills({...skills, extra5Display: false});
+		
+		visualresumeCopy.extraCurricular.extra5Display = false;
+		visualresumeCopy.extraCurricular.extra5 = "Extracurricluar Activity 5";
+		
+		props.vr(visualresumeCopy);
+		setValues({ ...values, visualresume: visualresumeCopy });
   }
   
 
@@ -673,11 +718,16 @@ const UserInformation = (props) => {
                 onChange= {handleChangeProjectInformation("majTitle")}>
               </input>
               <label className="lead">Description</label>
-              <textarea
-                className="form-control"
-                defaultValue={visualresume.projectInformation.majDes}
-                onChange= {handleChangeProjectInformation("majDes")}>
-              </textarea>
+							<div className="form-group">
+                    <ReactQuill
+                        modules={QuillModules}
+                        formats={QuillFormats}
+                        defaultValue={visualresume.projectInformation.majDes}
+                        placeholder="Description of major Project"
+                        onChange={handleChangeProjectInformationQuill("majDes")}
+												ref={quill}
+                    />
+                </div>
              </div>
             <div className="form-group">
               <label className="lead">Minor Project Titile</label>
@@ -688,11 +738,16 @@ const UserInformation = (props) => {
                 onChange= {handleChangeProjectInformation("minTitle")}>
               </input>
               <label className="lead">Description</label>
-              <textarea
-                className="form-control"
-                defaultValue={visualresume.projectInformation.minDes}
-                onChange= {handleChangeProjectInformation("minDes")}>
-              </textarea>
+              <div className="form-group">
+                    <ReactQuill
+                        modules={QuillModules}
+                        formats={QuillFormats}
+                        defaultValue={visualresume.projectInformation.minDes}
+                        placeholder="Description of minor Project"
+                        onChange={handleChangeProjectInformationQuill("minDes")}
+											ref={quill}
+                    />
+                </div>
              </div>
             <Button className = "btn alert mr-4"onClick = {projectInformationBack}>Back</Button>
             <Button className = "btn alert mr-4" onClick = {projectInformationNext}>Next</Button>
@@ -747,12 +802,27 @@ const UserInformation = (props) => {
 								</Col>
 								<Col xs ="12">
 									<label className="lead">Description</label>
-									<textarea
-										className="form-control"
-										defaultValue={visualresume.trainingInformation.des1}
-										onChange= {handleChangeTrainingInformation("des1")}>
-									</textarea>
+									<div className="form-group">
+                    <ReactQuill
+                        modules={QuillModules}
+                        formats={QuillFormats}
+                        defaultValue={visualresume.trainingInformation.des1}
+                        placeholder="Description of minor Project"
+                        onChange={handleChangeTrainingInformationQuill("des1")}
+											ref={quill}
+                    />
+                </div>
 								</Col>
+							</Row>
+							<label className="lead">Second Training:  </label>
+							<input  type="checkbox" 
+								className = "mt-2 ml-2"
+								style= {{width:`20px`, height:`20px`, lineHeight: `20px`}}
+								checked = {trainingDisplay}
+								onChange = {handleChangeTrainingInformationCheck} ></input>
+							{trainingDisplay && 
+								<div>
+								<Row>
 								<Col xs = "6">
 									<label className="lead">Training 2</label>
 									<input 
@@ -791,13 +861,19 @@ const UserInformation = (props) => {
 								</Col>
 								<Col xs ="12">
 									<label className="lead">Description</label>
-									<textarea
-										className="form-control"
-										defaultValue={visualresume.trainingInformation.des2}
-										onChange= {handleChangeTrainingInformation("des2")}>
-									</textarea>
+									<div className="form-group">
+                    <ReactQuill
+                        modules={QuillModules}
+                        formats={QuillFormats}
+                        defaultValue={visualresume.trainingInformation.des2}
+                        placeholder="Description of minor Project"
+                        onChange={handleChangeTrainingInformationQuill("des2")}
+											ref={quill}
+                    />
+                </div>
 								</Col>
 								</Row>
+									</div>}
 							</div>
             <Button className = "btn alert mr-4"onClick = {trainingInformationBack}>Back</Button>
             <Button className = "btn alert mr-4" onClick = {trainingInformationNext}>Next</Button>
@@ -812,7 +888,7 @@ const UserInformation = (props) => {
 		 return(
 		 	<div className= "container">
            
-         <div className="form-group">
+				 {!skill7Display && <div className="form-group">
 					 <label className="lead">Hobby 1</label>
 					 <select className = "form-control" 
                 onChange= {handleChangeHobbies("hobby1")}>
@@ -836,7 +912,7 @@ const UserInformation = (props) => {
 							})}
 					</select>
 					<label className="lead">Hobby 3</label>
-					 <select className = "form-control" 
+					 {!skill6Display && <select className = "form-control" 
                 onChange= {handleChangeHobbies("hobby3")}>
 							{hobbies.map((e, key) => {
 							 
@@ -845,8 +921,10 @@ const UserInformation = (props) => {
 							 	else
 									{return <option key={key} value={e.value}>{e.name}</option>;}
 							})}
-					</select>
-				 </div>
+					</select>}
+				 </div>}
+				 {skill6Display && !skill7Display && <div>You have added 6 Skills. Hobby 3 will be hidden. If you need 3 hobbies delete skill no 6.</div>}
+				 {skill7Display && <div>You have added 7 Skills. Hobbies will be hidden. If you need hobbies section with 2 hobbies to display delete skill no 7. If you need 3 hobbies delete skill no 6 also.</div>}
 				 <Button className = "btn alert mr-4"onClick = {hobbiesInformationBack}>Back</Button>
          <Button className = "btn alert mr-4" onClick = {hobbiesInformationNext}>Next</Button>
 			 </div>
@@ -1011,9 +1089,43 @@ const UserInformation = (props) => {
                 onChange= {handleChangeSkillsInformation("rating5")}>
               </input>
 				 </div>
-				
+				 {skill6Display && <div className="form-group">
+					 <label className="lead">Skill 6</label>
+					 <input 
+                type = "text"
+                className="form-control"
+                defaultValue={visualresume.skills.skill6}
+                onChange= {handleChangeSkillsInformation("skill6")}>
+              </input>
+					 <input 
+                type = "text"
+                className="form-control"
+                defaultValue={visualresume.skills.rating6}
+                onChange= {handleChangeSkillsInformation("rating6")}>
+              </input>
+				 <Button className = "btn-sm btn-danger" onClick = {skillsInformationSkill6Delete}>Delete</Button>
+				 </div>}
+				 
+				 {skill7Display && <div className="form-group">
+					 <label className="lead">Skill 7</label>
+					 <input 
+                type = "text"
+                className="form-control"
+                defaultValue={visualresume.skills.skill7}
+                onChange= {handleChangeSkillsInformation("skill7")}>
+              </input>
+					 <input 
+                type = "text"
+                className="form-control"
+                defaultValue={visualresume.skills.rating7}
+                onChange= {handleChangeSkillsInformation("rating7")}>
+              </input>
+				 <Button className = "btn-sm btn-danger" onClick = {skillsInformationSkill7Delete}>Delete</Button>
+				 </div>}
+				 
 				 <Button className = "btn alert mr-4"onClick = {skillsInformationBack}>Back</Button>
          <Button className = "btn alert mr-4" onClick = {skillsInformationNext}>Next</Button>
+				 <Button className = "btn alert mr-4"onClick = {skillsInformationAdd}>Add Skills</Button>
 			 </div>
 		 )
 	 }
@@ -1044,6 +1156,7 @@ const UserInformation = (props) => {
                 defaultValue={visualresume.extraCurricular.extra3}
                 onChange= {handleChangeExtraCurricular("extra3")}>
               </input>
+							{extra4Display && <div className="form-group">
 							<label className="lead">Extra Curricular 4</label>
               <input 
                 type = "text"
@@ -1051,6 +1164,9 @@ const UserInformation = (props) => {
                 defaultValue={visualresume.extraCurricular.extra4}
                 onChange= {handleChangeExtraCurricular("extra4")}>
               </input>
+								<Button className = "btn-sm btn-danger" onClick = {extraInformationExtra4Delete}>Delete</Button>
+								</div>}
+							{extra5Display && <div className="form-group">
 							<label className="lead">Extra Curricular 5</label>
               <input 
                 type = "text"
@@ -1058,11 +1174,13 @@ const UserInformation = (props) => {
                 defaultValue={visualresume.extraCurricular.extra5}
                 onChange= {handleChangeExtraCurricular("extra5")}>
               </input>
+								<Button className = "btn-sm btn-danger" onClick = {extraInformationExtra5Delete}>Delete</Button>
+								</div>}
              </div>
             
             <Button className = "btn alert mr-4"onClick = {extraInformationBack}>Back</Button>
             <Button className = "btn alert mr-4" onClick = {extraInformationNext}>Next</Button>
-            
+            <Button className = "btn alert mr-4"onClick = {extraInformationAdd}>Add Extra</Button>
           </div>
     
     

@@ -8,7 +8,7 @@ import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
 import SmallCard from '../../components/blog/SmallCard';
-
+import "../../public/stylesheets/blog.css"
 const SingleBlog = ({ blog, query }) => {
     const [related, setRelated] = useState([]);
 

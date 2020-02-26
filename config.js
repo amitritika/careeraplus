@@ -1,7 +1,7 @@
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
-export const API = publicRuntimeConfig.PRODUCTION ? "http://careeraplus.in/api" : "http://v1-parsaiamit348214.codeanyapp.com:8000/api"
+export const API = publicRuntimeConfig.PRODUCTION ? publicRuntimeConfig.API_PRODUCTION : publicRuntimeConfig.API_DEVELOPMENT
 export const APP_NAME = publicRuntimeConfig.APP_NAME;
 export const KEY = publicRuntimeConfig.PRODUCTION ? publicRuntimeConfig.PROD_MERCHANT_KEY : publicRuntimeConfig.TEST_MERCHANT_KEY
 export const SALT = publicRuntimeConfig.PRODUCTION ? publicRuntimeConfig.PROD_MERCHANT_SALT : publicRuntimeConfig.TEST_MERCHANT_SALT

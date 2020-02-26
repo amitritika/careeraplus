@@ -1,4 +1,6 @@
 import "../../../../public/stylesheets/visualresume/fresher/template1/stylesheet.css"
+import { useState, useEffect } from 'react';
+
 
 const LeftBlock = (props) =>{
   
@@ -41,7 +43,9 @@ const LeftBlock = (props) =>{
 	const skill7fill = ((parseInt(props.vr.skills.rating7)/5)*100).toString() + "%";
 	const hobby1 = "fas fa-"+hobbiesList[props.vr.hobbies.hobby1] + " leftblock-icon"
 	const hobby2 = "fas fa-"+hobbiesList[props.vr.hobbies.hobby2] + " leftblock-icon"
-	const hobby3 = "fas fa-"+hobbiesList[props.vr.hobbies.hobby3] + " leftblock-icon"
+	const hobby3 = "fas fa-"+hobbiesList[props.vr.hobbies.hobby3] + " leftblock-icon";
+	
+	
   return(
     <div id = "left-block" style = {{backgroundColor: `${props.bg}`}}>
       <div id="profile-container">
@@ -104,25 +108,55 @@ const LeftBlock = (props) =>{
 				<div id = "skill5ratingfill-resume" className = "skillratingfill-resume" style = {{width: `${skill5fill}`, backgroundColor: `${props.font}`}}></div>
 			</div>
 			
+			{props.skills.skill6Display && <div id = "skill6div-resume" className = "skilldiv-resume">
+				<p id = "skill6name-resume" className = "skillname-resume">{props.vr.skills.skill6}</p>
+				<div id = "skill6rating-resume" className = "skillrating-resume"></div>
+				<div id = "skill6ratingfill-resume" className = "skillratingfill-resume" style = {{width: `${skill6fill}`, backgroundColor: `${props.font}`}}></div>
+			</div>}
 			
-			<div id = "hobbies-resume" className = "leftblock-headings">
-				HOBBIES
-			</div>
+			{props.skills.skill7Display && <div id = "skill7div-resume" className = "skilldiv-resume">
+				<p id = "skill7name-resume" className = "skillname-resume">{props.vr.skills.skill7}</p>
+				<div id = "skill7rating-resume" className = "skillrating-resume"></div>
+				<div id = "skill7ratingfill-resume" className = "skillratingfill-resume" style = {{width: `${skill7fill}`, backgroundColor: `${props.font}`}}></div>
+			</div>}
 			
-			<i className={hobby1} id = "hobbies1-icon"></i>
-			<div id = "hobbies1-resume" className= "leftblock-text">
-				{props.vr.hobbies.hobby1}
-			</div>
+			{!props.skills.skill6Display && <div>
+				<div id = "hobbies-resume" className = "leftblock-headings">
+					HOBBIES
+				</div>
+
+				<i className={hobby1} id = "hobbies1-icon"></i>
+				<div id = "hobbies1-resume" className= "leftblock-text">
+					{props.vr.hobbies.hobby1}
+				</div>
+
+				<i className={hobby2} id = "hobbies2-icon"></i>
+				<div id = "hobbies2-resume" className= "leftblock-text">
+					{props.vr.hobbies.hobby2}
+				</div>
+
+				<i className={hobby3} id = "hobbies3-icon"></i>
+				<div id = "hobbies3-resume" className= "leftblock-text">
+					{props.vr.hobbies.hobby3}
+				</div>
+			</div>}
 			
-			<i className={hobby2} id = "hobbies2-icon"></i>
-			<div id = "hobbies2-resume" className= "leftblock-text">
-				{props.vr.hobbies.hobby2}
-			</div>
+			{props.skills.skill6Display && !props.skills.skill7Display && <div>
+				<div id = "hobbies-resume-skill6" className = "leftblock-headings">
+					HOBBIES
+				</div>
+
+				<i className={hobby1} id = "hobbies1-icon-skill6"></i>
+				<div id = "hobbies1-resume-skill6" className= "leftblock-text">
+					{props.vr.hobbies.hobby1}
+				</div>
+
+				<i className={hobby2} id = "hobbies2-icon-skill6"></i>
+				<div id = "hobbies2-resume-skill6" className= "leftblock-text">
+					{props.vr.hobbies.hobby2}
+				</div>
+			</div>}
 			
-			<i className={hobby3} id = "hobbies3-icon"></i>
-			<div id = "hobbies3-resume" className= "leftblock-text">
-				{props.vr.hobbies.hobby3}
-			</div>
     </div>
   )
 }

@@ -23,14 +23,58 @@ const Template1 = () => {
     
   });
   
+  const [skills, setSkills] = useState({
+    skill6Display: false,
+    skill7Display: false,
+    trainingDisplay: false,
+    extra4Display: false,
+    extra5Display: false
+  })
+  
+  const { skill6Display, skill7Display, trainingDisplay, extra4Display, extra5Display } = skills;
+  
  const {name, email, photo, visualresume, bg, font, showLeftBlock} = values;
   
   const setVisualresume = (data) => {
     setValues({...values, visualresume:data, showLeftBlock: true});
+    if(!data.skills.skill6Display){
+      setSkills({...skills, skill6Display: false, 
+                 trainingDisplay: data.trainingInformation.trainingDisplay,
+                 extra4Display: data.extraCurricular.extra4Display,
+                 extra5Display: data.extraCurricular.extra5Display
+                });
+    }else{
+      setSkills({...skills, skill6Display: data.skills.skill6Display, 
+                 skill7Display: data.skills.skill7Display, 
+                 trainingDisplay: data.trainingInformation.trainingDisplay,
+                 extra4Display: data.extraCurricular.extra4Display,
+                 extra5Display: data.extraCurricular.extra5Display
+                });
+    }
+      
   }
   
   const personalInformation = (data) =>{
     setValues({...values, name: data.name, email: data.email, photo: data.photo, visualresume:data.visualresume, showLeftBlock: true})
+  }
+  
+  let skillsObj = {
+    skill6Add: ()=>{
+      setSkills({...skills, skill6Display: true});
+      console.log("skill6add")
+    },
+    skill7Add: ()=>{
+      setSkills({...skills, skill7Display: true});
+      console.log("skill7add")
+    },
+    skill6Del: ()=>{
+      setSkills({...skills, skill6Display: false});
+      console.log("skill6del")
+    },
+    skill7Del: ()=>{
+      setSkills({...skills, skill7Display: false});
+      console.log("skill7del")
+    }
   }
   
   const head = () => {
@@ -54,9 +98,9 @@ const Template1 = () => {
       mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/fresher/template1/stylesheet440.css" type="text/css" media = "print"/>');
       mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/fresher/template1/stylesheet440.css" type="text/css" media = "screen"/>');
       mywindow.document.write('</head><body>');
-      console.log(mywindow.document.head);
+      
       mywindow.document.write(data1);
-      console.log(mywindow.document.body);
+      
       mywindow.document.write('</body></html>');
       mywindow.document.close();
       mywindow.focus();
@@ -82,14 +126,14 @@ const Template1 = () => {
             <div>
               <Row>
                 <Col xs= "12" lg = "4">
-                  <UserInformation vr = {setVisualresume} pr = {personalInformation} type = "fresher" template = "template1"></UserInformation>
+                  <UserInformation vr = {setVisualresume} pr = {personalInformation} skills ={skillsObj} type = "fresher" template = "template1"></UserInformation>
                   <Button onClick = {handlePrint} className = "btn-alert">Print</Button>
                 </Col>
                 <Col xs="12" lg = "8">
                   <MainBlock>
                     <Resume>
-                      {showLeftBlock && <LeftBlock bg={bg} font= {font} vr= {visualresume} name= {name} email = {email} photo={photo}/>}
-                      {showLeftBlock && <RightBlock bg={bg} font= {font} vr= {visualresume} name= {name} />}
+                      {showLeftBlock && <LeftBlock bg={bg} font= {font} vr= {visualresume} name= {name} email = {email} photo={photo} skills = {skills}/>}
+                      {showLeftBlock && <RightBlock bg={bg} font= {font} vr= {visualresume} name= {name} skills = {skills}/>}
                     </Resume>
                   </MainBlock>
                 </Col>

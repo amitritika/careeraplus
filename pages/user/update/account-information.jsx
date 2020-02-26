@@ -2,9 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from "../../../components/Layout"
 import Private from "../../../components/auth/Private";
 import UpdateProfileNavComponent from "../../../components/user/UpdateProfileNavComponent"
-
+import ReactCropInput from "../../../components/user/ReactCropInput"
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Router from 'next/router';
 import { getCookie, isAuth , updateUser, forgotPassword} from '../../../actions/auth';
 import { getProfile, update } from '../../../actions/user';
@@ -44,12 +44,20 @@ const AccountUpdate = () => {
     imgSrc: null,
     imgSrcExt: null,
     crop: {
-        aspect: 1/1
-    }
+        unit: '%',
+      width: 30,
+      aspect: 1 / 1,
+    },
+    croppedImageUrl: "",
+    imgName: null
   })
   
-  let imagePreviewCanvasRef = React.createRef()
-  let fileInputRef = React.createRef()
+  
+//   let imagePreviewCanvasRef = React.createRef();
+//   let fileInputRef = React.createRef();
+  
+  let imagePreviewCanvasRef = useRef(null);
+  let fileInputRef = useRef(null);
   
     const imageMaxSize = 1000000000; // bytes
     const acceptedFileTypes = 'image/x-png, image/png, image/jpg, image/jpeg, image/gif';
@@ -57,7 +65,7 @@ const AccountUpdate = () => {
 
     const token = getCookie('token');
     const { username, name, email, about, error, success, loading, photo, userData , message} = values;
-    const {imageSrc, imgSrc, imgSrcExt, crop} = image;
+    const {imageSrc, imgSrc, imgSrcExt, crop, croppedImageUrl, imgName} = image;
     const init = () => {
     getProfile(token).then(data => {
         if (data.error) {
@@ -107,32 +115,42 @@ const AccountUpdate = () => {
         }
     }
   
-  const handleImageLoaded = (image) => {
-        //console.log(image)
-    }
-   const handleOnCropChange = (crop) => {
-        setimage({...image, crop:crop});
-    }
-  const handleOnCropComplete = (crop, pixelCrop) =>{
-        //console.log(crop, pixelCrop)
+  
+  const imageUrl = (url) =>{
+    setimage({...image, croppedImageUrl: url})
+  }
+  
+  const imageData = (data)=>{
+    if (imgSrc !== null){
+      const imageData64 = data;
+      const myFilename = "previewFile.jpeg"
 
-        const canvasRef = imagePreviewCanvasRef.current
+      // file to be uploaded
+      let arr = imageData64.split(',');
+      if(arr[1]){
+        const myNewCroppedFile = base64StringtoFile(imageData64, myFilename)
         
-        image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
         let userFormData = new FormData();
-        userFormData.set('photo', imgSrc);
-        setValues({...values, photo: imgSrc})
-        console.log(userFormData);
-        
-    }
+        userFormData.set('photosrc', myNewCroppedFile);
+        //setValues({...values, photo: imgSrc, userData: userFormData})
+        setValues({...values, userData: userFormData})
+       // console.log(userFormData);
+      }
 
+    }
+  }
+  const handleCropClick = () =>{
+    setimage({...image, imgSrc: null });
+    fileInputRef.current.value = null;
+  }
+  
   const handleChange = name => e => {
       
       const value = name === 'photo' ? e.target.files[0] : e.target.value;
       let userFormData = new FormData();
       userFormData.set(name, value);
       setValues({ ...values, [name]: value, userData: userFormData, error: false, success: false });
-      console.log(userData);
+      
       if(name === 'photo'){
         const files = e.target.files
         if (files && files.length > 0){
@@ -140,13 +158,15 @@ const AccountUpdate = () => {
              if (isVerified){
                  // imageBase64Data 
                  const currentFile = files[0]
+                
                  const myFileItemReader = new FileReader()
                  myFileItemReader.addEventListener("load", ()=>{
-                     // console.log(myFileItemReader.result)
+                     
                      const myResult = myFileItemReader.result
                      setimage({...image,
                          imgSrc: myResult,
-                         imgSrcExt: extractImageFileExtensionFromBase64(myResult)
+                         imgSrcExt: extractImageFileExtensionFromBase64(myResult),
+                         imgName: currentFile.name
                      })
                  }, false)
 
@@ -226,6 +246,11 @@ const AccountUpdate = () => {
                             style={{ maxHeight: 'auto', maxWidth: '100%' }}
                             alt="user profile"
                         />
+             {croppedImageUrl && (
+          <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
+                
+        )}
+              <p>{imgName}</p>
             </Col>
             <Col xs="6">
               {showSuccess()}
@@ -238,7 +263,13 @@ const AccountUpdate = () => {
                   <Label className="btn btn-outline-info">Profile photo
                     <Input ref={fileInputRef} onChange={handleChange('photo')} type="file" accept="image/*" hidden/>
                     
+            
                   </Label>
+                     {(imgSrc !== null) && <div>
+                         <ReactCropInput src={imgSrc} url={imageUrl}  data = {imageData}/>
+                    <button className = "btn btn-sm btn-primary" onClick = {handleCropClick}>OK</button>
+                    
+                      </div>}
                 </FormGroup>
                 <FormGroup>
                   <Label >Email</Label>

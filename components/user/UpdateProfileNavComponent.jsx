@@ -13,8 +13,8 @@ const UpdateProfileNavComponent = (props) => {
         error: false,
         name: "",
         photo:"/images/profile.png",
-        visualresume: "",
-        examplan: ""
+        visualresume: "/visualresume",
+        examplan: "/examplan"
     });
   const token = getCookie('token');
   const { message, success, error, name, photo, visualresume, examplan} = values;

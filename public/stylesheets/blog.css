@@ -1,0 +1,40 @@
+:root{
+	--fac: 5;
+}
+@media screen and (max-width: 1200px){
+	:root{
+	--fac: 4;
+}
+}
+@media screen and (max-width: 900px){
+	:root{
+	--fac: 3;
+}
+}
+
+@media screen and (max-width: 600px){
+	:root{
+	--fac: 2;
+}
+}
+
+@media screen and (max-width: 320px){
+	:root{
+	--fac: 1;
+}
+}
+
+iframe.ql-video {
+--width: calc(160px * var(--fac));
+width: var(--width);
+
+	--height: calc(90px * var(--fac));
+  height: var(--height);
+  
+  --margin: calc(2px * var(--fac));
+  margin-left: var(--margin);
+}
+
+.container img{
+  width: 80%;
+}

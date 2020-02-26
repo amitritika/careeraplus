@@ -62,14 +62,7 @@ const UserIndex = () => {
                     <a href = {`${visualresume}`} className = "btn btn-outline-primary">My Resume</a>
                   </Card>
                 </Col>}
-                <Col xs = "12" md = "6">
-                  <Card body>
-                    <CardTitle className="text-center">Daily Test</CardTitle>
-                    <CardText></CardText>
-                    <a href = "/user/test/daily" className = "btn btn-outline-primary">Daily Test</a>
-                    <a href = "/user/test/daily/today" className = "btn btn-outline-primary mt-2">Today's Test</a>
-                  </Card>
-                </Col>
+               
               </Row>
                
             </Col>

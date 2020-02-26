@@ -321,7 +321,6 @@ text-align: justify;
 #hobbies1-icon{
 	--top: calc(265px * var(--fac));
 	top: var(--top);
-	top: 1325px;
 }
 
 #hobbies1-resume{
@@ -349,7 +348,38 @@ text-align: justify;
 	top: var(--top);
 }
 
+#hobbies-resume-skill6{
+	--width: calc(40px * var(--fac));
+	width: var(--width);
+	--height: calc(12px * var(--fac));
+	height: var(--height);
+	--line: calc(12px * var(--fac));
+	line-height: var(--line);
+	--top: calc(267px * var(--fac));
+	top: var(--top);
+	--left: calc(16px * var(--fac));
+	left: var(--left);
+}
 
+#hobbies1-icon-skill6{
+	--top: calc(278px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies1-resume-skill6{
+	--top: calc(278px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies2-icon-skill6{
+	--top: calc(287px * var(--fac));
+	top: var(--top);
+}
+
+#hobbies2-resume-skill6{
+	--top: calc(287px * var(--fac));
+	top: var(--top);
+}
 
 
 
@@ -727,6 +757,8 @@ text-align: justify;
 }
 
 
+
+
 #arealogo-resume{
 	--top: calc(224px * var(--fac));
 	top: var(--top);
@@ -767,6 +799,13 @@ text-align: justify;
 	position: absolute;
 }
 
+.areaintrest-logo{
+--line: calc(8px * var(--fac));
+	line-height: var(--line);
+	
+}
+
+
 #areaintrestlogo1-resume, #areaintrestlogo2-resume, #areaintrestlogo3-resume {
 	--width: calc(8px * var(--fac));
 	width: var(--width);
@@ -776,8 +815,7 @@ text-align: justify;
 	color: white;
 	--font: calc(4pt * var(--fac));
 	font-size: var(--font);
-	--line: calc(8px * var(--fac));
-	line-height: var(--line);
+	
 }
 
 #areaintresttext1-resume, #areaintresttext2-resume, #areaintresttext3-resume{
@@ -880,5 +918,234 @@ text-align: justify;
 
 #extra3-resume{
 	--top: calc(281px * var(--fac));
+	top: var(--top);
+}
+
+
+/*-----------Training Display----------*/
+
+#arealogo-resume-training{
+	--top: calc(200px * var(--fac));
+	top: var(--top);
+}
+
+#area-resume-training{
+	--width: calc(88px * var(--fac));
+	width: var(--width);
+	--top: calc(200px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+}
+
+#areaintrest-resume-training{
+	--width: calc(113px * var(--fac));
+	width: var(--width);
+	--height: calc(18px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	--top: calc(215px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+	font-family: calibri;
+	--font: calc(2.1pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+#areaintrest1-resume-training, #areaintrest2-resume-training, #areaintrest3-resume-training {
+	--width: calc(36px * var(--fac));
+	width: var(--width);
+	height: 100%;
+	text-align: center;
+	position: absolute;
+}
+
+#areaintrestlogo1-resume-training, #areaintrestlogo2-resume-training, #areaintrestlogo3-resume-training {
+	--width: calc(8px * var(--fac));
+	width: var(--width);
+	--height: calc(8px * var(--fac));
+	height: var(--height);
+	position: absolute;
+	color: white;
+	--font: calc(4pt * var(--fac));
+	font-size: var(--font);
+	--line: calc(8px * var(--fac));
+	line-height: var(--line);
+}
+
+#areaintresttext1-resume-training, #areaintresttext2-resume-training, #areaintresttext3-resume-training{
+	--width: calc(36px * var(--fac));
+	width: var(--width);
+	--height: calc(8px * var(--fac));
+	height: var(--height);
+	--line: calc(8px * var(--fac));
+	line-height: var(--line);
+	position: absolute;
+	--top: calc(8px * var(--fac));
+	top: var(--top);
+	text-align: center;
+}
+
+#areaintrestlogo1-resume-training{
+	--left: calc(14px * var(--fac));
+	left: var(--left);
+}
+
+#areaintresttext1-resume-training{
+	left: 0px;
+}
+
+
+#areaintrestlogo2-resume-training{
+	--left: calc(50px * var(--fac));
+	left: var(--left);
+}
+
+#areaintresttext2-resume-training{
+	--left: calc(36px * var(--fac));
+	left: var(--left);
+}
+
+#areaintrestlogo3-resume-training{
+	--left: calc(86px * var(--fac));
+	left: var(--left);
+}
+
+#areaintresttext3-resume-training{
+	--left: calc(72px * var(--fac));
+	left: var(--left);
+}
+
+.extra {
+	--width: calc(113px * var(--fac));
+	width: var(--width);
+	/*height: 195px;*/
+	position: absolute;
+	--left: calc(17px * var(--fac));
+	left: var(--left);
+	text-align: left;
+	font-family: calibri;
+	--font: calc(3.2pt * var(--fac));
+	font-size: var(--font);
+	text-align: left;
+	--padding: calc(2px * var(--fac));
+	padding: var(--padding);
+}
+
+#extralogo-resume-training{
+--top: calc(242px * var(--fac));
+	top: var(--top);
+}
+
+#extra-resume-training{
+	--width: calc(88px * var(--fac));
+	width: var(--width);
+	--top: calc(242px * var(--fac));
+	top: var(--top);
+	--left: calc(19px * var(--fac));
+	left: var(--left);
+}
+
+#extra1dot-resume-training{
+	--top: calc(258px * var(--fac));
+	top: var(--top);
+}
+
+#extra1-resume-training{
+	--top: calc(255px * var(--fac));
+	top: var(--top);
+}
+
+#extra2dot-resume-training{
+	--top: calc(268px * var(--fac));
+	top: var(--top);
+}
+
+#extra2-resume-training{
+	--top: calc(265px * var(--fac));
+	top: var(--top);
+}
+
+#extra3dot-resume-training{
+	--top: calc(278px * var(--fac));
+	top: var(--top);
+}
+
+#extra3-resume-training{
+	--top: calc(275px * var(--fac));
+	top: var(--top);
+}
+
+#extra2dot-resume-extra4{
+	--top: calc(267px * var(--fac));
+	top: var(--top);
+}
+
+#extra2-resume-extra4{
+	--top: calc(264px * var(--fac));
+	top: var(--top);
+}
+
+#extra3dot-resume-extra4{
+	--top: calc(276px * var(--fac));
+	top: var(--top);
+}
+
+#extra3-resume-extra4{
+	--top: calc(273px * var(--fac));
+	top: var(--top);
+}
+
+#extra4dot-resume-extra4{
+	--top: calc(285px * var(--fac));
+	top: var(--top);
+}
+
+#extra4-resume-extra4{
+	--top: calc(282px * var(--fac));
+	top: var(--top);
+}
+
+#extra2dot-resume-extra5{
+	--top: calc(265px * var(--fac));
+	top: var(--top);
+}
+
+#extra2-resume-extra5{
+	--top: calc(262px * var(--fac));
+	top: var(--top);
+}
+
+#extra3dot-resume-extra5{
+	--top: calc(272px * var(--fac));
+	top: var(--top);
+}
+
+#extra3-resume-extra5{
+	--top: calc(269px * var(--fac));
+	top: var(--top);
+}
+
+#extra4dot-resume-extra5{
+	--top: calc(279px * var(--fac));
+	top: var(--top);
+}
+
+#extra4-resume-extra5{
+	--top: calc(276px * var(--fac));
+	top: var(--top);
+}
+
+#extra5dot-resume-extra5{
+	--top: calc(286px * var(--fac));
+	top: var(--top);
+}
+
+#extra5-resume-extra5{
+	--top: calc(283px * var(--fac));
 	top: var(--top);
 }

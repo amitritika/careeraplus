@@ -1,5 +1,5 @@
 import "../../../../public/stylesheets/visualresume/fresher/template1/stylesheet.css"
-
+import renderHTML from 'react-render-html';
 const RightBlock = (props) =>{
 	
 	const iconList = {
@@ -68,9 +68,9 @@ const RightBlock = (props) =>{
 
 	}
 	
-	const area1 = "fas fa-" + iconList[props.vr.areaOfIntrest.area1Topic];
-	const area2 = "fas fa-" + iconList[props.vr.areaOfIntrest.area2Topic];
-	const area3 = "fas fa-" + iconList[props.vr.areaOfIntrest.area3Topic];
+	const area1 = "areaintrest-logo fas fa-" + iconList[props.vr.areaOfIntrest.area1Topic];
+	const area2 = "areaintrest-logo fas fa-" + iconList[props.vr.areaOfIntrest.area2Topic];
+	const area3 = "areaintrest-logo fas fa-" + iconList[props.vr.areaOfIntrest.area3Topic];
 
   return(
     <div id = "right-block">
@@ -142,13 +142,7 @@ const RightBlock = (props) =>{
 				{props.vr.projectInformation.majTitle}
 			</p>
 			
-			<p>
-				<span className = "project-resume">
-					Description:
-				</span>
-				<span>{props.vr.projectInformation.majDes}
-				</span>
-			</p>
+			{renderHTML(props.vr.projectInformation.majDes)}
 			</div>
       
       <div id = "minproject1dot-resume" className = "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
@@ -159,15 +153,7 @@ const RightBlock = (props) =>{
 				</span>
 				{props.vr.projectInformation.minTitle}
 			</p>
-			
-			<p>
-				<span className = "project-resume">
-					Description:
-				</span>
-				<span >
-          {props.vr.projectInformation.minDes}
-        </span>
-			</p>
+          {renderHTML(props.vr.projectInformation.minDes)}
 			</div> 
 			
 			<div id = "traininglogo-resume" className = "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
@@ -190,16 +176,10 @@ const RightBlock = (props) =>{
 					{props.vr.trainingInformation.org1}
 				</span>
 			</p>
-			
-			<p id = "training1des-resume">
-				<span className = "project-resume">
-					Description:
-				</span>
-        <span>{props.vr.trainingInformation.des1}
-        </span>
-			</p>
+				{renderHTML(props.vr.trainingInformation.des1)}
 			</div>
 			
+			{props.skills.trainingDisplay && <div>
 			<div id = "training2dot-resume" className = "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
 			<div id = "training2-resume" style = {{color: `${props.font}`}}>
 			<p id = "training1dates-resume">
@@ -214,17 +194,11 @@ const RightBlock = (props) =>{
 					{props.vr.trainingInformation.org2}
 				</span>
 			</p>
-			
-			<p id = "training2des-resume">
-				<span className = "project-resume">
-					Description:
-				</span>
-        <span>
-        {props.vr.trainingInformation.des2}
-        </span>
-			</p>
+			{renderHTML(props.vr.trainingInformation.des2)}
 			</div>
+			</div>}
 			
+			{props.skills.trainingDisplay && <div>
 			<div id = "arealogo-resume" className = "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
 				<i className = "fas fa-book-reader right-block-logo"></i>
 			</div>
@@ -272,6 +246,114 @@ const RightBlock = (props) =>{
       <div id = "extra3-resume" className =  "extra" style = {{color: `${props.font}`}}>
         {props.vr.extraCurricular.extra3}
       </div>
+			</div>}
+			
+			{!props.skills.trainingDisplay && <div>
+			<div id = "arealogo-resume-training" className = "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
+				<i className = "fas fa-book-reader right-block-logo"></i>
+			</div>
+			<div id = "area-resume-training" className = "rightblock-headings"> 
+				AREA OF INTEREST
+			</div>
+			<div id = "areaintrest-resume-training" style = {{color: `${props.font}`}}>
+				<div id = "areaintrest1-resume-training">
+					<div id = "areaintrestlogo1-resume-training" className = "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
+						<i className = {area1}></i>
+					</div>
+					<div id = "areaintresttext1-resume-training">{props.vr.areaOfIntrest.area1Topic}</div>
+				</div>
+				
+				<div id = "areaintrest2-resume-training">
+					<div id = "areaintrestlogo2-resume-training" className = "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
+						<i className = {area2}></i>
+					</div>
+					<div id = "areaintresttext2-resume-training">{props.vr.areaOfIntrest.area2Topic}</div>
+				</div>
+				
+				<div id = "areaintrest3-resume-training">
+					<div id = "areaintrestlogo3-resume-training" className = "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
+						<i className = {area3}></i>
+					</div>
+					<div id = "areaintresttext3-resume-training">{props.vr.areaOfIntrest.area3Topic}</div>
+				</div>
+			</div>
+			
+			<div id = "extralogo-resume-training" className =  "right-block-logo-div" style={{backgroundColor: `${props.bg}`}}>
+				<i className = "fas fa-palette right-block-logo"></i>
+			</div>
+			<div id = "extra-resume-training" className =  "rightblock-headings"> 
+				EXTRA CURRICULAR
+			</div>
+			<div>
+				<div id = "extra1dot-resume-training" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+				<div id = "extra1-resume-training" className =  "extra" style = {{color: `${props.font}`}}>
+					{props.vr.extraCurricular.extra1}
+				</div>
+			</div>
+			{!props.skills.extra4Display && <div>
+				<div>
+					<div id = "extra2dot-resume-training" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra2-resume-training" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra2}
+					</div>
+				</div>
+				<div>
+					<div id = "extra3dot-resume-training" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra3-resume-training" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra3}
+					</div>
+				</div>
+			</div>}
+				
+			{props.skills.extra4Display && !props.skills.extra5Display && <div>
+				<div>
+					<div id = "extra2dot-resume-extra4" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra2-resume-extra4" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra2}
+					</div>
+				</div>
+				<div>
+					<div id = "extra3dot-resume-extra4" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra3-resume-extra4" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra3}
+					</div>
+				</div>
+				<div>
+					<div id = "extra4dot-resume-extra4" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra4-resume-extra4" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra4}
+					</div>
+				</div>
+			</div>}
+				
+			{props.skills.extra5Display && <div>
+				<div>
+					<div id = "extra2dot-resume-extra5" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra2-resume-extra5" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra2}
+					</div>
+				</div>
+				<div>
+					<div id = "extra3dot-resume-extra5" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra3-resume-extra5" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra3}
+					</div>
+				</div>
+				<div>
+					<div id = "extra4dot-resume-extra5" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra4-resume-extra5" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra4}
+					</div>
+				</div>
+				<div>
+					<div id = "extra5dot-resume-extra5" className =  "rightblock-dot" style={{backgroundColor: `${props.bg}`}}></div>
+					<div id = "extra5-resume-extra5" className =  "extra" style = {{color: `${props.font}`}}>
+						{props.vr.extraCurricular.extra5}
+					</div>
+				</div>
+			</div>}
+				
+			</div>}
 			
     </div>
     

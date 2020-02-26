@@ -5,25 +5,24 @@ import 'react-image-crop/dist/ReactCrop.css';
 
 //import './App.css';
 
-class App extends PureComponent {
+class ReactComponentInput extends PureComponent {
   state = {
-    src: null,
     crop: {
       unit: '%',
-      width: 30,
+      width: 90,
       aspect: 1 / 1,
     },
   };
 
-  onSelectFile = e => {
-    if (e.target.files && e.target.files.length > 0) {
-      const reader = new FileReader();
-      reader.addEventListener('load', () =>
-        this.setState({ src: reader.result })
-      );
-      reader.readAsDataURL(e.target.files[0]);
-    }
-  };
+//   onSelectFile = e => {
+//     if (e.target.files && e.target.files.length > 0) {
+//       const reader = new FileReader();
+//       reader.addEventListener('load', () =>
+//         this.setState({ src: reader.result })
+//       );
+//       reader.readAsDataURL(e.target.files[0]);
+//     }
+//   };
 
   // If you setState the crop in here you should return false.
   onImageLoaded = image => {
@@ -50,7 +49,7 @@ class App extends PureComponent {
       this.setState({ croppedImageUrl });
     }
     
-    console.log(this.state.croppedImageUrl);
+    this.props.url(this.state.croppedImageUrl);
   }
 
   getCroppedImg(image, crop, fileName) {
@@ -73,7 +72,8 @@ class App extends PureComponent {
       crop.height
     );
     
-    console.log(canvas.toDataURL('image/jpeg'));
+    this.props.data(canvas.toDataURL('image/jpeg'))
+    //console.log(canvas.toDataURL('image/jpeg'));
 
     return new Promise((resolve, reject) => {
       canvas.toBlob(blob => {
@@ -95,12 +95,10 @@ class App extends PureComponent {
 
     return (
       <div className="App">
-        <div>
-          <input type="file" accept="image/*" onChange={this.onSelectFile} />
-        </div>
-        {src && (
+        
+        {this.props.src && (
           <ReactCrop
-            src={src}
+            src={this.props.src}
             crop={crop}
             ruleOfThirds
             onImageLoaded={this.onImageLoaded}
@@ -108,14 +106,12 @@ class App extends PureComponent {
             onChange={this.onCropChange}
           />
         )}
-        {croppedImageUrl && (
-          <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
-        )}
+       
       </div>
     );
   }
 }
 
-export default App;
+export default ReactComponentInput;
 
 //ReactDOM.render(<App />, document.getElementById('root'));
