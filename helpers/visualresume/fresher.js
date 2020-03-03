@@ -35,7 +35,8 @@ export const areaOfIntrest = {
 				{value:"CSE", name: "Computer Science Engineering"},
 				{value:"EE", name: "Electrical Engineering"},
 				{value:"CHE", name: "Chemical Engineering"},
-				{value:"IE", name: "Instrumentation Engineering"}
+				{value:"IE", name: "Instrumentation Engineering"},
+				{value:"IT", name: "Information Technology"}
 			],
 			topics: {
 				"ME": [
@@ -130,6 +131,22 @@ export const areaOfIntrest = {
 					{name:"Digital Electronics", value:"Digital Electronics"},
 					{name:"Measurement", value:"Measurement"},
 					{name:"Optical Instrumentation", value:"Optical Instrumentation"}
+				],
+				
+				"IT": [
+					{value:"Artificial Intelligence", name:"Artificial Intelligence"},
+					{value:"Computer Architecture", name:"Computer Architecture"},
+					{value:"Prog & Data Structures", name:"Prog & Data Structures"},
+					{value:"Algorithms", name:"Algorithms"},
+					{value:"Compiler Design", name:"Compiler Design"},
+					{value:"Operating Systems", name:"Operating Systems"},
+					{value:"Databases", name:"Databases"},
+					{value:"Computer Networks", name:"Computer Networks"},
+					{value:"Information Management", name:"Information Management"},
+					{value:"Web Systems", name:"Web Systems"},
+					{value:"Grid & Cloud Comput", name:"Grid & Cloud Comput"}
+					
+					
 				]
 			}
 			

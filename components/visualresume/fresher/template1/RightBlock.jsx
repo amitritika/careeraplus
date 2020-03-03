@@ -64,7 +64,13 @@ const RightBlock = (props) =>{
 	"Databases" : "database",
 	"Computer Networks" : "network-wired",
 
-	"Optical Instrumentation" : "microscope"
+	"Optical Instrumentation" : "microscope",
+		
+	"Artificial Intelligence": "code-branch",
+	"Computer Architecture" : "memory",
+	"Information Management" : "network-wired",
+	"Web Systems": "chrome",
+	"Grid & Cloud Comput": "cloud-upload"
 
 	}
 	
