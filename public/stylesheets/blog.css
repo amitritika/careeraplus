@@ -38,3 +38,7 @@ width: var(--width);
 .container img{
   width: 80%;
 }
+
+.container a img{
+  width: 25%;
+}
