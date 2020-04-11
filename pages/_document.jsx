@@ -24,6 +24,7 @@ class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163398934-1"></script>
             <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+          <script data-ad-client="ca-pub-1792623713572003" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
         <body>
           <Main />
