@@ -36,7 +36,8 @@ export const areaOfIntrest = {
 				{value:"EE", name: "Electrical Engineering"},
 				{value:"CHE", name: "Chemical Engineering"},
 				{value:"IE", name: "Instrumentation Engineering"},
-				{value:"IT", name: "Information Technology"}
+				{value:"IT", name: "Information Technology"},
+				{value:"BCOM", name: "Bachelor of Commerce"}
 			],
 			topics: {
 				"ME": [
@@ -147,6 +148,24 @@ export const areaOfIntrest = {
 					{value:"Grid & Cloud Comput", name:"Grid & Cloud Comput"}
 					
 					
+				],
+				
+				"BCOM": [
+					{value:"Accounting", name:"Accounting"},
+					{value:"Economics", name:"Economics"},
+					{value:"Business & Corporate Law", name:"Business & Corporate Law"},
+					{value:"Business Management", name:"Business Management"},
+					{value:"Auditing", name:"Auditing"},
+					{value:"Environmental Studies", name:"Environmental Studies"},
+					{value:"Entrepreneurship", name:"Entrepreneurship"},
+					{value:"Taxation", name:"Taxation"},
+					{value:"Marketing", name:"Marketing"},
+					{value:"Statistics", name:"Statistics"},
+					{value:"Mathematics", name:"Mathematics"},
+					{value:"Programming", name:"Programming"},
+					{value:"Computer Application", name:"Computer Application"},
+					{value:"Web Development", name:"Web Development"},
+					{value:"Data Base Management", name:"Data Base Management"}
 				]
 			}
 			
