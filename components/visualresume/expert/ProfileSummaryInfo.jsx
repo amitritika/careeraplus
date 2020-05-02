@@ -2,7 +2,8 @@ import { Container, Row, Col, Button, NavLink } from 'reactstrap';
 import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import '../../../node_modules/react-quill/dist/quill.snow.css';
-import { QuillModules, QuillFormats } from '../../../helpers/quill';
+import { QuillModulesShort, QuillFormatsShort } from '../../../helpers/quill';
+import { useState, useEffect, useRef } from 'react';
 
 const ProfileSummaryInfo = (props) =>{
   
@@ -12,7 +13,48 @@ const ProfileSummaryInfo = (props) =>{
   const next = props.next;
   const back = props.back;
   const c = "profileSummaryInfoDisplay";
+  const [list, setList] = useState(visualresumeexp.profileSummaryInformation.value);
   
+  const handleDelete = (idx) => {
+    let arr = list;
+    let visualresumeCopy = visualresumeexp;
+    arr.splice(idx, 1);
+    setList(arr);
+    visualresumeCopy.profileSummaryInformation.value = arr;
+    vr(visualresumeCopy)
+  }
+  
+  const handleAdd = () => {
+    let arr = list;
+    let visualresumeCopy = visualresumeexp;
+    arr.push("Type Something Awesome")
+    
+    setList(arr);
+    visualresumeCopy.profileSummaryInformation.value = arr;
+    vr(visualresumeCopy);
+  }
+  
+  
+  const showProfile = () => {
+    return(
+    list.map((l, i)=>{
+      return (
+        <div className = "form-group mt-2" key = {i}>
+         <ReactQuill
+          className = "quill-short"
+          modules={QuillModulesShort}
+          formats={QuillFormatsShort}
+          defaultValue={l}
+          placeholder="Description of Profile"
+          onChange={handleChange(i)}
+          />
+          <Button className = "btn btn-sm btn-danger" onClick = {()=> handleDelete(i)}>Delete</Button>
+        </div>
+      
+       )
+    })
+      )
+  }
   
   const handleNext = () => {
     let arr = visualresumeexp.layout.list;
@@ -35,9 +77,9 @@ const ProfileSummaryInfo = (props) =>{
     }
   }
   
-  const handleChange = e => {
+  const handleChange = i => e => {
       let visualresumeCopy = visualresumeexp;
-      visualresumeCopy.profileSummaryInformation.value = e;
+      visualresumeCopy.profileSummaryInformation.value[i] = e;
       vr(visualresumeCopy);
     };
   
@@ -59,16 +101,11 @@ const ProfileSummaryInfo = (props) =>{
         defaultValue={visualresumeexp.profileSummaryInformation.title}
         onChange= {handleTitle}>
       </input>
-      <ReactQuill
-        modules={QuillModules}
-        formats={QuillFormats}
-        defaultValue={visualresumeexp.profileSummaryInformation.value}
-        placeholder="Description of Profile"
-        onChange={handleChange}
-    />
+      {showProfile()}
       
     <Button className = "btn alert mr-4 mt-2"onClick = {handleBack}>Back</Button>
     <Button className = "btn alert mr-4 mt-2" onClick = {handleNext}>Next</Button>
+    <Button className = "btn alert mr-4 mt-2" onClick = {handleAdd}>Add Points</Button>
       </div>
   </div>
   )

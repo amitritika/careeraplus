@@ -10,13 +10,52 @@ import Block from "../../components/visualresume/expert/template1/pages/Block"
 export const visualresumedata = {
 
   layout: {
-    list: ["userInfoDisplay", "personalInfoDisplay", "profileSummaryInfoDisplay", "workexpInfoDisplay"],
+    sequence: ["userInfo",
+    "personalInfo",
+    "profileSummaryInfo",
+    "competenciesInfo",
+    "workexpInfo",
+    "techSkillsInfo",
+    "toolSkillsInfo",
+    "progSkillsInfo",
+    "softSkillsInfo",
+    "projectsInfo",
+    "educationInfo",
+    "certificationInfo",
+    "achievmentsInfo",
+    "publicationInfo",
+    "hobbiesInfo"],
+    sequencelr: {
+    left: ["userInfo",
+    "personalInfo",
+    "profileSummaryInfo",
+    "techSkillsInfo",
+    "toolSkillsInfo",
+    "progSkillsInfo",
+    "softSkillsInfo",
+    "hobbiesInfo"],
+    
+    right: [
+    "competenciesInfo",
+    "workexpInfo",
+    "projectsInfo",
+    "educationInfo",
+    "certificationInfo",
+    "achievmentsInfo",
+    "publicationInfo"
+    ]
+                     },
+    list: ["userInfoDisplay", "personalInfoDisplay", "profileSummaryInfoDisplay", "competenciesInfoDisplay", "workexpInfoDisplay"],
+    listLR: {
+      left: ["userInfoDisplay", "personalInfoDisplay", "profileSummaryInfoDisplay"],
+      right: ["competenciesInfoDisplay","workexpInfoDisplay"]
+    },
     display: {
       userInfo: true,
       personalInfo: true,
       profileSummaryInfo: true,
+      competenciesInfo: true,
       workexpInfo: true,
-      competenciesInfo: false,
       techSkillsInfo: false,
       toolSkillsInfo: false,
       progSkillsInfo: false,
@@ -32,22 +71,22 @@ export const visualresumedata = {
     },
 
     classes: {
-      userInfoClass: "btn btn-lg btn-success w-75 mt-2",
-      personalInfoClass: "btn btn-lg btn-success w-75 mt-2",
-      profileSummaryInfoClass: "btn btn-lg btn-success w-75 mt-2",
-      workexpInfoClass: "btn btn-lg btn-success w-75 mt-2",
-      competenciesInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      techSkillsInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      toolSkillsInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      progSkillsInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      softSkillsInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      projectsInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      educationInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      certificationInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      achievmentsInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      publicationInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      areaOfIntrestInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2",
-      hobbiesInfoClass: "btn btn-lg btn-outline-primary w-75 mt-2"
+      userInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      personalInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      profileSummaryInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      competenciesInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      workexpInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      techSkillsInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      toolSkillsInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      progSkillsInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      softSkillsInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      projectsInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      educationInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      certificationInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      achievmentsInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      publicationInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      areaOfIntrestInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2",
+      hobbiesInfoClass: "btn btn-sm btn-outline-primary w-75 mt-2"
 
     }
   },
@@ -59,8 +98,8 @@ export const visualresumedata = {
     visa: {optional: true, value: "USA B1/B2"}
   },
 
-  profileSummaryInformation: {title: "Profile Summary",
-    value: "To work in an organization where I can use my skills to achieve the organization objectives and get conductive environment to learn and grow."},
+  profileSummaryInformation: {title: "PROFILE",
+    value: ["<p>To work in an organization where I can use my skills to achieve the organization objectives and get conductive environment to learn and grow.</p>", "<p>To work in an organization where I can use</p>"]},
 
   competenciesInformation: {title: "Competencies",
     value: ["Project Management", "Leadership", "Web Development", "SAP", "CFD", "Finite Element Analysis", "CAD Design", "Product Development"]},
@@ -71,7 +110,8 @@ export const visualresumedata = {
       designation: "CFD LEAD",
       startDate: "Jun 2014",
       endDate: "Present",
-      role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      toggle: true,
+      role: ["<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"]
     },
 
     {
@@ -79,7 +119,8 @@ export const visualresumedata = {
       designation: "Executive Design",
       startDate: "Dec 2010",
       endDate: "Jun 2012",
-      role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      toggle: true,
+      role: ["<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"]
     },
 
     {
@@ -87,7 +128,8 @@ export const visualresumedata = {
       designation: "Executive Operations",
       startDate: "Jun 2009",
       endDate: "Dec 2010",
-      role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      toggle: true,
+      role: ["<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"]
     },
   ]},
 
@@ -196,7 +238,8 @@ export const visualresumedata = {
         degree: "M.tech",
         college: "IIT Bombay",
         year: "2014",
-        cgpa: "9.2 CGPA"
+        cgpa: "9.2 CGPA",
+        toggle: true
       },
       
       {
@@ -204,7 +247,8 @@ export const visualresumedata = {
         degree: "B.tech",
         college: "NIT Bhopal",
         year: "2009",
-        cgpa: "7.8 CGPA"
+        cgpa: "7.8 CGPA",
+        toggle: true
       },
       
       {
@@ -212,7 +256,8 @@ export const visualresumedata = {
         degree: "HSC 10+2",
         college: "MP Board",
         year: "2005",
-        cgpa: "88%"
+        cgpa: "88%",
+        toggle: true
       }
     ]
   },
@@ -280,6 +325,64 @@ export const visualresumedata = {
   
   hobbiesInformation: {
     title: "Hobbies",
-    value: ["Running", "Chess", "Guitar"]
+    value: ["Running", "Chess", "Playing Guitar"]
   }
+}
+
+export const hobbies = [
+			{value: "Running", name: "Running"},
+			{value: "Tennis", name: "Tennis"},
+			{value: "Table Tennis", name: "Table Tennis"},
+			{value: "Cricket", name: "Cricket"},
+			{value: "Football", name: "Football"},
+			{value: "Chess", name: "Chess"},
+			{value: "Swimming", name: "Swimming"},
+			{value: "Listening Music", name: "Listening Music"},
+			{value: "Playing Guitar", name: "Playing Guitar"},
+			{value: "Playing Keyboard", name: "Playing Keyboard"},
+			{value: "Playing Violin", name: "Playing Violin"},
+			{value: "Playing Flute", name: "Playing Flute"},
+			{value: "Singing", name: "Singing"},
+			{value: "Dancing", name: "Dancing"},
+			{value: "Travelling", name: "Travelling"},
+			{value: "Social Work", name: "Social Work"},
+			{value: "Drama", name: "Drama"},
+			{value: "Acting", name: "Acting"},
+			{value: "Painting", name: "Painting"},
+			{value: "Reading", name: "Reading"},
+			{value: "Writing", name: "Writing"},
+			{value: "Gaming", name: "Gaming"},
+			{value: "Browsing", name: "Browsing"},
+			{value: "Movies", name: "Movies"},
+			{value: "Gardening", name: "Gardening"},
+			{value: "Animal Care", name: "Animal Care"}
+		]
+export const hobbiesList = {
+"Exercise" : "running",
+"Running" : "running",
+"Tennis" : "baseball-ball",
+"Table Tennis" : "table-tennis",
+"Cricket" : "baseball-ball",
+"Football" : "futbol",
+"Chess" : "chess-knight",
+"Swimming" : "swimmer",
+"Listening Music" : "music",
+"Playing Guitar" : "guitar",
+"Playing Keyboard" : "music",
+"Playing Violin" : "music",
+"Playing Flute" : "music",
+"Singing" : "music",
+"Dancing" : "shoe-prints",
+"Travelling" : "plane",
+"Social Work" : "hands",
+"Drama" : "theater-masks",
+"Acting" : "theater-masks",
+"Painting" : "paint-brush",
+"Reading" : "book",
+"Writing" : "pen-alt",
+"Gaming" : "gamepad",
+"Browsing" : "wifi",
+"Movies" : "film",
+"Gardening" : "seeding",
+"Animal Care" : "paw"
 }

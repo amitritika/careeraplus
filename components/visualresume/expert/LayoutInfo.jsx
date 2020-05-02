@@ -21,8 +21,8 @@ const LayoutInfo = (props) => {
   const sequence = ["userInfo",
     "personalInfo",
     "profileSummaryInfo",
-    "workexpInfo",
     "competenciesInfo",
+    "workexpInfo",
     "techSkillsInfo",
     "toolSkillsInfo",
     "progSkillsInfo",
@@ -82,10 +82,10 @@ const LayoutInfo = (props) => {
           <button className = {classes.profileSummaryInfoClass}>Profile Summary</button>
         </Col>
         <Col xs ="12">
-          <button className = {classes.workexpInfoClass}>Work Experience</button>
+          <button className = {classes.competenciesInfoClass}>Competencies</button>
         </Col>
         <Col xs ="12">
-          <button className = {classes.competenciesInfoClass} onClick = {()=> handleClick("competenciesInfo")}>Competencies</button>
+          <button className = {classes.workexpInfoClass}>Work Experience</button>
         </Col>
         <Col xs ="12">
           <button className = {classes.techSkillsInfoClass} onClick = {()=> handleClick("techSkillsInfo")}>Technical Skills</button>

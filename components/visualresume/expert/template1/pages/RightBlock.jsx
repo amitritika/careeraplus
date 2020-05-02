@@ -1,6 +1,6 @@
 const RightBlock = (props) =>{
   
-  let height = (props.fac * 297).toString() + "px";
+  let height = (props.fac * props.height).toString() + "px";
   let width = (props.fac * 130).toString() + "px";
   let marginleft = (props.fac * 80).toString() + "px";
   let bg = props.bg;

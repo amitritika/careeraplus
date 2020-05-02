@@ -14,7 +14,22 @@ const EducationInfo = (props) =>{
   
   const [comp, setComp] = useState("");
   
- 
+ const handleToggle = (i) => {
+    let visualresumeCopy = visualresumeexp
+    
+    if(visualresumeCopy.educationInformation.value[i].toggle){
+      
+      visualresumeCopy.educationInformation.value[i].toggle = false;
+    }else{
+      
+      visualresumeCopy.educationInformation.value[i].toggle = true;
+      
+    }
+    
+    vr(visualresumeCopy);
+    
+  }
+  
   const handleAdd = () => {
     let arr = list;
     let visualresumeCopy = visualresumeexp;
@@ -31,7 +46,8 @@ const EducationInfo = (props) =>{
     list.map((l, i)=>{
       return (
         <div className = "form-group mt-2" key = {i}>
-          <label className="lead">Latest Education</label>
+          {(i==0) && <label className="lead">Latest Education</label>}
+          {(i!==0) && <label className="lead">Next Education</label>}
           <input  type="checkbox" 
             className = "mt-2 ml-2"
             style= {{width:`20px`, height:`20px`, lineHeight: `20px`}}

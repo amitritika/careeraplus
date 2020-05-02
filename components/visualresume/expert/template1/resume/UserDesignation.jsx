@@ -1,4 +1,4 @@
-const UserName = (props) =>{
+const UserDesignation = (props) =>{
   let height = (props.fac * props.props.height).toString() + "px";
   let width = (props.fac * 105).toString() + "px";
   
@@ -7,7 +7,7 @@ const UserName = (props) =>{
   let font = props.font;
   let id = props.id;
   let line = (props.fac * props.props.height).toString() + "px";
-  let size = (props.fac * 9.6).toString() + "pt";
+  let size = (props.fac * 6).toString() + "pt";
   let left = (props.fac * 6).toString() + "px";
   let top = (props.fac * props.props.top).toString() + "px";
   
@@ -18,4 +18,4 @@ const UserName = (props) =>{
   )
 }
 
- export default UserName;
+ export default UserDesignation;

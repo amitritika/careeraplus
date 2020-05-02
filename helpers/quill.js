@@ -10,6 +10,12 @@ export const QuillModules = {
     ]
 };
 
+export const QuillModulesShort = {
+    toolbar: [
+        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    ]
+};
+
 export const QuillFormats = [
     'header',
     'font',
@@ -25,4 +31,12 @@ export const QuillFormats = [
     'image',
     'video',
     'code-block'
+];
+
+export const QuillFormatsShort = [ 
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote'
 ];

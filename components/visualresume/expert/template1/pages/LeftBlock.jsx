@@ -1,5 +1,5 @@
 const LeftBlock = (props) =>{
-  let height = (props.fac * 297).toString() + "px";
+  let height = (props.fac * props.height).toString() + "px";
   let width = (props.fac * 80).toString() + "px";
   let bg = props.bg;
   let font = props.font;

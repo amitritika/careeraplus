@@ -1,5 +1,6 @@
 import { Container, Row, Col, Button, NavLink } from 'reactstrap';
 import { useState, useEffect, useRef } from 'react';
+import { hobbies, hobbiesList } from "../../../helpers/visualresume/expert"
 
 const HobbiesInfo = (props) =>{
   
@@ -26,7 +27,7 @@ const HobbiesInfo = (props) =>{
   const handleAdd = () => {
     let arr = list;
     let visualresumeCopy = visualresumeexp;
-    arr.push(`Hobby ${arr.length+1}`)
+    arr.push("Running")
     
     setList(arr);
     visualresumeCopy.hobbiesInformation.value = arr;
@@ -39,12 +40,18 @@ const HobbiesInfo = (props) =>{
       return (
         <div className = "form-group mt-2" key = {i}>
           <label className="lead">Hobby {i+1}</label>
-          <input 
-            type = "text"
-            className="form-control"
-            onChange= {handleChange(i)}
-            defaultValue = {l}>
-          </input>
+          
+          <select className = "form-control" 
+                onChange= {handleChange(i)}>
+							{hobbies.map((e, key) => {
+							 
+							 		if(e.value == visualresumeexp.hobbiesInformation.value[i])
+									{return <option key={key} value={e.value} selected>{e.name}</option>;}
+							 	else
+									{return <option key={key} value={e.value}>{e.name}</option>;}
+							})}
+					</select>
+          
           <Button className = "btn btn-sm btn-danger" onClick = {()=> handleDelete(i)}>Delete</Button>
         </div>
       
