@@ -338,7 +338,7 @@ export const subjectObject = () => {
 		["Fundamental Concepts of Surveying and Linear Measurements","Compass Surveying, Theodilites and Traverse Surveying","Levelling, Contouring and Plane Table Surveying","Calculation of Area and Volume","Engineering Instruments","Tacheometric, Curve, Hydrographic Survey, Tides and Tringulation","Field Astronomy, Photogrammetic Survey, Remote sensing & Geology"],
 		["Highway Development & Planning","Highway Geometric Design","Traffic Engineering","Pavement Design","Highway Materials, Maintenance & Properties"],
 		["Rail Joints, Welding of Rails and Signals","Ballast, Formation and Sleepers","Geometric Design of the Track","Points and Crossing","Track Stresses, Traction and Tractive Resistance"],
-		["Airport, Dock, Harbour & Tunnelling Engineering"]
+		["Airport, Dock, Harbour & Tunnelling Engineering"],
 		]
       ],
       subjectTopicsWeightage:[

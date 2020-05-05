@@ -8,6 +8,7 @@ import {dateObj} from "../../helpers/examplan/dates"
 import {subjectDaysObj} from "../../helpers/examplan/subjectdays"
 import {DateCalendarComponent, WeekDayNameComponent, WeekDaysComponent} from "../examplan/helper"
 import {WeekComponent, MonthComponent, YearComponent} from "../examplan/calendar"
+import SubjectW from "./SubjectW"
 import {subjectObject} from "../../helpers/examplan/subjects"
 import { API } from '../../config';
 import { getExamplan, updateExamplan } from '../../actions/examplan';
@@ -15,7 +16,7 @@ import { isAuth, getCookie } from "../../actions/auth";
 import Link from "next/link"
 const GateComponent = (props) => {
   
-  const exam = props.exam;
+	const exam = props.exam;
   const stream = props.stream;
   const subjectName = subjectObject();
   const [revision, setrevision] = useState(false);
@@ -29,6 +30,11 @@ const GateComponent = (props) => {
 	const user = isAuth();
 	const token = getCookie('token');
 	const [data, setdata] = useState({});
+	
+	const subjectColor = ["rgb(221, 217, 196)","rgb(197, 217, 241)","rgb(242, 220, 219)","rgb(235, 241, 222)","rgb(228, 223, 236)","rgb(218, 238, 243)","rgb(253, 233, 217)","rgb(196, 189, 151)","rgb(141, 180, 226)","rgb(184, 204, 228)","rgb(230, 184, 183)","rgb(216, 228, 188)","rgb(204, 192, 218)","rgb(183, 222, 232)","rgb(252, 213, 180)","rgb(83, 141, 213)","rgb(149, 179, 215)","rgb(218, 150, 148)","rgb(196, 215, 155)","rgb(177, 160, 199)","rgb(146, 205, 220)","rgb(250, 191, 143)","rgb(217, 217, 217)","rgb(191, 191, 191)","rgb(255, 255, 255)"];
+  
+	const [subjectW, setSubjectW] = useState({});
+	const [showSubjectW, setShowSubjectW] = useState(false);
 	
 	const [values, setValues] = useState({
         error: false,
@@ -100,6 +106,81 @@ const GateComponent = (props) => {
         </div>
     );
   
+	const subjectWeightagePrint =()=> {
+		
+		let subjectName1 = subjectName[exam[0]][stream[0]]["subjectName"];
+		let subjectWeightage = subjectName[exam[0]][stream[0]]["subjectWeightage"]
+		let subjectTopicsName = subjectName[exam[0]][stream[0]]["subjectTopicsName"]
+		let subjectTopicsWeightage = subjectName[exam[0]][stream[0]]["subjectTopicsWeightage"]
+		let fac = 1
+		let start = 0
+		let count = 0
+		let max = 0
+		let k = 0
+		let marks = 85
+		
+		let subjectMarks = [];
+		let subjectTopicsMarks = [];
+		let subjectTopicsMarks1 = [];
+		let subjectLocation = [];
+		let subjectTopicSequence = [];
+		
+		for (var i = start; i<subjectName1.length; i++){
+		subjectMarks.push(subjectWeightage[i]*fac*marks);
+		for (var j = 0; j<subjectTopicsName[i].length; j++)
+		{
+			subjectTopicsMarks.push((subjectWeightage[i]*fac*marks)*subjectTopicsWeightage[i][j]);
+			subjectTopicsMarks1.push((subjectWeightage[i]*fac*marks)*subjectTopicsWeightage[i][j]);
+			subjectLocation.push([i,j]);
+		}
+	}
+
+	for (var i = 0; i<subjectTopicsMarks1.length; i++)
+	{
+		max = subjectTopicsMarks1[0];
+		k = 0;
+		for (var j = 0; j<subjectTopicsMarks1.length; j++)
+		{
+			if (max < subjectTopicsMarks1[j])
+			{
+				max = subjectTopicsMarks1[j];
+				k = j;
+
+			}
+		}
+
+		subjectTopicsMarks1[k] = 0;
+		subjectTopicSequence.push([subjectTopicsMarks[k], subjectLocation[k][0], subjectLocation[k][1]]);
+				
+		
+	}
+		setSubjectW(subjectTopicSequence);
+		setShowSubjectW(true);
+		console.log(subjectTopicSequence);
+		
+		
+		
+
+	}
+	
+	const showSubjectWeighatge = () => {
+		let subjectName1 = subjectName[exam[0]][stream[0]]["subjectName"];
+		let subjectWeightage = subjectName[exam[0]][stream[0]]["subjectWeightage"]
+		let subjectTopicsName = subjectName[exam[0]][stream[0]]["subjectTopicsName"]
+		let subjectTopicsWeightage = subjectName[exam[0]][stream[0]]["subjectTopicsWeightage"]
+		return (
+			subjectW.map((q, i)=> {
+				let bg = subjectColor[subjectW[i][1]];
+				let subName = subjectName1[subjectW[i][1]];
+				let topicName = subjectTopicsName[subjectW[i][1]][subjectW[i][2]];
+				let subMarks = (subjectW[i][0].toFixed(2)).toString();
+				return(
+					<SubjectW bg = {bg} subName = {subName} topicName = {topicName} subMarks = {subMarks}/>
+				)
+			})
+			)
+	}
+	
   const calendar = () => {
 		
 		const subjectObj = {
@@ -175,9 +256,28 @@ const GateComponent = (props) => {
 					{vac}
 					<br></br>
 					<Button outline color="warning" size="md" className = "mr-4" onClick = {()=> {calendar()}}>Submit</Button>
+					<Button outline color="warning" size="md" className = "mr-4" onClick = {()=> {subjectWeightagePrint()}}>Subject Weightage</Button>
 					{saveBtn}
 
 					{cal1}
+					{showSubjectW && 
+					<div className = "container mt-2">
+					<Row>
+						<Col xs = "3">
+							<div style = {{backgroundColor: `purple`, color: `white`, border: `black solid 1px`}}>Subject</div>
+						</Col>
+						<Col xs = "6">
+							<div style = {{backgroundColor: `purple`, color: `white`, border: `black solid 1px`}}>Topics</div>
+						</Col>
+						<Col xs = "2">
+							<div style = {{backgroundColor: `purple`, color: `white`, border: `black solid 1px`}}>Marks</div>
+						</Col>
+				
+					{showSubjectWeighatge()}
+
+					</Row>
+					</div>
+					}
 				</div>
   )
 }
