@@ -13,7 +13,7 @@ const UserProfile = ({visualresumeexp, photo, name, email, query}) => {
                 {name} | {APP_NAME}
             </title>
             <meta name="description" content={`Best Visual resume Tool, Easy to use`} />
-            <link rel="canonical" href={`${DOMAIN}/profile/${query.id}`} />
+            <link rel="canonical" href={`${DOMAIN}/user/profile/${query.id}`} />
             <meta property="og:title" content={`Visual Resume Tool | ${APP_NAME}`} />
             <meta property="og:description" content={`Best Visual resume Tool, Easy to use`} />
             <meta property="og:type" content="webiste" />
