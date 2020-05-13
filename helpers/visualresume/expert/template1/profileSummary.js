@@ -31,10 +31,22 @@ const profileSummary = (obj, data, marginSec, marginBullet, marginPage) => {
       
       leftH = (297* (obj.countL-1)) + marginPage;
       
+    if(obj.countL == 2){
+      obj.page1.left.components = obj.left.components;
+      obj.page1.left.ids = obj.left.ids;
+      obj.page1.left.props = obj.left.props;
+    }
+      
       obj.left.components.push(LeftBlockBullet);
       obj.left.ids.push(str);
       obj.left.props.push({top: leftH + marginBullet, name: p , height: height});
       leftH = leftH + marginBullet + height;
+    }
+    
+    if(obj.countL == 1){
+      obj.page1.left.components = obj.left.components;
+      obj.page1.left.ids = obj.left.ids;
+      obj.page1.left.props = obj.left.props;
     }
   })
   

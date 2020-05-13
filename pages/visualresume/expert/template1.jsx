@@ -7,13 +7,24 @@ import Private from "../../../components/auth/Private"
 import UserInformationexpert from "../../../components/visualresume/expert/UserInformationexpert"
 import LayoutLRInfo from "../../../components/visualresume/expert/LayoutLRInfo"
 import Resume from "../../../components/visualresume/expert/template1/Resume"
+import Page1 from "../../../components/visualresume/expert/template1/Page1"
 import {visualresumedata} from "../../../helpers/visualresume/expert"
 import {page, pagesRedistribution, componentSequence, colors} from "../../../helpers/visualresume/expert/template1/template1"
+import {saveAs} from 'file-saver';
+import { getCookie, isAuth , updateUser, forgotPassword} from '../../../actions/auth';
+import { getProfile, updateprofile } from '../../../actions/user';
+import {FacebookShareButton, FacebookIcon} from 'react-share'
+import {base64StringtoFile,
+    downloadBase64File,
+    extractImageFileExtensionFromBase64,
+    image64toCanvasRef} from '../../../helpers/photohelpers'
 
+import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
 
 const Template1 = () => {
   const [values, setValues] = useState({
     name: "",
+		username: "",
     email:"",
     photo:"",
     visualresumeexp:visualresumedata,
@@ -23,24 +34,25 @@ const Template1 = () => {
     showLeftBlock: false,
     layoutInfoDisplay: true,
     userInfoDisplay: false,
-    
+    image : "",
+		imageDisplay: false
   });
   
  
  
- const {name, email, photo, visualresumeexp, bg, font, list, showLeftBlock, layoutInfoDisplay, userInfoDisplay} = values;
+ const {name, username, email, photo, visualresumeexp, bg, font, list, showLeftBlock, layoutInfoDisplay, userInfoDisplay, image, imageDisplay} = values;
   
  const vr = (data, layoutInfoDisplay, userInfoDisplay) => {
    setValues({...values, visualresumeexp: data, list: componentSequence(data, name, email, photo), layoutInfoDisplay: layoutInfoDisplay, userInfoDisplay: userInfoDisplay});
  }
   const personalInformation = (data) =>{
-    console.log(data.visualresumeexp);
-    setValues({...values, name: data.name, email: data.email, photo: data.photo, visualresumeexp:data.visualresumeexp, 
+    
+    setValues({...values, name: data.name, username: data.username, email: data.email, photo: data.photo, visualresumeexp:data.visualresumeexp, 
                list: componentSequence(data.visualresumeexp, data.name, data.email, data.photo)
                ,showLeftBlock: true})
   }
   
-  
+  const token = getCookie('token');
   const editSection = useRef();
   
  
@@ -60,7 +72,7 @@ const Template1 = () => {
         </title>
         
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"></link>
+          <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet" />
           <link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet.css" type="text/css" />
         
       </Head>
@@ -96,11 +108,34 @@ const Template1 = () => {
         const BlockComponent = q;
         const props = list.left.props[i];
         const id = list.left.ids[i];
-        return (
+        if(list.left.props[i].top > 297){
+          return (
           
             <BlockComponent id = {id} bg = {bg} font = {font} fac= {fac} props = {props} />
           
                )
+        }
+      })
+    )
+    
+    
+  }
+  
+  const leftBlockComponentPage1 = (fac) =>{
+    //let list = componentSequence(visualresumeexp, name, email, photo);
+    return (
+      list.left.components.map((q,i)=>{
+        const BlockComponent = q;
+        const props = list.left.props[i];
+        const id = list.left.ids[i];
+        if(list.left.props[i].top < 297){
+          return (
+          
+            <BlockComponent id = {id} bg = {bg} font = {font} fac= {fac} props = {props} />
+          
+               )
+        }
+        
       })
     )
     
@@ -115,6 +150,7 @@ const Template1 = () => {
         const BlockComponent = q;
         const props = list.right.props[i];
         const id = list.right.ids[i];
+        if(list.right.props[i].top > 297){
         return (
           <div style = {{position: `absolute`, left: `${left}`}}>
             <BlockComponent id = {id} bg = {bg} font = {font} fac= {fac} props = {props} />
@@ -122,6 +158,30 @@ const Template1 = () => {
             
           
                )
+        }
+      })
+    )
+    
+    
+  }
+  
+  const rightBlockComponentPage1 = (fac) =>{
+   
+    return (
+      list.right.components.map((q,i)=>{
+        let left = (fac * 80).toString() + "px";
+        const BlockComponent = q;
+        const props = list.right.props[i];
+        const id = list.right.ids[i];
+        if(list.right.props[i].top < 297){
+        return (
+          <div style = {{position: `absolute`, left: `${left}`}}>
+            <BlockComponent id = {id} bg = {bg} font = {font} fac= {fac} props = {props} />
+          </div>
+            
+          
+               )
+        }
       })
     )
     
@@ -176,6 +236,40 @@ const Template1 = () => {
     Popup(data);
   }
   
+  const handleShare = () => {
+    
+    let html2c = require("html2canvas");
+		let userFormData = new FormData();
+		setValues({...values, imageDisplay: true});
+  html2c(document.getElementById("resume-page-1"), {allowTaint: true, useCORS: true,
+        taintTest: false}).then(function(canvas) {
+    	var img = canvas.toDataURL("image/png");
+			//document.body.appendChild(canvas);
+			let arr = img.split(',');
+		if(arr[1]){
+			const myNewCroppedFile = base64StringtoFile(img, "myFilename.png")
+      userFormData.set('photosrc', myNewCroppedFile);
+			console.log(arr[1])
+		}
+		updateprofile(token, userFormData).then(data => {
+          if (data.error) {
+              setValues({ ...values, error: data.error, success: false, loading: false });
+						
+          } else {
+							
+              console.log(true)
+          }
+      });
+			
+});
+		
+		
+		setValues({...values, imageDisplay: false});
+		editSection.current.saveInfo();
+		
+}  
+  
+  
   let fac = 5;
   
   return (
@@ -213,20 +307,56 @@ const Template1 = () => {
                     {showLeftBlock && rightBlockComponent(2)}
                     {showLeftBlock && blockComponent(2)}
                   </div>
+                  <div className = "mt-4" id = "page1-preview" style = {{ height: `594px`, position: `absolute`, width: `420px`}}>
+                    {showLeftBlock && <Page1 list = {list} visualresumeexp = {visualresumeexp} fac = {2} bg = {bg} font = {font}/>}
+                    
+                    {showLeftBlock && leftBlockComponentPage1(2)}
+                    {showLeftBlock && rightBlockComponentPage1(2)}
+                    
+                  </div>
+									
+									{imageDisplay && <div className = "mt-4" id = "page1-preview1" style = {{ height: `1050px`, position: `absolute`, width: `1050px`}}>
+                    {showLeftBlock && <Page1 list = {list} visualresumeexp = {visualresumeexp} fac = {5} bg = {bg} font = {font}/>}
+                    
+                    {showLeftBlock && leftBlockComponentPage1(5)}
+                    {showLeftBlock && rightBlockComponentPage1(5)}
+                    
+                  </div>}
+                  
                   
                 </Col>}
                  <Col xs= "12" lg = "4">
                   <UserInformationexpert vr = {vr} pr = {personalInformation} type="expert" template = "template1" userInfoDisplay = {userInfoDisplay} ref = {editSection}/>
                   {!layoutInfoDisplay && <Button onClick = {handlePrint} className = "btn-alert">Print</Button>}
+									 {!layoutInfoDisplay && <FacebookShareButton
+																						beforeOnClick = {handleShare}
+            url={`${DOMAIN}/user/profile/${username}`}
+            quote="Visual Resume"
+            
+          >
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>}
                 </Col>
                 <Col style = {{paddingLeft: `0`}}>
-                  {!layoutInfoDisplay && <div id = "resume" styel = {{position: `absolute`}}>
-                    {showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {fac} bg = {bg} font = {font}/>}
+                  {!layoutInfoDisplay && 
+                    <div id = "resume" style = {{position: `absolute`}}>
+                      <div id = "resume-rest-pages" style = {{position: `absolute`}}>
+                        {showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {fac} bg = {bg} font = {font}/>}
                     
-                    {showLeftBlock && leftBlockComponent(fac)}
-                    {showLeftBlock && rightBlockComponent(fac)}
-                    {showLeftBlock && blockComponent(fac)}
-                  </div>}
+                        {showLeftBlock && leftBlockComponent(fac)}
+                        {showLeftBlock && rightBlockComponent(fac)}
+                        {showLeftBlock && blockComponent(fac)}
+                      </div>
+                      <div id = "resume-page-1" style = {{position: `absolute`, height: `549px`, width: `1050px`}}>
+                        {showLeftBlock && <Page1 list = {list} visualresumeexp = {visualresumeexp} fac = {fac} bg = {bg} font = {font}/>}
+                    
+                        {showLeftBlock && leftBlockComponentPage1(fac)}
+                        {showLeftBlock && rightBlockComponentPage1(fac)}
+                        
+                      </div>
+                    
+                  </div>
+                  }
                 </Col>
               </Row>
               

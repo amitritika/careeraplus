@@ -174,3 +174,19 @@ export const loginWithGoogle = user => {
         })
         .catch(err => console.log(err));
 };
+
+export const createLoginAdmin = (token, user) => {
+    return fetch(`${API}/admin-login`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+             Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

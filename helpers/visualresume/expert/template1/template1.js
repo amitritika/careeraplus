@@ -451,7 +451,22 @@ export const componentSequence = (visualresume, name, email, photo)=> {
     countL: 1,
     countR: 1,
     leftH: 0,
-    rightH: 0
+    rightH: 0,
+    page1: {
+      left: {
+      components: [],
+      ids: [],
+      props: [],
+    },
+    
+    right: {
+      components: [],
+      ids: [],
+      props: [],
+    }, 
+      leftH: 0,
+      rightH: 0,
+  }
   }
   
   list.left.map((q,i)=>{

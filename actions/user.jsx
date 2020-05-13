@@ -30,3 +30,28 @@ export const update = (token, user) => {
         })
         .catch(err => console.log(err));
 };
+
+export const updateprofile = (token, user) => {
+    return fetch(`${API}/user/update-profile-photo`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: user
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const getPublicProfile = id => {
+    return fetch(`${API}/user/public-profile/${id}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

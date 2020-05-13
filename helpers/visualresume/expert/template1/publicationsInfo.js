@@ -14,6 +14,11 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   if(rightH > countR * 297){
     countR++;
     rightH = 297 * (countR - 1) + marginPage;
+    if(countR == 2){
+        obj.page1.right.components = obj.right.components;
+        obj.page1.right.ids = obj.right.ids;
+        obj.page1.right.props = obj.right.props;
+      }
   }
   if(countR > countL){
     obj.block.components.push(RightBlockLogo);
@@ -94,6 +99,12 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
           obj.right.ids.pop();
           obj.right.props.pop();
           
+          if(countR == 2){
+        obj.page1.right.components = obj.right.components;
+        obj.page1.right.ids = obj.right.ids;
+        obj.page1.right.props = obj.right.props;
+      }
+          
           height = (Math.floor(v.journal.length/45) + 2) * 5 + (Math.floor(v.title.length/60) + 2) * 5;
 
           obj.right.components.push(RightBlockPub);
@@ -113,6 +124,9 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     if(countR == 1){
       obj.right.components.push(VL);
       obj.right.props.push({top: 60, height: 230});
+      obj.page1.right.components = obj.right.components;
+        obj.page1.right.ids = obj.right.ids;
+        obj.page1.right.props = obj.right.props;
     }else{
       obj.right.components.push(VL);
       obj.right.props.push({top: (297 * (countR-1)) + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});

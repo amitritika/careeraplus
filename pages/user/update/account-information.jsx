@@ -134,7 +134,7 @@ const AccountUpdate = () => {
         userFormData.set('photosrc', myNewCroppedFile);
         //setValues({...values, photo: imgSrc, userData: userFormData})
         setValues({...values, userData: userFormData})
-       // console.log(userFormData);
+       //console.log(fs.readFileSync(myNewCroppedFile));
       }
 
     }

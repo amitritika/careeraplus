@@ -8,7 +8,7 @@ import RightBlock from "../../components/visualresume/expert/template1/pages/Rig
 import Block from "../../components/visualresume/expert/template1/pages/Block"
 
 export const visualresumedata = {
-
+	image: null,
   layout: {
     sequence: ["userInfo",
     "personalInfo",

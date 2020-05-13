@@ -40,6 +40,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
       email:"",
 			photo:"/images/profile.png",
       visualresumeexp: visualresumedata,
+			image: "",
 			layoutInfoDisplay: false,
 			userInfoDisplay: false,
 			personalInfoDisplay: false,
@@ -62,7 +63,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
         
     });
 
-    const { message, success, error, name, email, photo, visualresumeexp, layoutInfoDisplay,
+    const { message, success, error, name, email, photo, visualresumeexp, image, layoutInfoDisplay,
 					userInfoDisplay,
 					 personalInfoDisplay,
 					profileSummaryInfoDisplay,
@@ -94,6 +95,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
 							props.pr({
 								name: data.name,
 								email: data.email,
+								username: data.username,
 								photo: `${API}/user/photo/${data.username}`,
 								visualresumeexp: data.visualresumeexp.data
 											 });
@@ -101,14 +103,17 @@ const UserInformationexpert = forwardRef((props, ref) => {
 									...values,
 									name: data.name,
 									email: data.email,
+								
 									visualresumeexp: data.visualresumeexp.data,
 									photo: `${API}/user/photo/${data.username}`,
+									
 									layoutInfoDisplay: true
 							});
 						}else{
 							props.pr({
 								name: data.name,
 								email: data.email,
+								username: data.username,
 								photo: "/images/profile.png",
 								visualresumeexp: data.visualresumeexp.data
 											 });
@@ -126,6 +131,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
 							props.pr({
 								name: data.name,
 								email: data.email,
+								username: data.username,
 								photo: `${API}/user/photo/${data.username}`,
 								visualresumeexp: visualresumedata
 											 });
@@ -141,6 +147,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
 							props.pr({
 								name: data.name,
 								email: data.email,
+								username: data.username,
 								photo: "/images/profile.png",
 								visualresumeexp: visualresumedata
 											 });
@@ -161,6 +168,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
   useEffect(() => {
       init();
 			
+			
   }, []);
 
 	const quill = useRef(null);
@@ -174,12 +182,21 @@ const UserInformationexpert = forwardRef((props, ref) => {
     );
   
   const saveInfo = () => {
+		
+		
 		let visualresumeCopy = {
 			typeOfResume: "",
-			data: ""
+			data: "",
+			photo: {
+				contentType:"image/png",
+				data: null
+			}
+				
 		}
       	visualresumeCopy.typeOfResume = `/visualresume/${props.type}/${props.template}`;
 				visualresumeCopy.data = visualresumeexp
+			
+			
 		 		setValues({ ...values, error: false, success: false });
     updateVisualResumeExp(token, visualresumeCopy).then(data1 => {
           if (data1.error) {
@@ -247,7 +264,8 @@ const UserInformationexpert = forwardRef((props, ref) => {
    return (
 		 {
 			 editClickChild: editClickChild,
-			 editClickNext: editClickNext
+			 editClickNext: editClickNext,
+			 saveInfo: saveInfo
 		 }
 	 )
 

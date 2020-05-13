@@ -63,6 +63,7 @@ const UserInformation = (props) => {
 					if(data.photo){
 						props.pr({
 							name: data.name,
+							username: data.username,
 							email: data.email,
 							photo: `${API}/user/photo/${data.username}`,
 							visualresume: data.visualresume
@@ -92,6 +93,7 @@ const UserInformation = (props) => {
 					}else{
 						props.pr({
 							name: data.name,
+							username: data.username,
 							email: data.email,
 							photo: "/images/profile.png",
 							visualresume: data.visualresume
