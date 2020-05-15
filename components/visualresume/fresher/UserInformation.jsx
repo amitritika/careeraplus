@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import '../../../node_modules/react-quill/dist/quill.snow.css';
 import { QuillModules, QuillFormats } from '../../../helpers/quill';
-import {hobbies, areaOfIntrest} from "../../../helpers/visualresume/fresher"
+import {hobbies, areaOfIntrest, visualresumedata} from "../../../helpers/visualresume/fresher"
 
 const UserInformation = (props) => {
     const [values, setValues] = useState({
@@ -58,7 +58,20 @@ const UserInformation = (props) => {
         if (data.error) {
             setValues({ ...values, error: data.error });
         } else {
-					props.vr(data.visualresume);
+					let vdata = {}
+					if(data.version == 0){
+						props.vr(data.visualresume);
+						vdata = data.visualresume
+					}
+					else{
+						if(data.visualresume.typeOfResume !== "" ){
+							 props.vr(data.visualresume.data);
+							vdata = data.visualresume.data
+							}else{
+								props.vr(visualresumedata);
+								vdata = visualresumedata
+							}
+					}
 					
 					if(data.photo){
 						props.pr({
@@ -66,28 +79,28 @@ const UserInformation = (props) => {
 							username: data.username,
 							email: data.email,
 							photo: `${API}/user/photo/${data.username}`,
-							visualresume: data.visualresume
+							visualresume: vdata
 										 });
 						setValues({
                 ...values,
                 name: data.name,
                 email: data.email,
-                visualresume: data.visualresume,
+                visualresume: vdata,
 								photo: `${API}/user/photo/${data.username}`,
               	personalInformationshow: true
             });
-						if(!data.visualresume.skills.skill6Display){
+						if(!vdata.skills.skill6Display){
 								setSkills({...skills, skill6Display: false, 
-													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
-													 extra4Display: data.visualresume.extraCurricular.extra4Display,
-													 extra5Display: data.visualresume.extraCurricular.extra5Display
+													 trainingDisplay: vdata.trainingInformation.trainingDisplay,
+													 extra4Display: vdata.extraCurricular.extra4Display,
+													 extra5Display: vdata.extraCurricular.extra5Display
 													});
 							}else{
-								setSkills({...skills, skill6Display: data.visualresume.skills.skill6Display, 
-													 skill7Display: data.visualresume.skills.skill7Display, 
-													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
-													 extra4Display: data.visualresume.extraCurricular.extra4Display,
-													 extra5Display: data.visualresume.extraCurricular.extra5Display
+								setSkills({...skills, skill6Display: vdata.skills.skill6Display, 
+													 skill7Display: vdata.skills.skill7Display, 
+													 trainingDisplay: vdata.trainingInformation.trainingDisplay,
+													 extra4Display: vdata.extraCurricular.extra4Display,
+													 extra5Display: vdata.extraCurricular.extra5Display
 													});
 							}
 					}else{
@@ -96,27 +109,27 @@ const UserInformation = (props) => {
 							username: data.username,
 							email: data.email,
 							photo: "/images/profile.png",
-							visualresume: data.visualresume
+							visualresume: vdata
 										 });
 						setValues({
                 ...values,
                 name: data.name,
                 email: data.email,
-                visualresume: data.visualresume,
+                visualresume: vdata,
               personalInformationshow: true
             });
-						if(!data.visualresume.skills.skill6Display){
+						if(!vdata.skills.skill6Display){
 								setSkills({...skills, skill6Display: false, 
-													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
-													 extra4Display: data.visualresume.extraCurricular.extra4Display,
-													 extra5Display: data.visualresume.extraCurricular.extra5Display
+													 trainingDisplay: vdata.trainingInformation.trainingDisplay,
+													 extra4Display: vdata.extraCurricular.extra4Display,
+													 extra5Display: vdata.extraCurricular.extra5Display
 													});
 							}else{
-								setSkills({...skills, skill6Display: data.visualresume.skills.skill6Display, 
-													 skill7Display: data.visualresume.skills.skill7Display, 
-													 trainingDisplay: data.visualresume.trainingInformation.trainingDisplay,
-													 extra4Display: data.visualresume.extraCurricular.extra4Display,
-													 extra5Display: data.visualresume.extraCurricular.extra5Display
+								setSkills({...skills, skill6Display: vdata.skills.skill6Display, 
+													 skill7Display: vdata.skills.skill7Display, 
+													 trainingDisplay: vdata.trainingInformation.trainingDisplay,
+													 extra4Display: vdata.extraCurricular.extra4Display,
+													 extra5Display: vdata.extraCurricular.extra5Display
 													});
 							}
 					}
@@ -166,17 +179,18 @@ const UserInformation = (props) => {
     );
   
   const saveInfo = () => {
-		let visualresumeCopy = visualresume;
+		let visualresumeCopy = {};
       	visualresumeCopy.typeOfResume = `/visualresume/${props.type}/${props.template}`;
-		 		setValues({ ...values, visualresume: visualresumeCopy, error: false, success: false });
-    updateVisualResume(token, visualresume).then(data1 => {
+				visualresumeCopy.data = visualresume;
+		 		setValues({ ...values, visualresume: visualresumeCopy.data, error: false, success: false });
+    updateVisualResume(token, visualresumeCopy).then(data1 => {
           if (data1.error) {
               setValues({ ...values, error: data1.error, success: false, loading: false });
           } else {
 						
                   setValues({
                       ...values,
-										visualresume: visualresumeCopy,
+										visualresume: visualresumeCopy.data,
 										message: "Resume Information Saved Successfully",
                       success: true,
                       loading: false

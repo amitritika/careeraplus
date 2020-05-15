@@ -170,3 +170,91 @@ export const areaOfIntrest = {
 			}
 			
 		}
+
+export const visualresumedata = {
+	pesrsonalInformation: {
+      phone: "9xxxxxxxx9",
+      designation:"Mxxxxxxxl Exxxxxxr",
+      address:"BHOPAL, INDIA",
+      aboutMe: "To work in an organization where I can use my skills to achieve the organization objectives and get conductive environment to learn and grow."
+    },
+    educationalInformation: {
+        latestDegree: "Btech Mechanical",
+        latestCollege: "OIST Bhopal",
+        latestMonth: "Jun",
+        latestYear: "2017",
+        latestCgpa: "8.02 CGPA",
+        nextDegree: "10+2 HSC",
+        nextCollege: "CBSE",
+        nextMonth: "Jun",
+        nextYear: "2013",
+        nextCgpa: "68.07%",
+        lastDegree: "10 SSC",
+        lastCollege: "CBSE",
+        lastMonth: "May",
+        lastYear: "2011",
+        lastCgpa: "8.2 CGPA"
+      },
+    projectInformation: {
+        majTitle: "TREADMIL BICYCLE",
+        majDes: "<p>Treadmill bicycle is a unique way of moving. In this project we made a prototype of a bicycle which gets the power not with pedal wheel but with the movement of treadmill belt when you walk on it.</p>",
+        minTitle: "Gear CAD Design",
+        minDes: "<p>Designed Gear Design in Pro-E, uing a parametric Model. <br> By using only two parameters, Module and No. of theeths a CAD model will be generated automatically.</p>"
+        
+      },
+    trainingInformation: {
+        training1: "Industrial Training",
+        org1: "EICHER TRACTORS",
+        startDate1: "01/05/2015",
+        endDate1: "01/06/2015",
+        des1: "<p>Unit of TAFE Motors and Tractor Ltd. Projects Handled: <p> 1. Rapid Entire Body Assessment (REBA) </p> <p>2. Hazard Identification and Risk Analysis (HIRA)</p>",
+        training2: "Industrial Training",
+        org2:"BHEL Bhopal",
+        startDate2: "01/07/2016",
+        endDate2: "01/07/2016",
+        des2: "<p>Unit of Turbine Manufacturing.<br>Gained Knowledge on Manufacturing and Design process of Gas Turbine.</p>",
+        trainingDisplay: false
+      },
+    skills: {
+        skill1: "Pro-E",
+        rating1: "4",
+        skill2: "AUTOCAD",
+        rating2: "4",
+        skill3: "MS Office",
+        rating3: "3",
+        skill4: "Good and Efficient learner",
+        rating4: "5",
+        skill5: "Positive Attitude",
+        rating5: "5",
+        skill6: "Skill 6",
+        rating6: "4",
+        skill6Display: false,
+        skill7: "Skill 7",
+        rating7: "5",
+        skill7Display: false
+      },
+      hobbies: {
+        hobby1: "Tennis",
+        hobby2: "Running",
+        hobby3: "Playing Guitar"
+      },
+    areaOfIntrest:{
+        area: "eng",
+        area1: "ME",
+        area1Topic: "Strength of Materials",
+        area2: "ME",
+        area2Topic: "Fluid Mechanics",
+        area3: "ME",
+        area3Topic: "Heat Tranfer",
+        show: false
+      },
+    extraCurricular: {
+        extra1: "Qualified GATE 2018",
+        extra2: "Won 3rd Prize in Debate Competition in College",
+        extra3: "Active member of KD Food for Life a Non-profit Social organization",
+        extra4: "",
+        extra5: "",
+        extra4Display: false,
+        extra5Display: false
+      }
+}
