@@ -18,6 +18,7 @@ const RightBlockWorkExp = (props) =>{
   let top1 = (props.fac * 1).toString() + "px";
   let top2 = (props.fac * 5).toString() + "px";
   let top3 = (props.fac * 9).toString() + "px";
+  let role = props.props.role;
   
   
   let top5 =(props.fac * 3).toString() + "px";
@@ -29,7 +30,7 @@ const RightBlockWorkExp = (props) =>{
       <div style = {{top: `${top5}`, position: `absolute`, height: `${height1}`, width: `${height1}`, borderRadius: `50%`, backgroundColor: `${bg}`, left: `${left1}`}}></div>
       <p style = {{top: `${top1}`, position: `absolute`}}><span style = {{fontWeight: `bold`, color: `${bg}`}}>{org}</span>  <span style = {{fontStyle: `italic`}}>{startD}-{endD}</span></p>
       <p style = {{top: `${top2}`, position: `absolute`, fontWeight: `bold`}}>{desg}</p>
-      <p style = {{top: `${top3}`, position: `absolute`, color: `${bg}`,fontStyle: `italic`}}>Roles & Responsibilities</p>
+      {role && <p style = {{top: `${top3}`, position: `absolute`, color: `${bg}`,fontStyle: `italic`}}>Roles & Responsibilities</p>}
     </div>
   )
 }

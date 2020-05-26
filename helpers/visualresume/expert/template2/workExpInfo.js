@@ -48,18 +48,21 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   
  
   data.value.map((v, i)=>{
-    
+    let ro = true;
+    if(v.role.length == 0){
+      ro = false;
+    }
     let str = "workex-heading-" + i.toString()
     if(countR > countL){
       obj.block.components.push(RightBlockWorkExp);
       obj.block.ids.push(str);
-      obj.block.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate});
+      obj.block.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate, role: ro});
     
       
     }else{
       obj.right.components.push(RightBlockWorkExp);
       obj.right.ids.push(str);
-      obj.right.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate});
+      obj.right.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate, role: ro});
     
       
     }
@@ -84,7 +87,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             
             obj.block.components.push(RightBlockWorkExp);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate});
+            obj.block.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate, role: ro});
     
             rightH = rightH + marginSec + 14;
           }else{
@@ -96,7 +99,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             
             obj.block.components.push(RightBlockWorkExp);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate});
+            obj.block.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate, role: ro});
     
             rightH = rightH + marginSec + 14;
             
@@ -114,7 +117,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
 
           obj.right.components.push(RightBlockWorkExp);
           obj.right.ids.push(str);
-          obj.right.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate});
+          obj.right.props.push({top: rightH + marginSec, height: 14, org: v.org ,desg: v.designation, startD: v.startDate, endD: v.endDate, role: ro});
 
           rightH = rightH + marginSec + 14;
         }
