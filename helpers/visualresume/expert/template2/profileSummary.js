@@ -1,6 +1,6 @@
-import LeftBlockBullet from "../../../../components/visualresume/expert/template1/resume/LeftBlockBullet"
-import LeftBlockHeading from "../../../../components/visualresume/expert/template1/resume/LeftBlockHeading"
-import {textWidth} from "./template1";
+import LeftBlockBullet from "../../../../components/visualresume/expert/template2/resume/LeftBlockBullet"
+import LeftBlockHeading from "../../../../components/visualresume/expert/template2/resume/LeftBlockHeading"
+import {textWidth} from "./template2";
 
 const profileSummary = (obj, data, marginSec, marginBullet, marginPage) => {
   let leftH = obj.leftH;

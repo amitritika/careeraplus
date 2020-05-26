@@ -6,10 +6,10 @@ import Layout from "../../../components/Layout"
 import Private from "../../../components/auth/Private"
 import UserInformationexpert from "../../../components/visualresume/expert/UserInformationexpert"
 import LayoutLRInfo from "../../../components/visualresume/expert/LayoutLRInfo"
-import Resume from "../../../components/visualresume/expert/template1/Resume"
-import Page1 from "../../../components/visualresume/expert/template1/Page1"
+import Resume from "../../../components/visualresume/expert/template2/Resume"
+import Page1 from "../../../components/visualresume/expert/template2/Page1"
 import {visualresumedata} from "../../../helpers/visualresume/expert"
-import {page, pagesRedistribution, componentSequence, colors} from "../../../helpers/visualresume/expert/template1/template1"
+import {componentSequence, colors} from "../../../helpers/visualresume/expert/template2/template2"
 import {saveAs} from 'file-saver';
 import { getCookie, isAuth , updateUser, forgotPassword} from '../../../actions/auth';
 import { getProfile, updateprofile } from '../../../actions/user';
@@ -21,15 +21,15 @@ import {base64StringtoFile,
 
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
 
-const Template1 = () => {
+const Template2 = () => {
   const [values, setValues] = useState({
     name: "",
 		username: "",
     email:"",
     photo:"",
     visualresumeexp:visualresumedata,
-    bg: "rgb(1, 51, 66)",
-    font: "rgb(75, 172, 198)",
+    bg: "rgb(56, 73, 91)",
+    font: "rgb(131, 130, 128)",
     list: null,
     showLeftBlock: false,
     layoutInfoDisplay: true,
@@ -38,6 +38,7 @@ const Template1 = () => {
 		imageDisplay: false
   });
   
+	
  
  
  const {name, username, email, photo, visualresumeexp, bg, font, list, showLeftBlock, layoutInfoDisplay, userInfoDisplay, image, imageDisplay} = values;
@@ -52,6 +53,14 @@ const Template1 = () => {
                ,showLeftBlock: true})
   }
   
+	const [styles, setStyles] = useState({
+		fontf: "calibiri",
+		size: "12pt",
+		weight: "normal",
+		width: "80px",
+		height: '10px'
+	})
+	const {fontf, size, weight, width, height} = styles
   const token = getCookie('token');
   const editSection = useRef();
   
@@ -277,10 +286,10 @@ const Template1 = () => {
       {head()}
         <Layout>
           <Private>
-            <div>
-							<div id = "text" style = {{position: `absolute`, visibility: `hidden`}}>
+						<div id = "text" style = {{position: `absolute`, visibility: `hidden`}}>
 							aaaaaa
 						</div>
+            <div>
               <Row>
                 <Col xs = "8" lg = "10">
                   <div className="dropdown ml-4 mt-2">
@@ -329,7 +338,7 @@ const Template1 = () => {
                   
                 </Col>}
                  <Col xs= "12" lg = "4">
-                  <UserInformationexpert vr = {vr} pr = {personalInformation} type="expert" template = "template1" userInfoDisplay = {userInfoDisplay} ref = {editSection}/>
+                  <UserInformationexpert vr = {vr} pr = {personalInformation} type="expert" template = "template2" userInfoDisplay = {userInfoDisplay} ref = {editSection}/>
                   {!layoutInfoDisplay && <Button onClick = {handlePrint} className = "btn-alert">Print</Button>}
 									 {!layoutInfoDisplay && <FacebookShareButton
 																						beforeOnClick = {handleShare}
@@ -372,4 +381,4 @@ const Template1 = () => {
 )
 }
 
-export default Template1;
+export default Template2;

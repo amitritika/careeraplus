@@ -2,6 +2,10 @@
   min-height: 100px !important;
 }
 
+p{
+  margin:0 !important;
+}
+
 @media print{
   html{
    /*height: 392.90mm;

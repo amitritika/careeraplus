@@ -10,21 +10,17 @@ import publicationsInfo from "./publicationsInfo"
 import hobbiesInfo from "./hobbiesInfo"
 
 
-import Page1 from "../../../../components/visualresume/expert/template1/pages/Page1"
-import Page2 from "../../../../components/visualresume/expert/template1/pages/Page2"
-import Page3 from "../../../../components/visualresume/expert/template1/pages/Page3"
-import Page4 from "../../../../components/visualresume/expert/template1/pages/Page4"
-import Page5 from "../../../../components/visualresume/expert/template1/pages/Page5"
-import LeftBlock from "../../../../components/visualresume/expert/template1/pages/LeftBlock"
-import RightBlock from "../../../../components/visualresume/expert/template1/pages/RightBlock"
-import Block from "../../../../components/visualresume/expert/template1/pages/Block"
+
+import LeftBlock from "../../../../components/visualresume/expert/template2/pages/LeftBlock"
+import RightBlock from "../../../../components/visualresume/expert/template2/pages/RightBlock"
+import Block from "../../../../components/visualresume/expert/template2/pages/Block"
 
 
-import UserPhoto from "../../../../components/visualresume/expert/template1/resume/UserPhoto"
-import UserName from "../../../../components/visualresume/expert/template1/resume/UserName"
+import UserPhoto from "../../../../components/visualresume/expert/template2/resume/UserPhoto"
+import UserName from "../../../../components/visualresume/expert/template2/resume/UserName"
 
 export const colors = [
-  {bg: "rgb(1, 51, 66)", font: "rgb(75, 172, 198)"},
+  {bg: "rgb(56, 73, 91)", font: "rgb(131, 130, 128)"},
   {bg: "rgb(11, 3, 45)", font: "rgb(132, 59, 98)"},
   {bg: "rgb(86, 93, 71)", font: "rgb(180, 156, 115)"},
   {bg: "rgb(43, 46, 74)", font: "rgb(232, 69, 69)"},
@@ -37,7 +33,7 @@ export const componentSequence = (visualresume, name, email, photo)=> {
   let list = visualresume.layout.listLR
   let leftH = 0;
   let rightH = 0;
-  let marginSec = 2;
+  let marginSec = 5;
   let marginBullet = 1;
   let marginPage = 5;
   let arr = [];
@@ -141,6 +137,8 @@ export const componentSequence = (visualresume, name, email, photo)=> {
     }
   })
   
+
+  
   
   return obj;
 }
@@ -157,5 +155,3 @@ export const textWidth = (fontf, weight, size, width, name) => {
   
   return [t.clientHeight + 1, t.clientWidth+1]
 }
-
-

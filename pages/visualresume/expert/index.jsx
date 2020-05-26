@@ -20,6 +20,11 @@ const Examplan = () => {
                 <a href = "/visualresume/expert/template1" className = "btn btn-lg btn-outline-primary menu-button">Template 1</a>
               </Col>
           </Row>
+            <Row>
+              <Col xs="12" sm="12" md = "12" lg = "12">
+                <a href = "/visualresume/expert/template2" className = "btn btn-lg btn-outline-primary menu-button">Template 2</a>
+              </Col>
+          </Row>
             {!isAuth() && <h1>Please Signin to Visit Visual Resume Page</h1>}
           </Container>
         </div>

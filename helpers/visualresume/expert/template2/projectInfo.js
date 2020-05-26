@@ -1,9 +1,9 @@
-import VL from "../../../../components/visualresume/expert/template1/resume/VL"
-import RightBlockHeading from "../../../../components/visualresume/expert/template1/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template1/resume/RightBlockLogo"
-import RightBlockProject from "../../../../components/visualresume/expert/template1/resume/RightBlockProject"
-import BlockProject from "../../../../components/visualresume/expert/template1/resume/BlockProject"
-import {textWidth} from "./template1";
+import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
+import RightBlockHeading from "../../../../components/visualresume/expert/template2/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
+import RightBlockProject from "../../../../components/visualresume/expert/template2/resume/RightBlockProject"
+import BlockProject from "../../../../components/visualresume/expert/template2/resume/BlockProject"
+import {textWidth} from "./template2";
 
 const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
@@ -26,7 +26,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     obj.block.ids.push("project-logo");
     obj.block.props.push({top: rightH + marginSec, name: "cog"});
     
-    obj.block.components.push(RightBlockHeading);
+    obj.block.components.push(BlockHeading);
     obj.block.ids.push("project");
     obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
     
@@ -47,6 +47,10 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   
  
   data.value.map((v, i)=>{
+    let line = true;
+      if(i == data.value.length -1){
+        line = false;
+      }
     
     let str = "project-heading-" + i.toString();
     let arrd = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
@@ -58,7 +62,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       height = arrd[0] + arrt[0];
       obj.block.components.push(BlockProject);
       obj.block.ids.push(str);
-      obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+      obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
       
       if(v.designation.optional || v.client.optional || v.date.optional){
         rightH = rightH + marginSec + height + tH;
@@ -69,7 +73,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     }else{
       obj.right.components.push(RightBlockProject);
       obj.right.ids.push(str);
-      obj.right.props.push({top: rightH + marginSec, height: height, data: v});
+      obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
       
       if(v.designation.optional || v.client.optional || v.date.optional){
         rightH = rightH + marginSec + height + tH;
@@ -101,7 +105,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             height = arrd[0] + arrt[0];
             obj.block.components.push(BlockProject);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
     
             if(v.designation.optional || v.client.optional || v.date.optional){
               rightH = rightH + marginSec + height + tH;
@@ -117,7 +121,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             height = arrd[0] + arrt[0];
             obj.block.components.push(BlockProject);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
     
             if(v.designation.optional || v.client.optional || v.date.optional){
               rightH = rightH + marginSec + height + tH;
@@ -143,7 +147,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
 
           obj.right.components.push(RightBlockProject);
           obj.right.ids.push(str);
-          obj.right.props.push({top: rightH + marginSec, height: height, data: v});
+          obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
           if(v.designation.optional || v.client.optional || v.date.optional){
             rightH = rightH + marginSec + height + tH;
           }else{
@@ -155,25 +159,11 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   })
   
   
-  if(countR > countL){
-    obj.block.components.push(VL);
-    obj.block.props.push({top: (297 * (countR-1))  + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-  }else{
-    if(countR == 1){
-      obj.right.components.push(VL);
-      obj.right.props.push({top: 60, height: 230});
-      
-      if(countR == 2){
+  if(countR == 1){
         obj.page1.right.components = obj.right.components;
         obj.page1.right.ids = obj.right.ids;
         obj.page1.right.props = obj.right.props;
       }
-    }else{
-      obj.right.components.push(VL);
-      obj.right.props.push({top: (297 * (countR-1)) + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-    }
-    
-  }
   obj.countL = countL;
   obj.countR = countR;
   obj.leftH = leftH;

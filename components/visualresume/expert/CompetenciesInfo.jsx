@@ -88,7 +88,7 @@ const CompetenciesInfo = (props) =>{
   }
   const handleTitle = e => {
     let visualresumeCopy = visualresumeexp;
-    visualresumeCopy.competenciesInformation.value = e.target.value;
+    visualresumeCopy.competenciesInformation.title = e.target.value;
     vr(visualresumeCopy);
   }
   

@@ -58,28 +58,28 @@ const EducationInfo = (props) =>{
             <input 
               type = "text"
               className="form-control"
-              onChange= {handleChange("value", "degree",i)}
+              onChange= {handleChange("degree",i)}
               defaultValue = {l.degree}>
             </input>
             <label className="lead">Institution</label>
             <input 
               type = "text"
               className="form-control"
-              onChange= {handleChange("rating", "college", i)}
+              onChange= {handleChange("college", i)}
               defaultValue = {l.college}>
             </input>
             <label className="lead">Passout Year</label>
             <input 
               type = "text"
               className="form-control"
-              onChange= {handleChange("rating", "year", i)}
+              onChange= {handleChange("year", i)}
               defaultValue = {l.year}>
             </input>
             <label className="lead">CGPA/Percentage/Grade</label>
             <input 
               type = "text"
               className="form-control"
-              onChange= {handleChange("rating", "cgpa", i)}
+              onChange= {handleChange("cgpa", i)}
               defaultValue = {l.cgpa}>
             </input>
           </div>}

@@ -1,9 +1,9 @@
-import VL from "../../../../components/visualresume/expert/template1/resume/VL"
-import RightBlockHeading from "../../../../components/visualresume/expert/template1/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template1/resume/RightBlockLogo"
-import RightBlockPub from "../../../../components/visualresume/expert/template1/resume/RightBlockPub"
-import BlockPub from "../../../../components/visualresume/expert/template1/resume/BlockPub"
-import {textWidth} from "./template1";
+import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
+import RightBlockHeading from "../../../../components/visualresume/expert/template2/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
+import RightBlockPub from "../../../../components/visualresume/expert/template2/resume/RightBlockPub"
+import BlockPub from "../../../../components/visualresume/expert/template2/resume/BlockPub"
+import {textWidth} from "./template2";
 const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
   let countR = obj.countR;
@@ -25,7 +25,7 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     obj.block.ids.push("pub-logo");
     obj.block.props.push({top: rightH + marginSec, name: "book"});
     
-    obj.block.components.push(RightBlockHeading);
+    obj.block.components.push(BlockHeading);
     obj.block.ids.push("pub");
     obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
     
@@ -46,7 +46,10 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   
  
   data.value.map((v, i)=>{
-    
+    let line = true;
+      if(i == data.value.length -1){
+        line = false;
+      }
     let str = "project-heading-" + i.toString();
     let arrj = textWidth("calibri", "normal", "3.2pt", "113px", v.journal);
     let arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
@@ -57,14 +60,14 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       height = arrj[0] + arrt[0];
       obj.block.components.push(BlockPub);
       obj.block.ids.push(str);
-      obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+      obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
       rightH = rightH + marginSec + height;
       
       
     }else{
       obj.right.components.push(RightBlockPub);
       obj.right.ids.push(str);
-      obj.right.props.push({top: rightH + marginSec, height: height, data: v});
+      obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
       rightH = rightH + marginSec + height;
       
       
@@ -86,7 +89,7 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             height = arrj[0] + arrt[0];
             obj.block.components.push(BlockPub);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
             rightH = rightH + marginSec + height;
             
           }else{
@@ -98,7 +101,7 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             height = arrj[0] + arrt[0];
             obj.block.components.push(BlockPub);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
             rightH = rightH + marginSec + height;
             
           }
@@ -119,7 +122,7 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
 
           obj.right.components.push(RightBlockPub);
           obj.right.ids.push(str);
-          obj.right.props.push({top: rightH + marginSec, height: height, data: v});
+          obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
          rightH = rightH + marginSec + height;
         }
     }
@@ -127,22 +130,11 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   })
   
   
-  if(countR > countL){
-    obj.block.components.push(VL);
-    obj.block.props.push({top: (297 * (countR-1))  + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-  }else{
-    if(countR == 1){
-      obj.right.components.push(VL);
-      obj.right.props.push({top: 60, height: 230});
+ if(countR == 1){
       obj.page1.right.components = obj.right.components;
         obj.page1.right.ids = obj.right.ids;
         obj.page1.right.props = obj.right.props;
-    }else{
-      obj.right.components.push(VL);
-      obj.right.props.push({top: (297 * (countR-1)) + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
     }
-    
-  }
   obj.countL = countL;
   obj.countR = countR;
   obj.leftH = leftH;

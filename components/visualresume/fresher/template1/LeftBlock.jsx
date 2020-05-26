@@ -1,4 +1,6 @@
 import "../../../../public/stylesheets/visualresume/fresher/template1/stylesheet.css"
+
+
 import { useState, useEffect } from 'react';
 
 

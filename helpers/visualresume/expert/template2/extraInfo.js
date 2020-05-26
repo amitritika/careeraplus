@@ -1,9 +1,9 @@
-import VL from "../../../../components/visualresume/expert/template1/resume/VL"
-import RightBlockHeading from "../../../../components/visualresume/expert/template1/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template1/resume/RightBlockLogo"
-import RightBlockBulletSmall from "../../../../components/visualresume/expert/template1/resume/RightBlockBulletSmall"
-import BlockBulletSmall from "../../../../components/visualresume/expert/template1/resume/BlockBulletSmall"
-import {textWidth} from "./template1";
+import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
+import RightBlockHeading from "../../../../components/visualresume/expert/template2/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
+import RightBlockBulletSmall from "../../../../components/visualresume/expert/template2/resume/RightBlockBulletSmall"
+import BlockBulletSmall from "../../../../components/visualresume/expert/template2/resume/BlockBulletSmall"
+import {textWidth} from "./template2";
 const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
   let countL = obj.countL;
   let countR = obj.countR;
@@ -25,7 +25,7 @@ const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
     obj.block.ids.push("extra-logo");
     obj.block.props.push({top: rightH + marginSec, name: logo});
     
-    obj.block.components.push(RightBlockHeading);
+    obj.block.components.push(BlockHeading);
     obj.block.ids.push("extra");
     obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
     
@@ -46,20 +46,24 @@ const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
   
  
   data.value.map((v, i)=>{
-    
+    let line = true;
+      if(i == data.value.length -1){
+        line = false;
+      }
     let str = "project-heading-" + i.toString();
     let arr = textWidth("calibri", "normal", "3.2pt", "113px", v);
     let height = arr[0];
     if(countR > countL){
-      height = (Math.floor(v.length/100) + 2) * 5
+      arr = textWidth("calibri", "normal", "3.2pt", "183px", v);
+      height = arr[0];
       obj.block.components.push(BlockBulletSmall);
       obj.block.ids.push(str);
-      obj.block.props.push({top: rightH + marginSec, height: height, name: v});
+      obj.block.props.push({top: rightH + marginSec, height: height, name: v, line: line});
       rightH = rightH + marginSec + height;
     }else{
       obj.right.components.push(RightBlockBulletSmall);
       obj.right.ids.push(str);
-      obj.right.props.push({top: rightH + marginSec, height: height, name: v});
+      obj.right.props.push({top: rightH + marginSec, height: height, name: v, line: line});
       rightH = rightH + marginSec + height;
     }
     
@@ -78,7 +82,7 @@ const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
             height = arr[0];
             obj.block.components.push(BlockBulletSmall);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, name: v});
+            obj.block.props.push({top: rightH + marginSec, height: height, name: v, line: line});
             rightH = rightH + marginSec + height;
            
           }else{
@@ -89,7 +93,7 @@ const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
             height = arr[0];
             obj.block.components.push(BlockBulletSmall);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v});
+            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
             rightH = rightH + marginSec + height;
             
           }
@@ -105,10 +109,10 @@ const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
       }
           
           arr = textWidth("calibri", "normal", "3.2pt", "113px", v);
-            height = arr[0];
+          height = arr[0];
           obj.right.components.push(RightBlockBulletSmall);
           obj.right.ids.push(str);
-          obj.right.props.push({top: rightH + marginSec, height: height, data: v});
+          obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
           rightH = rightH + marginSec + height;
         }
     }
@@ -116,23 +120,12 @@ const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
   })
   
   
-  if(countR > countL){
-    obj.block.components.push(VL);
-    obj.block.props.push({top: (297 * (countR-1))  + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-  }else{
-    if(countR == 1){
-      obj.right.components.push(VL);
-      obj.right.props.push({top: 60, height: 230});
+  if(countR == 1){
       
       obj.page1.right.components = obj.right.components;
         obj.page1.right.ids = obj.right.ids;
         obj.page1.right.props = obj.right.props;
-    }else{
-      obj.right.components.push(VL);
-      obj.right.props.push({top: (297 * (countR-1)) + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
     }
-    
-  }
   obj.countL = countL;
   obj.countR = countR;
   obj.leftH = leftH;
