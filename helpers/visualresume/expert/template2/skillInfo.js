@@ -12,7 +12,7 @@ const skillInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   
   obj.left.components.push(LeftBlockHeading);
   obj.left.ids.push("skill");
-  obj.left.props.push({top: leftH + marginSec, name: data.title , height: 9});
+  obj.left.props.push({top: leftH + marginSec, name: data.title , height: 9, icon: "tools"});
   
   leftH = leftH + marginSec + 9;
   

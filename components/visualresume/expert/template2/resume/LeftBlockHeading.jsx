@@ -2,7 +2,7 @@ const LeftBlockHeading = (props) =>{
   let height = (props.fac * props.props.height).toString() + "px";
   let width = (props.fac * 60).toString() + "px";
   
-  let iclass = "fas fa-phone";
+  let iclass = "fas fa-" + props.props.icon;
   
   let name = props.props.name;
   let bg = props.bg;

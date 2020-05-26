@@ -30,7 +30,7 @@ const RightBlockProject = (props) =>{
   let left4 = (props.fac * -6).toString() + "px";
   
   let lineH = (props.fac * (props.props.height)).toString() + "px";
-  let lineT = (-props.fac * (props.props.height)).toString() + "px";
+  let lineT = (-props.fac * (props.props.height-2)).toString() + "px";
   let lineL = (props.fac * -5).toString() + "px";
   let lineOp = props.props.line;
   let lineW = (props.fac * 0.5).toString() + "px";

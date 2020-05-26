@@ -31,7 +31,7 @@ const userInfo = (obj, name, email, photo, data, marginSec, marginBullet, margin
   
   obj.left.components.push(LeftBlockHeading);
   obj.left.ids.push("contact-dummy");
-  obj.left.props.push({top: leftH + marginSec, name: "CONTACT", height: 9});
+  obj.left.props.push({top: leftH + marginSec, name: "CONTACT", height: 9, icon: "phone"});
   
   leftH = leftH + marginSec + 9;
   
