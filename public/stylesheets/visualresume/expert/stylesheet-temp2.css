@@ -101,3 +101,8 @@ p {
 .template2-icon{
     top: 7px !important;
   }
+
+.skill-box{
+  top: 2px;
+  left: 2px;
+}
