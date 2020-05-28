@@ -29,18 +29,21 @@ const LeftBlockContactInfo = (props) =>{
   let marginT = (props.fac * 0.5).toString() + "px";
   let heightI =  (props.fac * (props.props.height)*0.95).toString() + "px";
   let size1 = (props.fac * 2).toString() + "pt";
-  let left2 = (props.fac * 15).toString() + "px";
+  let left3 = (props.fac * 15).toString() + "px";
   let top1 = (props.fac * -0.5).toString() + "px";
+  let left2 = (props.fac * 8).toString() + "px";
+  let top2 = (props.fac * 0.5).toString() + "px";
+
   return (
     <div id = {id} style = {{ height: `${textHeight}`, width: `${width}`,color: `white`, position: `absolute`, top: `${top}`, left: `${left}`, fontFamily: `calibri`, textAlign: `center`, fontWeight: `bold`}}>
       
       <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid white`,  transform: `rotate(-45deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
-        <div style = {{ position: `absolute`, transform: `rotate(45deg)`, color: `white`, fontSize: `${size1}`, margin: `${marginL} ${marginT}`}}>
+        
+      </div> 
+     <div className = "template2-icon" style = {{ position: `absolute`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
           <i className={iconClass}></i>
         </div>
-      </div> 
-     
-      <div style = {{position: `absolute`, top: `${top1}`, left: `${left2}`, fontSize: `${textFont}`}}>
+      <div style = {{position: `absolute`, top: `${top1}`, left: `${left3}`, fontSize: `${textFont}`}}>
          {name}
        </div>
     </div>

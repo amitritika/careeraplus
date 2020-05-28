@@ -35,9 +35,7 @@ p{
       padding: 0;
     }
   
-  .template2-icon-heading{
-    top: 10px;
-  }
+ 
 }
 
 p {
@@ -95,3 +93,11 @@ p {
         -o-transform:rotate(-45deg);
         transform:rotate(-45deg);
 }
+
+ .template2-icon-heading{
+    top: 10px !important;
+  }
+
+.template2-icon{
+    top: 7px !important;
+  }

@@ -17,15 +17,17 @@ const RightBlockLogo = (props) =>{
   let marginL = (-props.fac * 0).toString() + "px";
   let marginT = (props.fac * 1).toString() + "px";
   let heightI =  (props.fac * 9 *0.8).toString() + "px";
-  
+  let left2 = (props.fac * 5.5).toString() + "px";
+  let top2 = (props.fac * 0.5).toString() + "px";
 
   return (
     <div id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
      <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid ${bg}`,  transform: `rotate(-45deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
-        <div style = {{ position: `absolute`, transform: `rotate(45deg)`, color: `${bg}`, fontSize: `${size1}`, margin: `${marginL} ${marginT}`}}>
+        
+      </div> 
+      <div className = "template2-icon-heading" style = {{ position: `absolute`, color: `${bg}`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
           <i className={name}></i>
         </div>
-      </div> 
     </div>
   )
 }

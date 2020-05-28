@@ -91,9 +91,9 @@ const Template2 = () => {
   const Popup = (data1) =>{
     var mywindow = window.open('', 'new div', 'height=1485,width=1050');
       mywindow.document.write('<html><head><title></title>');
-      mywindow.document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">');
-      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet.css" type="text/css" media = "print"/>');
-      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet.css" type="text/css" media = "screen"/>');
+      mywindow.document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">');
+      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet-temp2.css" type="text/css" media = "print"/>');
+      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet-temp2.css" type="text/css" media = "screen"/>');
       mywindow.document.write('</head><body>');
       
       mywindow.document.write(data1);
