@@ -21,10 +21,18 @@ const Index = () => {
             <title>
               {APP_NAME}
             </title>
-            <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-            <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
             <meta name="description" content="We help to build Your Dream Career. We help to give exam plan like GATE, ESE, UPSC, JEE. We also help you to get Visual Resume. Career A+ | career aplus" />
             <link rel="canonical" href={`${DOMAIN}`} />
+            <meta property="og:title" content={`${APP_NAME}`} />
+            <meta property="og:description" content="We help to build Your Dream Career. We help to give exam plan like GATE, ESE, UPSC, JEE. We also help you to get Visual Resume. Career A+ | career aplus" />
+            <meta property="og:type" content="webiste" />
+            <meta property="og:url" content={`${DOMAIN}`} />
+            <meta property="og:site_name" content={`${APP_NAME}`} />
+
+            <meta property="og:image" content={`${API}/image/main`} />
+            <meta property="og:image:secure_url" content={`${API}/image/main`} />
+            <meta property="og:image:type" content="image/jpg" />
+            <meta property="fb:app_id" content={`${FB_APP_ID}`} />
         </Head>
     );
   

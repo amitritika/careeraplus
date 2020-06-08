@@ -198,7 +198,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       }
 
           arr = textWidth("calibri", "normal", "3.2pt", "113px", r);
-          height = arr[1];
+          height = arr[0];
           obj.right.components.push(RightBlockBullet);
           obj.right.ids.push(str);
           obj.right.props.push({top: rightH + marginBullet, name: r , height: height, line: line});

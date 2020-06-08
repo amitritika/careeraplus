@@ -44,7 +44,83 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   
   rightH = rightH + marginSec + 13;
   
-  
+  if(rightH > countR * 297){
+      countR++;
+      
+      rightH = 297 * (countR -1) + marginPage;
+        if(countR > countL) {
+          if(countR - 1 == countL){
+            obj.right.components.pop();
+            obj.right.ids.pop();
+            obj.right.props.pop();
+            
+            obj.right.components.pop();
+            obj.right.ids.pop();
+            obj.right.props.pop();
+            
+            if(countR == 2){
+              obj.page1.right.components = obj.right.components;
+              obj.page1.right.ids = obj.right.ids;
+              obj.page1.right.props = obj.right.props;
+            }
+            
+            obj.block.components.push(RightBlockLogo);
+            obj.block.ids.push("project-logo");
+            obj.block.props.push({top: rightH + marginSec, name: "cog"});
+
+            obj.block.components.push(RightBlockHeading);
+            obj.block.ids.push("project");
+            obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
+            
+            rightH = rightH + marginSec + 13;
+    
+          }else{
+            obj.block.components.pop();
+            obj.block.ids.pop();
+            obj.block.props.pop();
+            
+            obj.block.components.pop();
+            obj.block.ids.pop();
+            obj.block.props.pop();
+           
+            obj.block.components.push(RightBlockLogo);
+            obj.block.ids.push("project-logo");
+            obj.block.props.push({top: rightH + marginSec, name: "cog"});
+
+            obj.block.components.push(RightBlockHeading);
+            obj.block.ids.push("project");
+            obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
+            
+            rightH = rightH + marginSec + 13;
+          }
+        }else{
+          obj.right.components.pop();
+          obj.right.ids.pop();
+          obj.right.props.pop();
+          
+          obj.right.components.pop();
+          obj.right.ids.pop();
+          obj.right.props.pop();
+          
+          if(countR == 2){
+            obj.page1.right.components = obj.right.components;
+            obj.page1.right.ids = obj.right.ids;
+            obj.page1.right.props = obj.right.props;
+          }
+          
+          
+          obj.right.components.push(RightBlockLogo);
+          obj.right.ids.push("project-logo");
+          obj.right.props.push({top: rightH + marginSec, name: "cog"});
+
+          obj.right.components.push(RightBlockHeading);
+          obj.right.ids.push("project");
+          obj.right.props.push({top: rightH + marginSec, name: data.title , height: 13});
+          
+          rightH = rightH + marginSec + 13;
+        
+        }
+    }
  
   data.value.map((v, i)=>{
     

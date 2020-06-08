@@ -249,7 +249,7 @@ const UserInformationexpert = forwardRef((props, ref) => {
 			softSkillsInfoDisplay: false,
 			projectsInfoDisplay: false,
 			educationInfoDisplay: false,
-			certificationDisplay: false,
+			certificationInfoDisplay: false,
 			achievmentsInfoDisplay: false,
 			publicationInfoDisplay: false,
 			areaOfIntrestInfoDisplay: false,

@@ -19,10 +19,15 @@ const Examplan = () => {
               <Col xs="12" sm="12" md = "12" lg = "12">
                 <a href = "/visualresume/expert/template1" className = "btn btn-lg btn-outline-primary menu-button">Template 1</a>
               </Col>
-          </Row>
-            <Row>
+          
               <Col xs="12" sm="12" md = "12" lg = "12">
                 <a href = "/visualresume/expert/template2" className = "btn btn-lg btn-outline-primary menu-button">Template 2</a>
+              </Col>
+              <Col xs="12" sm="12" md = "12" lg = "12">
+                <a href = "/visualresume/expert/template3" className = "btn btn-lg btn-outline-primary menu-button">Template 3</a>
+              </Col>
+              <Col xs="12" sm="12" md = "12" lg = "12">
+                <a href = "/visualresume/expert/template4" className = "btn btn-lg btn-outline-primary menu-button">Template 4</a>
               </Col>
           </Row>
             {!isAuth() && <h1>Please Signin to Visit Visual Resume Page</h1>}

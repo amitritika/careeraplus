@@ -45,6 +45,15 @@ const AdminIndex = () => {
                 <a href = "/admin/crud/blogs/blogs" className = "btn btn-outline-primary mt-2">Update/Delete</a>
               </Card>
             </Col>
+            <Col xs = "12" md = "6">
+              <Card body>
+                <CardTitle className="text-center">Images</CardTitle>
+                <CardText></CardText>
+                <a href = "/admin/crud/images/main" className = "btn btn-outline-primary">Update Main Page</a>
+                <a href = "/admin/crud/images/visualresume" className = "btn btn-outline-primary mt-2">Update Visual Resume</a>
+                <a href = "/admin/crud/images/examplan" className = "btn btn-outline-primary mt-2">Update Exam Plan</a>
+              </Card>
+            </Col>
           </Row>
         </div>
       </Admin>
