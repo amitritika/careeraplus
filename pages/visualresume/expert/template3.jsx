@@ -13,7 +13,9 @@ import {componentSequence, colors} from "../../../helpers/visualresume/expert/te
 import {saveAs} from 'file-saver';
 import { getCookie, isAuth , updateUser, forgotPassword} from '../../../actions/auth';
 import { getProfile, updateprofile } from '../../../actions/user';
+import Popup from "reactjs-popup";
 import {FacebookShareButton, FacebookIcon} from 'react-share'
+import imageCompression from 'browser-image-compression';
 import {base64StringtoFile,
     downloadBase64File,
     extractImageFileExtensionFromBase64,
@@ -34,37 +36,59 @@ const Template2 = () => {
     showLeftBlock: false,
     layoutInfoDisplay: true,
     userInfoDisplay: false,
+		sharePopup: false,
     image : "",
 		imageDisplay: false
   });
   
-	
  
  
- const {name, username, email, photo, visualresumeexp, bg, font, list, showLeftBlock, layoutInfoDisplay, userInfoDisplay, image, imageDisplay} = values;
+ const {name, username, email, photo, visualresumeexp, bg, font, list, showLeftBlock, layoutInfoDisplay, userInfoDisplay, sharePopup, image, imageDisplay} = values;
   
  const vr = (data, layoutInfoDisplay, userInfoDisplay) => {
-   setValues({...values, visualresumeexp: data, list: componentSequence(data, name, email, photo), layoutInfoDisplay: layoutInfoDisplay, userInfoDisplay: userInfoDisplay});
+   setValues({...values, visualresumeexp: data, list: componentSequence(data, name, email, photo), 
+							layoutInfoDisplay: layoutInfoDisplay, userInfoDisplay: userInfoDisplay});
  }
   const personalInformation = (data) =>{
-    
+    console.log(componentSequence(data.visualresumeexp, data.name, data.email, data.photo))
     setValues({...values, name: data.name, username: data.username, email: data.email, photo: data.photo, visualresumeexp:data.visualresumeexp, 
                list: componentSequence(data.visualresumeexp, data.name, data.email, data.photo)
                ,showLeftBlock: true})
   }
   
-	const [styles, setStyles] = useState({
-		fontf: "calibiri",
-		size: "12pt",
-		weight: "normal",
-		width: "80px",
-		height: '10px'
-	})
-	const {fontf, size, weight, width, height} = styles
   const token = getCookie('token');
+	
+	const [skills, setSkills] = useState({
+    fac: 2, fac1: 2
+  });
+	
+	useEffect(() => {
+			let fac = 5;
+      let fac1 = 1;
+			if(window.innerWidth > 1200){
+				fac = 5;
+				fac1 = 2;
+			}else if (window.innerWidth <= 1200 && window.innerWidth > 900){
+				fac = 4;
+				fac1 = 2;
+			}else if (window.innerWidth <= 900 && window.innerWidth > 600){
+				fac = 3;
+				fac1 = 2;
+			}else if (window.innerWidth <= 600 && window.innerWidth > 320){
+				fac = 2;
+				fac1 = 2;
+			}else{
+				fac = 1;
+				fac1 = 1;
+			}
+		console.log(fac);
+			
+		setSkills({fac, fac1});
+		
+  }, []);
+	
   const editSection = useRef();
   
- 
   
   const editClick = (c) =>{
     
@@ -88,12 +112,12 @@ const Template2 = () => {
     )
   }
   
-  const Popup = (data1) =>{
+  const popup = (data1) =>{
     var mywindow = window.open('', 'new div', 'height=1485,width=1050');
       mywindow.document.write('<html><head><title></title>');
-      mywindow.document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">');
-      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet-temp2.css" type="text/css" media = "print"/>');
-      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet-temp2.css" type="text/css" media = "screen"/>');
+      mywindow.document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">');
+      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet.css" type="text/css" media = "print"/>');
+      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/expert/stylesheet.css" type="text/css" media = "screen"/>');
       mywindow.document.write('</head><body>');
       
       mywindow.document.write(data1);
@@ -117,13 +141,13 @@ const Template2 = () => {
         const BlockComponent = q;
         const props = list.left.props[i];
         const id = list.left.ids[i];
-        if(list.left.props[i].top > 297){
+        
           return (
           
             <BlockComponent id = {id} bg = {bg} font = {font} fac= {fac} props = {props} />
           
                )
-        }
+        
       })
     )
     
@@ -159,7 +183,7 @@ const Template2 = () => {
         const BlockComponent = q;
         const props = list.right.props[i];
         const id = list.right.ids[i];
-        if(list.right.props[i].top > 297){
+        
         return (
           <div style = {{position: `absolute`, left: `${left}`}}>
             <BlockComponent id = {id} bg = {bg} font = {font} fac= {fac} props = {props} />
@@ -167,7 +191,7 @@ const Template2 = () => {
             
           
                )
-        }
+        
       })
     )
     
@@ -198,7 +222,10 @@ const Template2 = () => {
   }
   
   const handleColor = (c) => {
-    setValues({...values, bg: c.bg, font: c.font});
+    let visualresumeCopy = visualresumeexp;
+		visualresumeCopy.colors.bg = c.bg;
+		visualresumeCopy.colors.font = c.font;
+    setValues({...values, bg: c.bg, font: c.font, visualresume: visualresumeCopy});
   }
   
   const colorDropdown = () => {
@@ -242,56 +269,107 @@ const Template2 = () => {
   
   const handlePrint = () => {
     let data = document.getElementById("resume").innerHTML;
-    Popup(data);
+    popup(data);
   }
-  
-  const handleShare = () => {
-    
-    let html2c = require("html2canvas");
-		let userFormData = new FormData();
-		setValues({...values, imageDisplay: true});
-  html2c(document.getElementById("resume-page-1"), {allowTaint: true, useCORS: true,
+	
+	const closeShare = () => {
+    setValues({...values, sharePopup: false});
+  }
+	
+	const handleShare = () => {
+    let data = document.getElementById("resume").innerHTML;
+    popup2(data);
+  }
+	
+	const popup2 = (data1) =>{
+    let userFormData = new FormData();
+    var mywindow = window.open('', 'new div', 'height=1485,width=1050');
+      mywindow.document.write('<html><head><title></title>');
+      mywindow.document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">');
+      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/fresher/stylesheet.css" type="text/css" media = "print"/>');
+      mywindow.document.write('<link rel="stylesheet" href="/stylesheets/visualresume/fresher/stylesheet.css" type="text/css" media = "screen"/>');
+      mywindow.document.write('</head><body>');
+      mywindow.document.write('<div id = "resume" style = "width: 1050px; height: 549px">');
+      mywindow.document.write(data1);
+      mywindow.document.write('</div>');
+      mywindow.document.write('</body></html>');
+      mywindow.document.close();
+			let phone = mywindow.document.getElementById("contact-phone-dummy");
+			let email = mywindow.document.getElementById("contact-email-dummy");
+		
+		email.children[1].innerHTML = "dummyemail@abc.com"
+		phone.children[1].innerHTML = "+91-1234567890"
+      let html2c = require("html2canvas");
+      let myNewCroppedFile = null
+			const options = {
+				maxSizeMB: 1,
+				maxWidthOrHeight: 1920,
+				useWebWorker: true
+			}
+      html2c(mywindow.document.getElementById("resume"), {allowTaint: true, useCORS: true,
         taintTest: false}).then(function(canvas) {
-    	var img = canvas.toDataURL("image/png");
-			//document.body.appendChild(canvas);
+      var img = canvas.toDataURL("image/png");
 			let arr = img.split(',');
 		if(arr[1]){
-			const myNewCroppedFile = base64StringtoFile(img, "myFilename.png")
-      userFormData.set('photosrc', myNewCroppedFile);
-			console.log(arr[1])
+			myNewCroppedFile = base64StringtoFile(img, "myFilename.png")
 		}
-		updateprofile(token, userFormData).then(data => {
-          if (data.error) {
-              setValues({ ...values, error: data.error, success: false, loading: false });
-						
-          } else {
-							
-              console.log(true)
-          }
+        
+				imageCompression(myNewCroppedFile, options)
+					.then(function (compressedFile) {
+						userFormData.set('photosrc', myNewCroppedFile);
+						updateprofile(token, userFormData).then(data => {
+									if (data.error) {
+											setValues({ ...values, error: data.error, success: false, loading: false });
+										mywindow.focus();
+										mywindow.close();
+									} else {
+											
+											console.log(true);
+											mywindow.focus();
+											mywindow.close();
+									}
+							});
+					})
+					.catch(function (error) {
+						console.log(error.message);
+					});
+    			editSection.current.saveInfo();
+      		setValues({ ...values, sharePopup: true });
       });
-			
-});
-		
-		
-		setValues({...values, imageDisplay: false});
-		editSection.current.saveInfo();
-		
-}  
+    
+      
+      
+      return true;
+  }
+	
+	
   
-  
-  let fac = 5;
   
   return (
     <React.Fragment>
       {head()}
         <Layout>
           <Private>
-						<div id = "text" style = {{position: `absolute`, visibility: `hidden`}}>
+            <div>
+							<div id = "text" style = {{position: `absolute`, visibility: `hidden`}}>
 							aaaaaa
 						</div>
-            <div>
+							<Popup
+								open={sharePopup}
+								closeOnDocumentClick
+								onClose={closeShare}
+							>
+								<div>
+									<div>
+										{DOMAIN}/user/profile/{username}
+									</div>
+									<a className = "btn btn-sm" onClick = {closeShare}>
+										Close
+									</a>
+								</div>
+        			</Popup>
               <Row>
-                <Col xs = "8" lg = "10">
+                <Col xs = "4" lg = "6">
                   <div className="dropdown ml-4 mt-2">
                     <button className="dropbtn mb-2">Select Theme</button>
                     <div className="dropdown-content">
@@ -305,7 +383,21 @@ const Template2 = () => {
                 <Col xs = "2" lg = "1">
                   <div style = {{width: `50px`, height: `50px`, backgroundColor: `${font}`, marginTop: `10px`}}></div>
                 </Col>
-                {layoutInfoDisplay && <Col xs= "12" lg = "8">
+								{showLeftBlock && <Col xs = "2" lg = "2">
+									<Button onClick = {handlePrint} className = "btn btn-block btn-info mt-2">Print</Button>
+								</Col>}
+								{showLeftBlock && <Col xs = "2" lg = "2">
+									<Button onClick = {handleShare} className = "btn btn-block btn-info mt-2">Share</Button>
+								</Col>}
+                
+								<Col xs= "12" lg = "4">
+                  <UserInformationexpert vr = {vr} pr = {personalInformation} type="expert" template = "template1" userInfoDisplay = {userInfoDisplay} ref = {editSection} />
+                </Col>
+								{layoutInfoDisplay && <Col xs= "12" lg = "8">
+                  
+                  
+                </Col>}
+								{layoutInfoDisplay && <Col xs= "12" lg = "8">
                   <div className = "mt-4 h2 center ml-4">Resume Layout</div>
                   <LayoutLRInfo vr = {vr} next = {next} visualresumeexp = {visualresumeexp} editClick = {editClick} />
                 </Col>}
@@ -313,65 +405,34 @@ const Template2 = () => {
                {layoutInfoDisplay && <Col xs= "12" lg = "4" style = {{paddingLeft: `0`}} className= "mt-4">
                   <div className = "h2 center ml-2 mt-4">Resume Preview</div>
                   <div className = "mt-4" id = "resume-preview" style = {{ height: `297px`, position: `absolute`}}>
-                    {showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {2} bg = {bg} font = {font}/>}
+                    {showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {skills.fac1} bg = {bg} font = {font}/>}
                     
-                    {showLeftBlock && leftBlockComponent(2)}
-                    {showLeftBlock && rightBlockComponent(2)}
-                    {showLeftBlock && blockComponent(2)}
+                    {showLeftBlock && leftBlockComponent(skills.fac1)}
+                    {showLeftBlock && rightBlockComponent(skills.fac1)}
+                    {showLeftBlock && blockComponent(skills.fac1)}
                   </div>
-                  <div className = "mt-4" id = "page1-preview" style = {{ height: `594px`, position: `absolute`, width: `420px`}}>
-                    {showLeftBlock && <Page1 list = {list} visualresumeexp = {visualresumeexp} fac = {2} bg = {bg} font = {font}/>}
-                    
-                    {showLeftBlock && leftBlockComponentPage1(2)}
-                    {showLeftBlock && rightBlockComponentPage1(2)}
-                    
-                  </div>
-									
-									{imageDisplay && <div className = "mt-4" id = "page1-preview1" style = {{ height: `1050px`, position: `absolute`, width: `1050px`}}>
-                    {showLeftBlock && <Page1 list = {list} visualresumeexp = {visualresumeexp} fac = {5} bg = {bg} font = {font}/>}
-                    
-                    {showLeftBlock && leftBlockComponentPage1(5)}
-                    {showLeftBlock && rightBlockComponentPage1(5)}
-                    
-                  </div>}
-                  
-                  
                 </Col>}
-                 <Col xs= "12" lg = "4">
-                  <UserInformationexpert vr = {vr} pr = {personalInformation} type="expert" template = "template2" userInfoDisplay = {userInfoDisplay} ref = {editSection}/>
-                  {!layoutInfoDisplay && <Button onClick = {handlePrint} className = "btn-alert">Print</Button>}
-									 {!layoutInfoDisplay && <FacebookShareButton
-																						beforeOnClick = {handleShare}
-            url={`${DOMAIN}/user/profile/${username}`}
-            quote="Visual Resume"
-            
-          >
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>}
-                </Col>
-                <Col style = {{paddingLeft: `0`}}>
+                 
+                <Col style = {{paddingLeft: `0`}} xs="12" lg = "8">
                   {!layoutInfoDisplay && 
-                    <div id = "resume" style = {{position: `absolute`}}>
+                    <div id = "resume1" style = {{position: `absolute`}}>
                       <div id = "resume-rest-pages" style = {{position: `absolute`}}>
-                        {showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {fac} bg = {bg} font = {font}/>}
+                        {showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {skills.fac} bg = {bg} font = {font}/>}
                     
-                        {showLeftBlock && leftBlockComponent(fac)}
-                        {showLeftBlock && rightBlockComponent(fac)}
-                        {showLeftBlock && blockComponent(fac)}
+                        {showLeftBlock && leftBlockComponent(skills.fac)}
+                        {showLeftBlock && rightBlockComponent(skills.fac)}
+                        {showLeftBlock && blockComponent(skills.fac)}
                       </div>
-                      <div id = "resume-page-1" style = {{position: `absolute`, height: `549px`, width: `1050px`}}>
-                        {showLeftBlock && <Page1 list = {list} visualresumeexp = {visualresumeexp} fac = {fac} bg = {bg} font = {font}/>}
-                    
-                        {showLeftBlock && leftBlockComponentPage1(fac)}
-                        {showLeftBlock && rightBlockComponentPage1(fac)}
-                        
-                      </div>
-                    
                   </div>
                   }
                 </Col>
               </Row>
-              
+              <div id = "resume" className = "mt-2" style = {{position: `absolute`, visibility: `hidden`, top: `-20000px`}}>
+											{showLeftBlock && <Resume list = {list} visualresumeexp = {visualresumeexp} fac = {5} bg = {bg} font = {font}/>}
+											{showLeftBlock && leftBlockComponent(5)}
+											{showLeftBlock && rightBlockComponent(5)}
+											{showLeftBlock && blockComponent(5)}
+										</div>
             </div>
           </Private>
       </Layout>

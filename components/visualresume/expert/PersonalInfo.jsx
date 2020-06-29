@@ -54,6 +54,40 @@ const PersonalInfo = (props) =>{
       }
     };
   
+  const handleChangeCheckAd = e => {
+      let visualresumeCopy = visualresumeexp;
+      if(e.target.checked){
+        visualresumeCopy.personalInformation.addressFull.optional = true;
+        vr(visualresumeCopy);
+      }else{
+        visualresumeCopy.personalInformation.addressFull.optional = false;
+        vr(visualresumeCopy);
+      }
+    };
+  
+  const handleChangeCheckPhone = e => {
+      let visualresumeCopy = visualresumeexp;
+      if(e.target.checked){
+        visualresumeCopy.personalInformation.phone2.optional = true;
+        vr(visualresumeCopy);
+      }else{
+        visualresumeCopy.personalInformation.phone2.optional = false;
+        vr(visualresumeCopy);
+      }
+    };
+  
+  const handleChangePhone = e => {
+      let visualresumeCopy = visualresumeexp;
+      visualresumeCopy.personalInformation.phone2.value = e.target.value;
+      vr(visualresumeCopy);
+    };
+  
+  const handleChangeAd = e => {
+      let visualresumeCopy = visualresumeexp;
+      visualresumeCopy.personalInformation.addressFull.value = e.target.value;
+      vr(visualresumeCopy);
+    };
+  
   return(
   <div className= "container">
            
@@ -72,13 +106,59 @@ const PersonalInfo = (props) =>{
         value={props.visualresumeexp.personalInformation.phone}
         onChange= {handleChange("phone")}>
       </input>
-      <label className="lead">Address</label>
-      <input 
-        type = "text"
-        className="form-control"
-        value={props.visualresumeexp.personalInformation.address}
-        onChange= {handleChange("address")}>
-      </input>
+      {!props.visualresumeexp.personalInformation.phone2.optional && <label className="lead">Check for Additional Phone</label>}
+      {props.visualresumeexp.personalInformation.phone2.optional && <label className="lead">UnCheck for Only One Phone</label>}
+      <input  type="checkbox" 
+            className = "mt-2 ml-2"
+            style= {{width:`20px`, height:`20px`, lineHeight: `20px`}}
+            checked = {props.visualresumeexp.personalInformation.phone2.optional}
+            onChange = {handleChangeCheckPhone} ></input>
+      
+      {
+        props.visualresumeexp.personalInformation.phone2.optional && <div>
+          <label className="lead">Additional Phone</label>
+          <input 
+            type = "text"
+            className="form-control"
+            value={props.visualresumeexp.personalInformation.phone2.value}
+            onChange= {handleChangePhone}>
+          </input>
+          </div>
+      }
+      <br></br>
+      
+      {!props.visualresumeexp.personalInformation.addressFull.optional && <label className="lead">Check for Full Address</label>}
+      {props.visualresumeexp.personalInformation.addressFull.optional && <label className="lead">UnCheck for One Line Address</label>}
+      <input  type="checkbox" 
+            className = "mt-2 ml-2"
+            style= {{width:`20px`, height:`20px`, lineHeight: `20px`}}
+            checked = {props.visualresumeexp.personalInformation.addressFull.optional}
+            onChange = {handleChangeCheckAd} ></input>
+      
+      {
+        props.visualresumeexp.personalInformation.addressFull.optional && <div>
+          <label className="lead">Full Address</label>
+          <input 
+            type = "text"
+            className="form-control"
+            value={props.visualresumeexp.personalInformation.addressFull.value}
+            onChange= {handleChangeAd}>
+          </input>
+          </div>
+      }
+      {
+        !props.visualresumeexp.personalInformation.addressFull.optional && <div>
+          <label className="lead">Full Address</label>
+          <input 
+            type = "text"
+            className="form-control"
+            value={props.visualresumeexp.personalInformation.address}
+            onChange= {handleChange("address")}>
+          </input>
+          </div>
+      }
+      {!props.visualresumeexp.personalInformation.visa.optional && <label className="lead">Check for Visa Information</label>}
+      {props.visualresumeexp.personalInformation.visa.optional && <label className="lead">UnCheck for No Visa Information</label>}
       <input  type="checkbox" 
             className = "mt-2 ml-2"
             style= {{width:`20px`, height:`20px`, lineHeight: `20px`}}

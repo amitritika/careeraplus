@@ -46,6 +46,21 @@ export const updateprofile = (token, user) => {
         .catch(err => console.log(err));
 };
 
+export const updateresume = (token, user) => {
+    return fetch(`${API}/user/update-resume-photo`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: user
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
 export const getPublicProfile = id => {
     return fetch(`${API}/user/public-profile/${id}`, {
         method: 'GET'

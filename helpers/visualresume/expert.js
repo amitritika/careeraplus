@@ -93,9 +93,13 @@ export const visualresumedata = {
 
   personalInformation: {
     phone: "9xxxxxxxx9",
+		phone2:  {optional: false, value: "8xxxxxxxx8"},
     designation: "Mxxxxxxxl Exxxxxxr",
     address: "BHOPAL, INDIA",
-    visa: {optional: true, value: "USA B1/B2"}
+		addressFull: {optional: false, value: "MIG-15, Anandvihar Colony, Arera Border, Bhopal, MP, INDIA, 461003"},
+    visa: {optional: true, value: "USA B1/B2"},
+		photoDisplay:true, 
+		
   },
 
   profileSummaryInformation: {title: "PROFILE",
@@ -326,7 +330,12 @@ export const visualresumedata = {
   hobbiesInformation: {
     title: "Hobbies",
     value: ["Running", "Chess", "Playing Guitar"]
-  }
+  },
+	
+	payment: {
+		status: false,
+		date: new Date()
+	}
 }
 
 export const hobbies = [

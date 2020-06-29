@@ -8,7 +8,7 @@ import educationInfo from "./educationInfo"
 import extraInfo from "./extraInfo"
 import publicationsInfo from "./publicationsInfo"
 import hobbiesInfo from "./hobbiesInfo"
-
+import {FaCertificate, FaAward} from "react-icons/fa"
 
 import Page1 from "../../../../components/visualresume/expert/template1/pages/Page1"
 import Page2 from "../../../../components/visualresume/expert/template1/pages/Page2"
@@ -129,11 +129,11 @@ export const componentSequence = (visualresume, name, email, photo)=> {
     }
     
     if( q == "certificationInfoDisplay" ){
-      obj = extraInfo(obj, visualresume.certificationInformation, marginSec, marginBullet, marginPage, "certificate");
+      obj = extraInfo(obj, visualresume.certificationInformation, marginSec, marginBullet, marginPage, FaCertificate);
     }
     
     if( q == "achievmentsInfoDisplay" ){
-      obj = extraInfo(obj, visualresume.achievmentsInformation, marginSec, marginBullet, marginPage, "award");
+      obj = extraInfo(obj, visualresume.achievmentsInformation, marginSec, marginBullet, marginPage, FaAward);
     }
     
     if( q == "publicationInfoDisplay" ){

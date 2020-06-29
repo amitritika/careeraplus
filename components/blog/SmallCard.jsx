@@ -31,10 +31,7 @@ const SmallCard = ({ blog }) => {
             </div>
 
             <div className="card-body">
-                Posted {moment(blog.updatedAt).fromNow()} by{' '}
-                <Link href={`/`}>
-                    <a className="float-right">{blog.postedBy.name}</a>
-                </Link>
+                Last Updated {moment(blog.updatedAt).fromNow()}
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ import SigninComponent from "../components/auth/SigninComponent"
 import { isAuth } from '../actions/auth';
 import { Nav, NavItem, NavLink, Row, Col, Card, CardTitle, Button, CardText } from 'reactstrap';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../config';
+
 const Index = () => {
  const [user, setUser] = useState({role: 2})
 

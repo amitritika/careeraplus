@@ -1,31 +1,37 @@
-export const hobbies = [
-			{value: "Running", name: "Running"},
-			{value: "Tennis", name: "Tennis"},
-			{value: "Table Tennis", name: "Table Tennis"},
-			{value: "Cricket", name: "Cricket"},
-			{value: "Football", name: "Football"},
-			{value: "Chess", name: "Chess"},
-			{value: "Swimming", name: "Swimming"},
-			{value: "Listening Music", name: "Listening Music"},
-			{value: "Playing Guitar", name: "Playing Guitar"},
-			{value: "Playing Keyboard", name: "Playing Keyboard"},
-			{value: "Playing Violin", name: "Playing Violin"},
-			{value: "Playing Flute", name: "Playing Flute"},
-			{value: "Singing", name: "Singing"},
-			{value: "Dancing", name: "Dancing"},
-			{value: "Travelling", name: "Travelling"},
-			{value: "Social Work", name: "Social Work"},
-			{value: "Drama", name: "Drama"},
-			{value: "Acting", name: "Acting"},
-			{value: "Painting", name: "Painting"},
-			{value: "Reading", name: "Reading"},
-			{value: "Writing", name: "Writing"},
-			{value: "Gaming", name: "Gaming"},
-			{value: "Browsing", name: "Browsing"},
-			{value: "Movies", name: "Movies"},
-			{value: "Gardening", name: "Gardening"},
-			{value: "Animal Care", name: "Animal Care"}
-		]
+import { FaRunning, FaBaseballBall, FaTableTennis, FaRegFutbol,FaChessKnight, FaSwimmer, FaMusic , FaGuitar,
+			 FaShoePrints, FaPlane, FaHands, FaTheaterMasks, FaPaintBrush, FaBook, FaPenAlt, FaGamepad,
+			 FaWifi, FaFilm,  FaSeedling, FaPaw} from 'react-icons/fa';
+
+
+export const hobbiesList = {
+"Exercise" : FaRunning,
+"Running" : FaRunning,
+"Tennis" : FaBaseballBall,
+"Table Tennis" : FaTableTennis,
+"Cricket" : FaBaseballBall,
+"Football" : FaRegFutbol,
+"Chess" : FaChessKnight,
+"Swimming" : FaSwimmer,
+"Listening Music" : FaMusic,
+"Playing Guitar" : FaGuitar,
+"Playing Keyboard" : FaMusic,
+"Playing Violin" : FaMusic,
+"Playing Flute" : FaMusic,
+"Singing" : FaMusic,
+"Dancing" : FaShoePrints,
+"Travelling" : FaPlane,
+"Social Work" : FaHands,
+"Drama" : FaTheaterMasks,
+"Acting" : FaTheaterMasks,
+"Painting" : FaPaintBrush,
+"Reading" : FaBook,
+"Writing" : FaPenAlt,
+"Gaming" : FaGamepad,
+"Browsing" : FaWifi,
+"Movies" : FaFilm,
+"Gardening" : FaSeedling,
+"Animal Care" : FaPaw
+}
 
 export const areaOfIntrest = {
 			subject: [
@@ -171,51 +177,264 @@ export const areaOfIntrest = {
 			
 		}
 
+export const iconList = {
+  "Engineering Mechanics" : "fas fa-truck-loading",
+	"Strength of Materials" : "fas fa-i-cursor",
+	"Theory Of machines" : "fas fa-cogs",
+	"Machine Design" : "fas fa-cog",
+	"Fluid Mechanics" : "fas fa-tint",
+	"Heat Tranfer" : "fas fa-thermometer-half",
+	"Thermodynamics" : "fas fa-fire",
+	"Refrigeration & Air Cond" : "fas fa-snowflake",
+	"Manufacturing Eng" : "fas fa-hammer",
+	"Industrial Eng" : "fas fa-industry",
+
+	"Solid Mechanics" : "fas fa-truck-loading",
+	"Structural Analysis" : "fas fa-building",
+	"RCC Structures" : "fas fa-building",
+	"Design of Steel Structures" : "fas fa-building",
+	"Geotechnical Engineering" : "fas fa-globe-americas",
+	"Fluid Mechanics & Machines" : "fas fa-tint",
+	"Environmental Engineering" : "fas fa-cloud",
+	"Irrigation Engineering" : "fas fa-water",
+	"Engineering Hydrology" : "fas fa-water",
+	"Transportation Engineering" : "fas fa-truck",
+	"Geometics Engineering" : "fas fa-globe-americas",
+	"CMM and Eng Mech" : "fas fa-map",
+
+	"Network Theory" : "fas fa-memory",
+	"Electromagnetics" : "fas fa-charging-station",
+	"Control Systems" : "fas fa-microscope",
+	"Electronic Device & Circuits" : "fas fa-laptop",
+	"Analog Circuits" : "fas fa-clock",
+	"Digital Circuits" : "fas fa-digital-tachograph",
+	"Microprocessors" : "fas fa-microchip",
+	"Signals & Systems" : "fas fa-signal",
+	"Communication Systems" : "fas fa-satellite-dish",
+
+	"Electric Circuits" : "fas fa-memory",
+	"Electrical Machines" : "fas fa-medapps",
+	"Power Systems" : "fas fa-medapps",
+	"Measurement" : "fas fa-microscope",
+	"Digital Electronics" : "fas fa-digital-tacograph",
+	"Power Electronics" : "fas fa-microchip",
+	"Electromagnetic Theory" : "fas fa-charging-station",
+
+	"Process Calculations" : "fas fa-map",
+	"Mechanical Operations" : "fas fa-thermometer-half",
+	"Mass Transfer" : "fas fa-atom",
+	"Chemical Reaction Eng" : "fas fa-atom",
+	"Instrumentation" : "fas fa-microscope",
+	"Process Control" : "fas fa-network-wired",
+	"Plant Design & Economics" : "fas fa-industry",
+	"Chemical Technology" : "fas fa-tablets",
+
+	"Theory of Comput" : "fas fa-laptop",
+	"Digital Logic" : "fas fa-memory",
+	"Comp Org & Architecture" : "fas fa-memory",
+	"Prog & Data Structures" : "fas fa-code",
+	"Algorithms" : "fas fa-code-branch",
+	"Compiler Design" : "fas fa-laptop-code",
+	"Operating Systems" : "fab fa-windows",
+	"Databases" : "fas fa-database",
+	"Computer Networks" : "fas fa-network-wired",
+
+	"Optical Instrumentation" : "fas fa-microscope",
+		
+	"Artificial Intelligence": "fas fa-code-branch",
+	"Computer Architecture" : "fas fa-memory",
+	"Information Management" : "fas fa-network-wired",
+	"Web Systems": "fab fa-chrome",
+	"Grid & Cloud Comput": "fas fa-cloud-upload-alt",
+		
+		"Accounting": "fas fa-file-invoice",
+		"Economics": "fas fa-rupee-sign", 
+		"Business & Corporate Law": "fas fa-gavel",
+		"Business Management": "fas fa-briefcase",
+		"Auditing": "fas fa-search-dollar",
+		"Environmental Studies": "fas fa-globe-americas",
+		"Entrepreneurship": "fas fa-user-tie",
+		"Taxation": "fas fa-hand-holding-usd",
+		"Marketing": "fas fa-bullhorn",
+		"Statistics": "fas fa-chart-bar",
+		"Mathematics": "fas fa-calculator",
+		"Programming": "fas fa-code",
+		"Computer Application": "fas fa-laptop-code",
+		"Web Development": "fab fa-chrome",
+		"Data Base Management": "fas fa-database",
+
+	}
+
 export const visualresumedata = {
+	layout: {
+    sequence: ["userInfo",
+    "personalInfo",
+    "profileSummaryInfo",
+    "educationInfo",
+    "projectsInfo",
+		"workexpInfo",
+    "techSkillsInfo",
+		"areaOfIntrestInfo",
+    "achievmentsInfo",
+    "hobbiesInfo"],
+    sequencelr: {
+    left: ["userInfo",
+    "personalInfo",
+    "profileSummaryInfo",
+    "techSkillsInfo",
+    "hobbiesInfo"],
+    
+    right: [
+    "educationInfo",
+		"projectsInfo",
+    "workexpInfo",
+		"areaOfIntrestInfo",
+    "achievmentsInfo"
+    ]
+                     },
+    list: ["userInfoDisplay", 
+					 "personalInfoDisplay", 
+					 "profileSummaryInfoDisplay", 
+					 "educationInfoDisplay", 
+					 "projectsInfoDisplay",
+					 "workexpInfoDisplay", 
+					 "techSkillsInfoDisplay", 
+					 "areaOfIntrestInfoDisplay", 
+					 "achievmentsInfoDisplay", 
+					 "hobbiesInfoDisplay"],
+    listLR: {
+      left: ["userInfoDisplay", "personalInfoDisplay", "profileSummaryInfoDisplay", "techSkillsInfoDisplay", "hobbiesInfoDisplay"],
+      right: ["educationInfoDisplay","projectsInfoDisplay", "workexpInfoDisplay", "areaOfIntrestInfoDisplay", "achievmentsInfoDisplay"]
+    },
+    display: {
+      userInfo: true,
+      personalInfo: true,
+      profileSummaryInfo: true,
+      educationInfo: true,
+			projectsInfo: true,
+      workexpInfo: true,
+      techSkillsInfo: true,
+   		areaOfIntrestInfo: true,
+      achievmentsInfo: true,
+      hobbiesInfo: true
+
+    },
+
+    classes: {
+      userInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      personalInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      profileSummaryInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      educationInfoClass: "btn btn-sm btn-success w-75 mt-2",
+			projectsInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      workexpInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      techSkillsInfoClass: "btn btn-sm btn-success w-75 mt-2",
+   		areaOfIntrestInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      achievmentsInfoClass: "btn btn-sm btn-success w-75 mt-2",
+      hobbiesInfoClass: "btn btn-sm btn-success w-75 mt-2"
+
+    }
+  },
 	pesrsonalInformation: {
+			title: "ABOUT ME",
+			photoDisplay:true, 
       phone: "9xxxxxxxx9",
+			phone2: "8xxxxxxxx8",
+			phone2Option: false,
       designation:"Mxxxxxxxl Exxxxxxr",
       address:"BHOPAL, INDIA",
+			addressFull: "MIG-15, Anandvihar Colony, Arera Border, Bhopal, MP, INDIA, 461003",
+			addressDisplay: false,
       aboutMe: "To work in an organization where I can use my skills to achieve the organization objectives and get conductive environment to learn and grow."
     },
     educationalInformation: {
-        latestDegree: "Btech Mechanical",
-        latestCollege: "OIST Bhopal",
-        latestMonth: "Jun",
-        latestYear: "2017",
-        latestCgpa: "8.02 CGPA",
-        nextDegree: "10+2 HSC",
-        nextCollege: "CBSE",
-        nextMonth: "Jun",
-        nextYear: "2013",
-        nextCgpa: "68.07%",
-        lastDegree: "10 SSC",
-        lastCollege: "CBSE",
-        lastMonth: "May",
-        lastYear: "2011",
-        lastCgpa: "8.2 CGPA"
+				title: "EDUCATION",
+						value: [
+					{
+						optional: true,
+						degree: "B.tech",
+						college: "NIT Bhopal",
+						year: "2009",
+						cgpa: "7.8 CGPA",
+						toggle: true
+					},
+
+					{
+						optional: true,
+						degree: "HSC",
+						college: "MP Board",
+						year: "2005",
+						cgpa: "88%",
+						toggle: true
+					},
+
+					{
+						optional: true,
+						degree: "SSC 10th",
+						college: "MP Board",
+						year: "2003",
+						cgpa: "78%",
+						toggle: true
+					}
+				],
+        
       },
     projectInformation: {
-        majTitle: "TREADMIL BICYCLE",
-        majDes: "<p>Treadmill bicycle is a unique way of moving. In this project we made a prototype of a bicycle which gets the power not with pedal wheel but with the movement of treadmill belt when you walk on it.</p>",
-        minTitle: "Gear CAD Design",
-        minDes: "<p>Designed Gear Design in Pro-E, uing a parametric Model. <br> By using only two parameters, Module and No. of theeths a CAD model will be generated automatically.</p>"
+				title: "PROJECTS",
+				value: [
+					{
+						title: "TREADMIL BICYCLE",
+						desc: "<p>Treadmill bicycle is a unique way of moving. In this project we made a prototype of a bicycle which gets the power not with pedal wheel but with the movement of treadmill belt when you walk on it.</p>",
+					},
+					{
+						title: "Gear CAD Design",
+						desc: "<p>Designed Gear Design in Pro-E, uing a parametric Model. <br> By using only two parameters, Module and No. of theeths a CAD model will be generated automatically.</p>"
+					}
+				]
         
       },
     trainingInformation: {
-        training1: "Industrial Training",
-        org1: "EICHER TRACTORS",
-        startDate1: "01/05/2015",
-        endDate1: "01/06/2015",
-        des1: "<p>Unit of TAFE Motors and Tractor Ltd. Projects Handled: <p> 1. Rapid Entire Body Assessment (REBA) </p> <p>2. Hazard Identification and Risk Analysis (HIRA)</p>",
-        training2: "Industrial Training",
-        org2:"BHEL Bhopal",
-        startDate2: "01/07/2016",
-        endDate2: "01/07/2016",
-        des2: "<p>Unit of Turbine Manufacturing.<br>Gained Knowledge on Manufacturing and Design process of Gas Turbine.</p>",
-        trainingDisplay: false
+				title: "INDUSTRIAL EXPOSURE",
+				value: [
+					{
+						type: "Industrial Training",
+						org: "EICHER TRACTORS",
+						startDate: "01/05/2015",
+						endDate: "01/06/2015",
+						desc: "<p>Unit of TAFE Motors and Tractor Ltd. Projects Handled: <p> 1. Rapid Entire Body Assessment (REBA) </p> <p>2. Hazard Identification and Risk Analysis (HIRA)</p>"
+					},
+					{
+						type: "Industrial Training",
+						org: "BHEL Bhopal",
+						startDate: "01/07/2016",
+						endDate: "01/07/2016",
+						desc: "<p>Unit of Turbine Manufacturing.<br>Gained Knowledge on Manufacturing and Design process of Gas Turbine.</p>"
+					}
+				]
       },
     skills: {
+				title: "SKILLS",
+				value: [
+					{
+						value: "Pro-E",
+						rating: "4"
+					},
+					{
+						value: "AUTOCAD",
+						rating: "4"
+					},
+					{
+						value: "MS Office",
+						rating: "3"
+					},
+					{
+						value: "Good and Efficient learner",
+						rating: "5"
+					},
+					{
+						value: "Positive Attitude",
+						rating: "5"
+					}
+				],
         skill1: "Pro-E",
         rating1: "4",
         skill2: "AUTOCAD",
@@ -234,11 +453,14 @@ export const visualresumedata = {
         skill7Display: false
       },
       hobbies: {
+				title: "HOBBIES",
+				value: ["Tennis", "Running", "Playing Guitar"],
         hobby1: "Tennis",
         hobby2: "Running",
         hobby3: "Playing Guitar"
       },
     areaOfIntrest:{
+				title: "AREA OF INTRESTS",
         area: "eng",
         area1: "ME",
         area1Topic: "Strength of Materials",
@@ -249,6 +471,12 @@ export const visualresumedata = {
         show: false
       },
     extraCurricular: {
+				title: "EXTRA CURRICULAR",
+				value: [
+					"Qualified GATE 2018",
+					"Won 3rd Prize in Debate Competition in College",
+					"Active member of KD Food for Life a Non-profit Social organization"
+				],
         extra1: "Qualified GATE 2018",
         extra2: "Won 3rd Prize in Debate Competition in College",
         extra3: "Active member of KD Food for Life a Non-profit Social organization",
@@ -256,5 +484,9 @@ export const visualresumedata = {
         extra5: "",
         extra4Display: false,
         extra5Display: false
-      }
+      },
+	payment: {
+		status: false,
+		date: new Date()
+	}
 }

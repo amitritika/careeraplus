@@ -4,17 +4,21 @@ import UserDesignation from "../../../../components/visualresume/expert/template
 import LeftBlockHeading from "../../../../components/visualresume/expert/template1/resume/LeftBlockHeading"
 import LeftBlockContactInfo from "../../../../components/visualresume/expert/template1/resume/LeftBlockContactInfo"
 import VL from "../../../../components/visualresume/expert/template1/resume/VL"
+import { FaPhone, FaEnvelope, FaHome, FaPassport } from 'react-icons/fa';
+import {textWidth} from "./template1";
 const userInfo = (obj, name, email, photo, data, marginSec, marginBullet, marginPage)=> {
   
   let leftH = 0;
   let rightH = 0;
   
   
-  obj.left.components.push(UserPhoto);
-  obj.left.ids.push("user-photo-dummy");
-  obj.left.props.push({top: 10, photo: photo, height: 53});
-  
-  leftH = 10 + 53;
+  if(data.photoDisplay){
+    obj.left.components.push(UserPhoto);
+    obj.left.ids.push("user-photo-dummy");
+    obj.left.props.push({top: 10, photo: photo, height: 53});
+
+    leftH = 10 + 53;
+  }
   
   obj.right.components.push(UserName);
   obj.right.ids.push("user-name-dummy");
@@ -40,26 +44,41 @@ const userInfo = (obj, name, email, photo, data, marginSec, marginBullet, margin
   
   obj.left.components.push(LeftBlockContactInfo);
   obj.left.ids.push("contact-phone-dummy");
-  obj.left.props.push({top: leftH + marginSec, name: data.phone, icon: "phone", height: 5});
+  obj.left.props.push({top: leftH + marginSec, name: data.phone, icon: FaPhone, height: 5});
   
   leftH = leftH + marginSec + 5;
+  
+  if(data.phone2.optional){
+    obj.left.components.push(LeftBlockContactInfo);
+    obj.left.ids.push("contact-phone-dummy");
+    obj.left.props.push({top: leftH + marginSec, name: data.phone2.value, icon: FaPhone, height: 5});
+
+    leftH = leftH + marginSec + 5;
+  }
   
   obj.left.components.push(LeftBlockContactInfo);
   obj.left.ids.push("contact-email-dummy");
-  obj.left.props.push({top: leftH + marginSec, name: email, icon: "envelope", height: 5});
+  obj.left.props.push({top: leftH + marginSec, name: email, icon: FaEnvelope, height: 5});
   
   leftH = leftH + marginSec + 5;
   
-  obj.left.components.push(LeftBlockContactInfo);
-  obj.left.ids.push("contact-adress-dummy");
-  obj.left.props.push({top: leftH + marginSec, name: data.address, icon: "home", height: 5});
-  
-  leftH = leftH + marginSec + 5;
-  console.log(data)
+  if(!data.addressFull.optional){
+    obj.left.components.push(LeftBlockContactInfo);
+    obj.left.ids.push("contact-adress-dummy");
+    obj.left.props.push({top: leftH + marginSec, name: data.address, icon: FaHome, height: 5});
+
+    leftH = leftH + marginSec + 5;
+  }else{
+    let arr = textWidth("calibri", "normal", "3.2pt", "62px", data.addressFull.value);
+    obj.left.components.push(LeftBlockContactInfo);
+    obj.left.ids.push("contact-adress-dummy");
+    obj.left.props.push({top: leftH + marginSec, name: data.addressFull.value, icon: FaHome, height: arr[0]});
+    leftH = leftH + marginSec + arr[0];
+  }
   if(data.visa.optional){
     obj.left.components.push(LeftBlockContactInfo);
     obj.left.ids.push("contact-visa-dummy");
-    obj.left.props.push({top: leftH + marginSec, name: data.visa.value, icon: "passport", height: 5});
+    obj.left.props.push({top: leftH + marginSec, name: data.visa.value, icon: FaPassport, height: 5});
     leftH = leftH + marginSec + 5;
   }
   

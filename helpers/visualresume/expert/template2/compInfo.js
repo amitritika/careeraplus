@@ -3,7 +3,7 @@ import RightBlockHeading from "../../../../components/visualresume/expert/templa
 import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
 import RightBlockComp from "../../../../components/visualresume/expert/template2/resume/RightBlockComp"
 import {textWidth} from "./template2";
-
+import { FaUserPlus } from "react-icons/fa";
 const compInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
   let countR = obj.countR;
@@ -18,7 +18,7 @@ const compInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   if(countR > countL){
     obj.block.components.push(RightBlockLogo);
     obj.block.ids.push("comp-logo");
-    obj.block.props.push({top: rightH + marginSec, name: "user-plus"});
+    obj.block.props.push({top: rightH + marginSec, name: FaUserPlus});
     
     obj.block.components.push(RightBlockHeading);
     obj.block.ids.push("comp");
@@ -28,7 +28,7 @@ const compInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   }else{
     obj.right.components.push(RightBlockLogo);
     obj.right.ids.push("comp-logo");
-    obj.right.props.push({top: rightH + marginSec, name: "user-plus"});
+    obj.right.props.push({top: rightH + marginSec, name: FaUserPlus});
     
     obj.right.components.push(RightBlockHeading);
     obj.right.ids.push("comp");

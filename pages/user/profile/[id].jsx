@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../../../components/Layout';
 import { getPublicProfile } from '../../../actions/user';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
-
-
-const UserProfile = ({visualresumeexp, photo, name, email, query}) => {
+import { Container, Row, Col, Button, NavLink } from 'reactstrap';
+const UserProfile = ({visualresume, visualresumeexp, photo, name, email, query}) => {
   const head = () => (
         <Head>
             <title>
@@ -30,14 +30,17 @@ const UserProfile = ({visualresumeexp, photo, name, email, query}) => {
   return (
     <React.Fragment>
       {head()}
-      <div style = {{margin: `20px`}}>
-          <a href = "/visualresume" className = "btn btn-outline-primary" style = {{fontSize: `2rem`}}>Get Your Visual Resume -></a>
-      </div>
+      <Layout>
+        <div className = "container">
+          <div style = {{boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`, marginTop: `20px`}}>
+            <img src = {`${API}/user/resume-photo/${query.id}`} style = {{width: `1050px`}}></img>
+          </div>
+           <div style = {{margin: `20px`}}>
+            <a href = "/visualresume" className = "btn btn-outline-primary" style = {{fontSize: `2rem`}}>Get Your Visual Resume -></a>
+          </div>
+        </div>
+      </Layout>
       
-      <div  style = {{width: `420px`}}>
-         <img src = {`${API}/user/profile-photo/${query.id}`} style = {{width: `1050px`, margin: `20px`}}></img>
-      </div>
-     
     </React.Fragment>
   )
 }
@@ -47,9 +50,12 @@ UserProfile.getInitialProps = ({ query }) => {
         if (data.error) {
             console.log(data.error);
         } else {
-            return { visualresumeexp: data.visualresumeexp, photo: data.photo, name: data.name, email: data.email, query };
+            
+            return { visualresume: data.visualresume, visualresumeexp: data.visualresumeexp, photo: data.photo, name: data.name, email: data.email, query };
         }
     });
 };
+
+
 
 export default UserProfile;

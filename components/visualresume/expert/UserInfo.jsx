@@ -33,15 +33,33 @@ const UserInfo = (props) =>{
     }
   }
   
+  const handleChangeCheck = e => {
+      let visualresumeCopy = visualresumeexp;
+      if(e.target.checked){
+        visualresumeCopy.personalInformation.photoDisplay = true;
+        vr(visualresumeCopy);
+      }else{
+        visualresumeCopy.personalInformation.photoDisplay = false;
+        vr(visualresumeCopy);
+      }
+    };
+  
   return(
   <div className= "container mt-2">
     <div style= {{width: `200px`}}>
-      <img
+      {!props.visualresumeexp.personalInformation.photoDisplay && <label className="lead">Check for Image</label>}
+      {props.visualresumeexp.personalInformation.photoDisplay && <label className="lead">UnCheck for No Image</label>}
+      <input  type="checkbox" 
+            className = "mt-2 ml-2"
+            style= {{width:`20px`, height:`20px`, lineHeight: `20px`}}
+            checked = {props.visualresumeexp.personalInformation.photoDisplay}
+            onChange = {handleChangeCheck} ></input>
+      {props.visualresumeexp.personalInformation.photoDisplay && <img
           src={photo}
           className="img img-fluid img-thumbnail mb-3"
           style={{ maxHeight: 'auto', maxWidth: '100%' }}
           alt="user profile"
-      />
+      />}
     </div>
     <div className="form-group">
       <label className="lead">Name</label>
