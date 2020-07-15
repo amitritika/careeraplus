@@ -1,11 +1,11 @@
-import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
+import BlockHeading from "../../../../components/visualresume/pro/template2/resume/BlockHeading"
 import RightBlockHeading from "../../../../components/visualresume/pro/template2/resume/RightBlockHeading"
 import RightBlockLogo from "../../../../components/visualresume/pro/template2/resume/RightBlockLogo"
 import RightBlockTraining from "../../../../components/visualresume/pro/template2/resume/RightBlockTraining"
 import BlockTraining from "../../../../components/visualresume/pro/template2/resume/BlockTraining"
 import RightBlockBullet from "../../../../components/visualresume/pro/template2/resume/RightBlockBullet"
 import BlockBullet from "../../../../components/visualresume/pro/template2/resume/BlockBullet"
-import {textWidth} from "./template2";
+import {textWidthL} from "./template2";
 import { FaCogs} from 'react-icons/fa';
 const trainingInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
@@ -51,7 +51,7 @@ const trainingInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   data.value.map((v, i)=>{
    
     let str = "workex-heading-" + i.toString()
-    let arr = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
+    let arr = textWidthL("calibri", "normal", "2.5pt", "113px", v.desc);
     let height = arr[0];
     if(countR > countL){
       obj.block.components.push(BlockTraining);
@@ -127,22 +127,7 @@ const trainingInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     
   })
   
-  if(countR > countL){
-    
-    obj.block.props.push({top: (297 * (countR-1))  + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-  }else{
-    if(countR == 1){
-      
-      obj.right.props.push({top: 60, height: 230});
-      obj.page1.right.components = obj.right.components;
-        obj.page1.right.ids = obj.right.ids;
-        obj.page1.right.props = obj.right.props;
-    }else{
-      
-      obj.right.props.push({top: (297 * (countR-1)) + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-    }
-    
-  }
+  
   obj.countL = countL;
   obj.countR = countR;
   obj.leftH = leftH;

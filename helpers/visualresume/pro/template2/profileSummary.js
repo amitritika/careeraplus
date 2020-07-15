@@ -1,6 +1,6 @@
-import LeftBlockBullet from "../../../../components/visualresume/expert/template2/resume/LeftBlockBullet"
-import LeftBlockHeading from "../../../../components/visualresume/expert/template2/resume/LeftBlockHeading"
-import {textWidth} from "./template2";
+import LeftBlockBullet from "../../../../components/visualresume/pro/template2/resume/LeftBlockBullet"
+import LeftBlockHeading from "../../../../components/visualresume/pro/template2/resume/LeftBlockHeading"
+import {textWidthL} from "./template2";
 import { FaUser } from 'react-icons/fa';
 const profileSummary = (obj, data, marginSec, marginBullet, marginPage) => {
   let leftH = obj.leftH;
@@ -15,7 +15,7 @@ const profileSummary = (obj, data, marginSec, marginBullet, marginPage) => {
   
   data.value.map((p, i)=> {
     
-    let arr = textWidth("calibri", "normal", "3.2pt", "76px", p);
+    let arr = textWidthL("calibri", "normal", "3.2pt", "76px", p);
     let height = arr[0];
     let str = "profile-point-" + i.toString();
     let line = true;

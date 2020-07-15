@@ -33,7 +33,7 @@ export const componentSequence = (visualresume, name, email, photo)=> {
   let list = visualresume.layout.listLR
   let leftH = 0;
   let rightH = 0;
-  let marginSec = 5;
+  let marginSec = 2;
   let marginBullet = 1;
   let marginPage = 5;
   let arr = [];
@@ -150,6 +150,21 @@ export const textWidth = (fontf, weight, size, width, name) => {
   t.style.fontWeight = weight;
   t.style.height = "auto";
   t.style.width = width;
+  t.innerHTML = name;
+  //console.log(t.clientHeight + 1, t.clientWidth+1);
+  
+  return [t.clientHeight + 1, t.clientWidth+1]
+}
+
+
+export const textWidthL = (fontf, weight, size, width, name) => {
+  let t = document.getElementById("text");
+  t.style.fontSize = size;
+  t.style.fontFamily = fontf;
+  t.style.fontWeight = weight;
+  t.style.height = "auto";
+  t.style.width = width;
+  t.style.lineHeight = "3.2pt";
   t.innerHTML = name;
   //console.log(t.clientHeight + 1, t.clientWidth+1);
   

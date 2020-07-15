@@ -22,7 +22,8 @@ import {base64StringtoFile,
     image64toCanvasRef} from '../../../helpers/photohelpers'
 
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
-
+import { payButtons} from '../../../actions/payUMoney';
+import renderHTML from 'react-render-html';
 const Template1 = () => {
   const [values, setValues] = useState({
     name: "",
@@ -62,6 +63,8 @@ const Template1 = () => {
     fac: 2, fac1: 2
   });
 	
+	const [pay, setPay] = useState("");
+	
 	useEffect(() => {
 			let fac = 5;
       let fac1 = 1;
@@ -81,10 +84,16 @@ const Template1 = () => {
 				fac = 1;
 				fac1 = 1;
 			}
-		console.log(fac);
+		
 			
 		setSkills({fac, fac1});
-		
+		payButtons("pro").then( data=>{
+			if(data.error){
+				console.log(data.error)
+			}else{
+				setPay(data.button);
+			}
+		})
   }, []);
 	
   const editSection = useRef();
@@ -386,11 +395,32 @@ const Template1 = () => {
                 <Col xs = "2" lg = "1">
                   <div style = {{width: `50px`, height: `50px`, backgroundColor: `${font}`, marginTop: `10px`}}></div>
                 </Col>
-								{showLeftBlock && <Col xs = "2" lg = "2">
+								{showLeftBlock && visualresumepro.payment.status && <Col xs = "2" lg = "2">
 									<Button onClick = {handlePrint} className = "btn btn-block btn-info mt-2">Print</Button>
 								</Col>}
-								{showLeftBlock && <Col xs = "2" lg = "2">
+								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "2" lg = "2">
+									<Button onClick = {handlePrint} className = "btn btn-block btn-info mt-2 mr-2" disabled>Print</Button>
+								</Col>}
+								{showLeftBlock && visualresumepro.payment.status && <Col xs = "2" lg = "2">
 									<Button onClick = {handleShare} className = "btn btn-block btn-info mt-2">Share</Button>
+								</Col>}
+								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "2" lg = "2">
+									<Button onClick = {handleShare} className = "btn btn-block btn-info mt-2 mr-2" disabled>Share</Button>
+								</Col>}
+								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "4" lg = "4">
+									<div className = "">
+										
+									</div>
+								</Col>}
+								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "4" lg = "4">
+									<div className = "mt-4 text-center">
+										{renderHTML(pay)}
+									</div>
+								</Col>}
+								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "4" lg = "4">
+									<div className = "">
+										
+									</div>
 								</Col>}
                 
 								<Col xs= "12" lg = "4">

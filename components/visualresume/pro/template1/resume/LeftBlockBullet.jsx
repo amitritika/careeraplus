@@ -20,7 +20,9 @@ const LeftBlockBullet = (props) =>{
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, position: `absolute`, top: `${top}`, left: `${left}`, color: `white`, fontFamily: `calibri`, fontSize: `${size}`, textAlign: `left`}}>
       <div style = {{top: `${top1}`, position: `absolute`, height: `${height1}`, width: `${height1}`, borderRadius: `50%`, backgroundColor: `white`, left: `${left1}`}}></div> 
-      {renderHTML(name)}
+      <div style = {{lineHeight: `${size}`}}>
+        {renderHTML(name)}
+      </div>
     </div>
   )
 }

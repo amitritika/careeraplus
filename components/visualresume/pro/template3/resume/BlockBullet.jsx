@@ -17,7 +17,7 @@ const BlockBullet = (props) =>{
   let left1 = (props.fac * -5.5).toString() + "px";
   
   let lineH = (props.fac * (props.props.height - 4)).toString() + "px";
-  let lineT = (props.fac * 0.5).toString() + "px";
+  let lineT = (props.fac * -0.5).toString() + "px";
   let lineL = (props.fac * -6).toString() + "px";
   let lineOp = props.props.line;
   let lineW = (props.fac * 0.5).toString() + "px";
@@ -25,7 +25,9 @@ const BlockBullet = (props) =>{
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, position: `absolute`, top: `${top}`, left: `${left}`, color: `${font}`, fontFamily: `calibri`, fontSize: `${size}`, textAlign: `left`}}>
       
-      {renderHTML(name)}
+      <div style = {{lineHeight: `${size}`}}>
+        {renderHTML(name)}
+      </div>
       <div style = {{position: `absolute`, color: `${font}`, fontSize:`${size}`, top: `${lineT}`, left: `${lineL}`}}>
         <i class="fas fa-check-circle"></i>
       </div>

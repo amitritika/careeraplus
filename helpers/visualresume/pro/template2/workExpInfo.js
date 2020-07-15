@@ -1,10 +1,10 @@
-import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
-import RightBlockHeading from "../../../../components/visualresume/expert/template2/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
-import RightBlockWorkExp from "../../../../components/visualresume/expert/template2/resume/RightBlockWorkExp"
-import RightBlockBullet from "../../../../components/visualresume/expert/template2/resume/RightBlockBullet"
-import BlockBullet from "../../../../components/visualresume/expert/template2/resume/BlockBullet"
-import {textWidth} from "./template2";
+import BlockHeading from "../../../../components/visualresume/pro/template2/resume/BlockHeading"
+import RightBlockHeading from "../../../../components/visualresume/pro/template2/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/pro/template2/resume/RightBlockLogo"
+import RightBlockWorkExp from "../../../../components/visualresume/pro/template2/resume/RightBlockWorkExp"
+import RightBlockBullet from "../../../../components/visualresume/pro/template2/resume/RightBlockBullet"
+import BlockBullet from "../../../../components/visualresume/pro/template2/resume/BlockBullet"
+import {textWidthL} from "./template2";
 import { FaCog } from "react-icons/fa";
 const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
@@ -125,7 +125,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     
     v.role.map((r, idx)=>{
       str = "workex-role-" + idx.toString();
-      let arr = textWidth("calibri", "normal", "3.2pt", "113px", r);
+      let arr = textWidthL("calibri", "normal", "3.2pt", "113px", r);
       let height = arr[0];
       let line = true;
       if(idx == v.role.length -1){
@@ -133,14 +133,14 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       }
       
       if(countR > countL){
-        arr = textWidth("calibri", "normal", "3.2pt", "183px", r);
+        arr = textWidthL("calibri", "normal", "3.2pt", "183px", r);
         height = arr[0];
         obj.block.components.push(BlockBullet);
         obj.block.ids.push(str);
         obj.block.props.push({top: rightH + marginBullet, name: r , height: height, line: line});
       }
       else{
-        arr = textWidth("calibri", "normal", "3.2pt", "113px", r);
+        arr = textWidthL("calibri", "normal", "3.2pt", "113px", r);
         height = arr[0];
         obj.right.components.push(RightBlockBullet);
         obj.right.ids.push(str);
@@ -165,7 +165,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
               obj.page1.right.props = obj.right.props;
             }
             
-            arr = textWidth("calibri", "normal", "3.2pt", "183px", r);
+            arr = textWidthL("calibri", "normal", "3.2pt", "183px", r);
             height = arr[0];
             obj.block.components.push(BlockBullet);
             obj.block.ids.push(str);
@@ -177,7 +177,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             obj.block.ids.pop();
             obj.block.props.pop();
             obj.block.props[obj.block.props.length-1].line = false
-            arr = textWidth("calibri", "normal", "3.2pt", "183px", r);
+            arr = textWidthL("calibri", "normal", "3.2pt", "183px", r);
             height = arr[0];
             obj.block.components.push(BlockBullet);
             obj.block.ids.push(str);
@@ -197,7 +197,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
         obj.page1.right.props = obj.right.props;
       }
 
-          arr = textWidth("calibri", "normal", "3.2pt", "113px", r);
+          arr = textWidthL("calibri", "normal", "3.2pt", "113px", r);
           height = arr[0];
           obj.right.components.push(RightBlockBullet);
           obj.right.ids.push(str);

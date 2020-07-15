@@ -1,16 +1,16 @@
-import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
+import BlockHeading from "../../../../components/visualresume/pro/template2/resume/BlockHeading"
 import RightBlockHeading from "../../../../components/visualresume/pro/template2/resume/RightBlockHeading"
 import RightBlockLogo from "../../../../components/visualresume/pro/template2/resume/RightBlockLogo"
 import RightBlockPor from "../../../../components/visualresume/pro/template2/resume/RightBlockPor"
 import BlockPor from "../../../../components/visualresume/pro/template2/resume/BlockPor"
-import {textWidth} from "./template2";
+import {textWidth, textWidthL} from "./template2";
 import { FaUserCog } from "react-icons/fa";
 const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
   let countR = obj.countR;
   let leftH = obj.leftH;
   let rightH = obj.rightH;
-  let tH = 0;
+  let tH = 2;
   
   if(rightH > countR * 297){
     countR++;
@@ -125,11 +125,11 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   data.value.map((v, i)=>{
     
     let str = "project-heading-" + i.toString();
-    let arrd = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
+    let arrd = textWidthL("calibri", "normal", "3.2pt", "113px", v.desc);
     let arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.title);
     let height = arrd[0] + arrt[0];
     if(countR > countL){
-      arrd = textWidth("calibri", "normal", "3.2pt", "183px", v.desc);
+      arrd = textWidthL("calibri", "normal", "3.2pt", "183px", v.desc);
       arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.title);
       height = arrd[0] + arrt[0];
       obj.block.components.push(BlockPor);
@@ -139,7 +139,7 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       if(v.event.optional || v.date.optional){
         rightH = rightH + marginSec + height + tH;
       }else{
-        rightH = rightH + marginSec + height;
+        rightH = rightH + marginSec + height + tH;
       }
       
     }else{
@@ -150,7 +150,7 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       if(v.event.optional || v.date.optional){
         rightH = rightH + marginSec + height + tH;
       }else{
-        rightH = rightH + marginSec + height;
+        rightH = rightH + marginSec + height + tH;
       }
       
     }
@@ -172,7 +172,7 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
               obj.page1.right.ids = obj.right.ids;
               obj.page1.right.props = obj.right.props;
             }
-            arrd = textWidth("calibri", "normal", "3.2pt", "183px", v.desc);
+            arrd = textWidthL("calibri", "normal", "3.2pt", "183px", v.desc);
             arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
             height = arrd[0] + arrt[0];
             obj.block.components.push(BlockPor);
@@ -182,13 +182,13 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             if(v.event.optional || v.date.optional){
               rightH = rightH + marginSec + height + tH;
             }else{
-              rightH = rightH + marginSec + height;
+              rightH = rightH + marginSec + height + tH;
             }
           }else{
             obj.block.components.pop();
             obj.block.ids.pop();
             obj.block.props.pop();
-            arrd = textWidth("calibri", "normal", "3.2pt", "183px", v.desc);
+            arrd = textWidthL("calibri", "normal", "3.2pt", "183px", v.desc);
             arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
             height = arrd[0] + arrt[0];
             obj.block.components.push(BlockPor);
@@ -198,7 +198,7 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             if(v.event.optional || v.date.optional){
               rightH = rightH + marginSec + height + tH;
             }else{
-              rightH = rightH + marginSec + height;
+              rightH = rightH + marginSec + height + tH;
             }
             
           }
@@ -213,7 +213,7 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
         obj.page1.right.props = obj.right.props;
       }
           
-          arrd = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
+          arrd = textWidthL("calibri", "normal", "3.2pt", "113px", v.desc);
           arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
           height = arrd[0] + arrt[0];
 
@@ -223,7 +223,7 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
           if(v.event.optional || v.date.optional){
             rightH = rightH + marginSec + height + tH;
           }else{
-            rightH = rightH + marginSec + height;
+            rightH = rightH + marginSec + height + tH;
           }
         }
     }
@@ -231,25 +231,8 @@ const porInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   })
   
   
-  if(countR > countL){
-    
-    obj.block.props.push({top: (297 * (countR-1))  + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-  }else{
-    if(countR == 1){
-      
-      obj.right.props.push({top: 60, height: 230});
-      
-      if(countR == 2){
-        obj.page1.right.components = obj.right.components;
-        obj.page1.right.ids = obj.right.ids;
-        obj.page1.right.props = obj.right.props;
-      }
-    }else{
-      
-      obj.right.props.push({top: (297 * (countR-1)) + marginPage + marginSec, height: 297 - ((297 * countR) - rightH)});
-    }
-    
-  }
+  
+  rightH = rightH + 4;
   obj.countL = countL;
   obj.countR = countR;
   obj.leftH = leftH;

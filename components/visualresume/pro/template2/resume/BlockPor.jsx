@@ -35,7 +35,7 @@ const RightBlockPor = (props) =>{
         {dateShow && <span style = {{fontStyle: `italic`}}>{startD}-{endD}</span>}
       </p>}
         
-      <div style = {{top: `${top3}`, position: `absolute`}}>
+      <div style = {{top: `${top3}`, position: `absolute`, lineHeight: `${size}`}}>
         {renderHTML(desc)}
       </div>
       

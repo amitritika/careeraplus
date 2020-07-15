@@ -31,7 +31,7 @@ const RightBlockWorkExp = (props) =>{
       <div style = {{top: `${top5}`, position: `absolute`, height: `${height1}`, width: `${height1}`, borderRadius: `50%`, backgroundColor: `${bg}`, left: `${left1}`}}></div>
       <p style = {{lineHeight: `${size}`}}><span style = {{fontWeight: `bold`, color: `${bg}`, fontStyle:`italic`}}>{type}</span>: <span style = {{fontStyle: `italic`}}>{startD}-{endD}</span></p>
       <p style = {{}}><span style = {{fontWeight: `bold`, color: `${bg}`}}>{org}</span></p>
-      <div style = {{}}>
+      <div style = {{lineHeight: `${size}`}}>
         {renderHTML(desc)}
       </div>
     </div>

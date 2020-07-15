@@ -31,3 +31,33 @@ export const update = (token, user) => {
         })
         .catch(err => console.log(err));
 };
+
+
+export const updateButtons = (btn, data) => {
+    return fetch(`${API}/payment/payumoney/buttons/${btn}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: data
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const payButtons = (btn) => {
+    return fetch(`${API}/payment/payumoney/buttons/${btn}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

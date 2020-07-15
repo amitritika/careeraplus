@@ -1,5 +1,5 @@
-import LeftBlockContactInfo from "../../../../components/visualresume/expert/template1/resume/LeftBlockContactInfo"
-import LeftBlockHeading from "../../../../components/visualresume/expert/template1/resume/LeftBlockHeading"
+import LeftBlockContactInfo from "../../../../components/visualresume/pro/template1/resume/LeftBlockContactInfo"
+import LeftBlockHeading from "../../../../components/visualresume/pro/template1/resume/LeftBlockHeading"
 import {hobbiesList} from "../../fresher"
 
 const hobbiesInfo = (obj, data, marginSec, marginBullet, marginPage) => {

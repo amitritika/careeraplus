@@ -8,7 +8,7 @@ const RightBlockLogo = (props) =>{
   let bg = props.bg;
   let font = props.font;
   let id = props.id;
-  let line = (props.fac * 8).toString() + "px";
+  let line = (props.fac * 6).toString() + "px";
   let size = (props.fac * 6).toString() + "pt";
   let left = (props.fac * 6).toString() + "px";
   let top = (props.fac * (props.props.top+3)).toString() + "px";
@@ -20,11 +20,11 @@ const RightBlockLogo = (props) =>{
   let marginT = (props.fac * 1).toString() + "px";
   let heightI =  (props.fac * 9 *0.8).toString() + "px";
   let left2 = (props.fac * 2).toString() + "px";
-  let top2 = (props.fac * -0.5).toString() + "px";
+  let top2 = (props.fac * 0).toString() + "px";
 
   return (
     <div id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
-     <div className = "template3-icon-heading" style = {{ height: `${height}`, width: `${height}`, position: `absolute`, lineHeight: `${line}`,textAlign: `center`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`, borderRadius: `50%`, backgroundColor: `${bg}`}}>
+     <div className = "template3-icon-heading" style = {{ height: `${heightI}`, width: `${heightI}`, position: `absolute`, lineHeight: `${line}`,textAlign: `center`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`, borderRadius: `50%`, backgroundColor: `${bg}`}}>
           <IconContext.Provider value={{ color: "white" }}>
             <div style = {{fontSize: `${size1}`}}>
               <Icon />

@@ -130,12 +130,12 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     
     let str = "project-heading-" + i.toString();
     let arrd = textWidth("calibri", "normal", "2.5pt", "113px", v.desc);
-    let arrt = textWidth("calibri", "normal", "2.5pt", "113px", v.titile);
-    let height = arrd[0] + arrt[0];
+    let arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
+    let height = arrd[0] + arrt[0] + 1;
     if(countR > countL){
       arrd = textWidth("calibri", "normal", "2.5pt", "183px", v.desc);
-      arrt = textWidth("calibri", "normal", "2.5pt", "183px", v.titile);
-      height = arrd[0] + arrt[0];
+      arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
+      height = arrd[0] + arrt[0] + 1;
       obj.block.components.push(BlockProject);
       obj.block.ids.push(str);
       obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
@@ -169,8 +169,8 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
               obj.page1.right.props = obj.right.props;
             }
             arrd = textWidth("calibri", "normal", "2.5pt", "183px", v.desc);
-            arrt = textWidth("calibri", "normal", "2.5pt", "183px", v.titile);
-            height = arrd[0] + arrt[0];
+            arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
+            height = arrd[0] + arrt[0] + 1;
             obj.block.components.push(BlockProject);
             obj.block.ids.push(str);
             obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
@@ -181,8 +181,8 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             obj.block.ids.pop();
             obj.block.props.pop();
             arrd = textWidth("calibri", "normal", "2.5pt", "183px", v.desc);
-            arrt = textWidth("calibri", "normal", "2.5pt", "183px", v.titile);
-            height = arrd[0] + arrt[0];
+            arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
+            height = arrd[0] + arrt[0] + 1;
             obj.block.components.push(BlockProject);
             obj.block.ids.push(str);
             obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
@@ -202,8 +202,8 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       }
           
           arrd = textWidth("calibri", "normal", "2.5pt", "113px", v.desc);
-          arrt = textWidth("calibri", "normal", "2.5pt", "113px", v.titile);
-          height = arrd[0] + arrt[0];
+          arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
+          height = arrd[0] + arrt[0] + 1;
 
           obj.right.components.push(RightBlockProject);
           obj.right.ids.push(str);

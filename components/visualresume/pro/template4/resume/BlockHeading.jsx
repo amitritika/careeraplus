@@ -1,6 +1,6 @@
 const BlockHeading = (props) =>{
   let height = (props.fac * props.props.height).toString() + "px";
-  let width = (props.fac * 66).toString() + "px";
+  let width = (props.fac * 95).toString() + "px";
   
   let name = props.props.name;
   let bg = props.bg;

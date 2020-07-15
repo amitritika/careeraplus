@@ -5,7 +5,7 @@ import RightBlockTraining from "../../../../components/visualresume/pro/template
 import BlockTraining from "../../../../components/visualresume/pro/template1/resume/BlockTraining"
 import RightBlockBullet from "../../../../components/visualresume/pro/template1/resume/RightBlockBullet"
 import BlockBullet from "../../../../components/visualresume/pro/template1/resume/BlockBullet"
-import {textWidth} from "./template1";
+import {textWidthL} from "./template1";
 import { FaCogs} from 'react-icons/fa';
 const trainingInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
@@ -51,7 +51,7 @@ const trainingInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   data.value.map((v, i)=>{
    
     let str = "workex-heading-" + i.toString()
-    let arr = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
+    let arr = textWidthL("calibri", "normal", "2.5pt", "113px", v.desc);
     let height = arr[0];
     if(countR > countL){
       obj.block.components.push(BlockTraining);

@@ -16,7 +16,7 @@ const RightBlockBulletSmall = (props) =>{
   let height1 = (props.fac * 2).toString() + "px";
   let left1 = (props.fac * -5.5).toString() + "px";
   
-  let lineH = (props.fac * (props.props.height)).toString() + "px";
+  let lineH = (props.fac * (props.props.height-2)).toString() + "px";
   let lineT = (props.fac * 6).toString() + "px";
   let lineL = (props.fac * -5).toString() + "px";
   let lineOp = props.props.line;

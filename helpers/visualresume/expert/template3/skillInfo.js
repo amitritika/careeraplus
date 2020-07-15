@@ -32,8 +32,7 @@ const skillInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     obj.left.props.push({top: leftH + marginSec, name: s.value , rating: rating});
     
     leftH = leftH + marginSec + 15;
-    console.log(obj.countL, leftH)
-    console.log(obj.left.props[obj.left.props.length-1])
+    
     if(leftH > (obj.countL * 297 - 10)){
       
       obj.countL = obj.countL + 1;

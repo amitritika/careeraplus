@@ -1,7 +1,7 @@
 
-import RightBlockHeading from "../../../../components/visualresume/expert/template3/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template3/resume/RightBlockLogo"
-import RightBlockComp from "../../../../components/visualresume/expert/template3/resume/RightBlockComp"
+import RightBlockHeading from "../../../../components/visualresume/pro/template3/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/pro/template3/resume/RightBlockLogo"
+import RightBlockComp from "../../../../components/visualresume/pro/template3/resume/RightBlockComp"
 import {textWidth} from "./template3";
 import { FaUserPlus } from "react-icons/fa";
 const compInfo = (obj, data, marginSec, marginBullet, marginPage) => {

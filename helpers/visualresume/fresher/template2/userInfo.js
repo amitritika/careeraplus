@@ -13,9 +13,9 @@ const userInfo = (obj, name, email, photo, data, marginSec, marginBullet, margin
   if(data.photoDisplay){
     obj.left.components.push(UserPhoto);
     obj.left.ids.push("user-photo-dummy");
-    obj.left.props.push({top: 15, photo: photo, height: 45, marginL: 7, marginR: 7, marginT: 5, marginB: 5, r: 2});
+    obj.left.props.push({top: 10,photo: photo, height: 53, marginL: 7, marginR: 7, marginT: 5, marginB: 5, r: 2});
 
-    leftH = 15 + 45 * 1.2;
+    leftH = 10 + 53;
   }
   
   

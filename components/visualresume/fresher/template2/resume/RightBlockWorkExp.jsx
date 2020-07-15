@@ -28,7 +28,7 @@ const RightBlockWorkExp = (props) =>{
   
   let lineH = (props.fac * (props.props.height - 6)).toString() + "px";
   let lineT = (props.fac * 7).toString() + "px";
-  let lineL = (props.fac * -4.5).toString() + "px";
+  let lineL = (props.fac * -5).toString() + "px";
   let lineOp = props.props.line;
   let lineW = (props.fac * 0.5).toString() + "px";
 

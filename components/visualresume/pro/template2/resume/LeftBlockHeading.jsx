@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 
 const LeftBlockHeading = (props) =>{
   let height = (props.fac * props.props.height).toString() + "px";
-  let width = (props.fac * 60).toString() + "px";
+  let width = (props.fac * 76).toString() + "px";
   
   let Icon = props.props.icon
   
@@ -24,13 +24,13 @@ const LeftBlockHeading = (props) =>{
   let marginT = (props.fac * 1).toString() + "px";
   let heightI =  (props.fac * (props.props.height)*0.8).toString() + "px";
   let left2 = (props.fac * 5.5).toString() + "px";
-  let top2 = (props.fac * -1.3).toString() + "px";
+  let top2 = (props.fac * 1).toString() + "px";
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, color: `white`, lineHeight: `${line}`, position: `absolute`, top: `${top}`, fontFamily: `calibri`, fontSize: `${size}`, textAlign: `center`, fontWeight: `bold`}}>
-      <div className = "rotate45" style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid white`, borderRadius: `${radius}`, left: `${left1}`}}>
+      <div className = "" style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid white`, borderRadius: `${radius}`, left: `${left1}`, top: `${top2}`}}>
         
       </div> 
-     <div className = "template2-icon-heading" style = {{ position: `absolute`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
+     <div className = "template2-icon-heading" style = {{ position: `absolute`, color: `white`, fontSize: `${size1}`, left: `${left2}`}}>
           <IconContext.Provider value={{ color: "white" }}>
             <div style = {{ zIndex: `3`}}>
               <Icon />

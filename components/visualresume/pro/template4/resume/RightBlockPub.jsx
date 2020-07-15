@@ -28,7 +28,7 @@ const RightBlockPub = (props) =>{
   let lineL = (props.fac * -6).toString() + "px";
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, position: `absolute`, top: `${top}`, left: `${left}`, color: `${bg}`, fontFamily: `calibri`, fontSize: `${size}`, textAlign: `left`}}>
-      <div style = {{top: `${top4}`, position: `absolute`, height: `${height1}`, width: `${height1}`, borderRadius: `50%`, backgroundColor: `${bg}`, left: `${left1}`}}></div>
+      
       <p style = {{top: `${top1}`, position: `absolute`, fontWeight: `bold`, color: `${bg}`}}>{name}</p>
       <p style = {{top: `${top2}`, position: `absolute`, color: `${font}`}}>{title}</p>
       <p style = {{top: `${top3}`, position: `absolute`, color: `${bg}`}}>

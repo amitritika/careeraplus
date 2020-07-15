@@ -8,6 +8,8 @@ import educationInfo from "./educationInfo"
 import extraInfo from "./extraInfo"
 import publicationsInfo from "./publicationsInfo"
 import hobbiesInfo from "./hobbiesInfo"
+import porInfo from "./porInfo"
+import trainingInfo from "./trainingInfo"
 import {FaCertificate, FaAward} from "react-icons/fa"
 
 
@@ -33,7 +35,7 @@ export const componentSequence = (visualresume, name, email, photo)=> {
   let list = visualresume.layout.listLR
   let leftH = 0;
   let rightH = 0;
-  let marginSec = 5;
+  let marginSec = 2;
   let marginBullet = 1;
   let marginPage = 15;
   let arr = [];
@@ -135,6 +137,14 @@ export const componentSequence = (visualresume, name, email, photo)=> {
     if( q == "publicationInfoDisplay" ){
       obj = publicationsInfo(obj, visualresume.publicationInformation, marginSec, marginBullet, marginPage);
     }
+    
+    if( q == "porInfoDisplay" ){
+      obj = porInfo(obj, visualresume.porInformation, marginSec, marginBullet, marginPage);
+    }
+    
+    if( q == "trainingInfoDisplay" ){
+      obj = trainingInfo(obj, visualresume.trainingInformation, marginSec, marginBullet, marginPage);
+    }
   })
   
 
@@ -150,6 +160,21 @@ export const textWidth = (fontf, weight, size, width, name) => {
   t.style.fontWeight = weight;
   t.style.height = "auto";
   t.style.width = width;
+  t.innerHTML = name;
+  //console.log(t.clientHeight + 1, t.clientWidth+1);
+  
+  return [t.clientHeight + 1, t.clientWidth+1]
+}
+
+
+export const textWidthL = (fontf, weight, size, width, name) => {
+  let t = document.getElementById("text");
+  t.style.fontSize = size;
+  t.style.fontFamily = fontf;
+  t.style.fontWeight = weight;
+  t.style.height = "auto";
+  t.style.width = width;
+  t.style.lineHeight = "3.2pt";
   t.innerHTML = name;
   //console.log(t.clientHeight + 1, t.clientWidth+1);
   

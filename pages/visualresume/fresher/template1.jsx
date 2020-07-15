@@ -20,6 +20,8 @@ import Popup from "reactjs-popup";
 import {FacebookShareButton, FacebookIcon, WhatsappShareButton, WhatsappIcon} from 'react-share'
 import imageCompression from 'browser-image-compression';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
+import { payButtons} from '../../../actions/payUMoney';
+import renderHTML from 'react-render-html';
 const Template1 = () => {
   const [values, setValues] = useState({
     name: "",
@@ -42,6 +44,8 @@ const Template1 = () => {
   const [skills, setSkills] = useState({
     fac: 2, fac1: 2
   })
+	
+	const [pay, setPay] = useState("");
   
  const {name, username, email, photo, visualresume, bg, font, showLeftBlock, layoutInfoDisplay, userInfoDisplay, list, sharePopup} = values;
   
@@ -76,9 +80,16 @@ const Template1 = () => {
 				fac = 1;
 				fac1 = 1;
 			}
-		console.log(fac);
+		
 			
 		setSkills({fac, fac1});
+		payButtons("fresher").then( data=>{
+			if(data.error){
+				console.log(data.error)
+			}else{
+				setPay(data.button);
+			}
+		})
 		
   }, []);
 	
@@ -322,12 +333,34 @@ const Template1 = () => {
                 <Col xs = "2" lg = "1">
                   <div style = {{width: `50px`, height: `50px`, backgroundColor: `${font}`, marginTop: `10px`}}></div>
                 </Col>
-								{showLeftBlock && <Col xs = "2" lg = "2">
+								{showLeftBlock && visualresume.payment.status && <Col xs = "2" lg = "2">
 									<Button onClick = {handlePrint} className = "btn btn-block btn-info mt-2">Print</Button>
 								</Col>}
-								{showLeftBlock && <Col xs = "2" lg = "2">
+								{showLeftBlock && !visualresume.payment.status && <Col xs = "2" lg = "2">
+									<Button onClick = {handlePrint} className = "btn btn-block btn-info mt-2 mr-2" disabled>Print</Button>
+								</Col>}
+								{showLeftBlock && visualresume.payment.status && <Col xs = "2" lg = "2">
 									<Button onClick = {handleShare} className = "btn btn-block btn-info mt-2">Share</Button>
 								</Col>}
+								{showLeftBlock && !visualresume.payment.status && <Col xs = "2" lg = "2">
+									<Button onClick = {handleShare} className = "btn btn-block btn-info mt-2 mr-2" disabled>Share</Button>
+								</Col>}
+								{showLeftBlock && !visualresume.payment.status && <Col xs = "4" lg = "4">
+									<div className = "">
+										
+									</div>
+								</Col>}
+								{showLeftBlock && !visualresume.payment.status && <Col xs = "4" lg = "4">
+									<div className = "mt-4 text-center">
+										{renderHTML(pay)}
+									</div>
+								</Col>}
+								{showLeftBlock && !visualresume.payment.status && <Col xs = "4" lg = "4">
+									<div className = "">
+										
+									</div>
+								</Col>}
+								
 								<Col xs= "12" lg = "4">
                   <UserInformation vr = {setVisualresume} pr = {personalInformation} type = "fresher" template = "template1" userInfoDisplay = {userInfoDisplay} ref = {editSection}></UserInformation>
                   

@@ -23,12 +23,13 @@ const RightBlockProject = (props) =>{
   let top1 = (props.fac * 1).toString() + "px";
   let top2 = (props.fac * 5).toString() + "px";
   let top3 = (props.fac * 10).toString() + "px";
+  let topD = (props.fac * 8).toString() + "px";
   let top4 = (props.fac * 3).toString() + "px";
   
   let height1 = (props.fac * 3).toString() + "px";
   let left1 = (props.fac * -6).toString() + "px";
   
-  let lineT = (props.fac * 0.5).toString() + "px";
+  let lineT = (props.fac * 1).toString() + "px";
   let lineL = (props.fac * -6).toString() + "px";
 
   return (
@@ -39,9 +40,12 @@ const RightBlockProject = (props) =>{
         {desgShow && <span style = {{fontWeight: `bold`, color: `${font}`}}>{desg} - </span>  }
         {dateShow && <span style = {{fontStyle: `italic`}}>{startD}-{endD} | </span>}
         {clientShow && <span style = {{fontStyle: `italic`, color: `${font}`}}>{client}</span>}</p>}
-      <div style = {{top: `${top3}`, position: `absolute`}}>
+      {(desgShow || dateShow || clientShow) && <div style = {{top: `${top3}`, position: `absolute`, lineHeight: `${size}`}}>
         {renderHTML(desc)}
-      </div>
+      </div>}
+      {!(desgShow || dateShow || clientShow) && <div style = {{top: `${topD}`, position: `absolute`, lineHeight: `${size}`}}>
+        {renderHTML(desc)}
+      </div>}
       <div style = {{position: `absolute`, color: `${bg}`, fontSize:`${size}`, top: `${lineT}`, left: `${lineL}`}}>
         <i class="fas fa-check"></i>
       </div>

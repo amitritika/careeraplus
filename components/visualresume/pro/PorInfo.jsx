@@ -30,11 +30,10 @@ const PorInfo = (props) =>{
   const handleAdd = () => {
     let arr = list;
     let visualresumeCopy = visualresumepro;
-    arr.push({title: `Project ${arr.length + 1}`,
+    arr.push({title: `POR ${arr.length + 1}`,
              desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-             designation: {optional: arr[0].designation.optional, value: "Engineer III"},
-             client: {optional: arr[0].client.optional, value: "A1B1 Pvt Ltd"},
-             date: {optional: arr[0].client.optional, startDate: "Dec 2019", endDate: "Present"}
+             event: {optional: arr[0].event.optional, value: "A1B1 Pvt Ltd"},
+             date: {optional: arr[0].date.optional, startDate: "Dec 2019", endDate: "Present"}
              })
     
     setList(arr);

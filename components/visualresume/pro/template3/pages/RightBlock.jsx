@@ -20,7 +20,7 @@ const RightBlock = (props) =>{
   }
   
   const showBar = ()=>{
-    console.log(arr)
+    //console.log(arr)
     
     return(
     arr.map((t, i)=> {

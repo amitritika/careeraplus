@@ -31,9 +31,10 @@ const RightBlockPor = (props) =>{
       <div style = {{top: `${top4}`, position: `absolute`, height: `${height1}`, width: `${height1}`, borderRadius: `50%`, backgroundColor: `${bg}`, left: `${left1}`}}></div>
       <p style = {{top: `${top1}`, position: `absolute`, color: `${bg}`}}>{title}</p>
       {(dateShow || eventShow) && <p style = {{top: `${top2}`, position: `absolute`}}>
-        {eventShow && <span style = {{fontStyle: `italic`, color: `${bg}`}}>{event} | </span>}</p>}
+        {eventShow && <span style = {{fontStyle: `italic`, color: `${bg}`}}>{event} | </span>}
         {dateShow && <span style = {{fontStyle: `italic`}}>{startD}-{endD}</span>}
-      <div style = {{top: `${top3}`, position: `absolute`}}>
+      </p>}
+       <div style = {{top: `${top3}`, position: `absolute`, lineHeight: `${size}`}}>
         {renderHTML(desc)}
       </div>
       

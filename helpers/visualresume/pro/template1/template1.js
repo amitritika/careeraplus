@@ -156,4 +156,17 @@ export const textWidth = (fontf, weight, size, width, name) => {
   return [t.clientHeight + 1, t.clientWidth+1]
 }
 
+export const textWidthL = (fontf, weight, size, width, name) => {
+  let t = document.getElementById("text");
+  t.style.fontSize = size;
+  t.style.fontFamily = fontf;
+  t.style.fontWeight = weight;
+  t.style.height = "auto";
+  t.style.width = width;
+  t.style.lineHeight = "3.2pt";
+  t.innerHTML = name;
+  //console.log(t.clientHeight + 1, t.clientWidth+1);
+  
+  return [t.clientHeight + 1, t.clientWidth+1]
+}
 

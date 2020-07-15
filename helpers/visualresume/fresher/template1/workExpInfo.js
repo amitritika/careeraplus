@@ -66,7 +66,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       
     }
     
-    rightH = rightH + marginBullet + 12+height;
+    rightH = rightH + marginSec + 12+height;
     
     if(rightH > countR * 297){
       countR++;
@@ -88,7 +88,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             obj.block.ids.push(str);
             obj.block.props.push({top: rightH + marginSec, height: 12+height, org: v.org ,type: v.type, startD: v.startDate, endD: v.endDate, desc: v.desc});
     
-            rightH = rightH + marginBullet + 12+height;
+            rightH = rightH + marginSec + 12+height;
           }else{
             obj.block.components.pop();
             obj.block.ids.pop();
@@ -100,7 +100,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             obj.block.ids.push(str);
             obj.block.props.push({top: rightH + marginSec, height: 12+height, org: v.org ,type: v.type, startD: v.startDate, endD: v.endDate, desc: v.desc});
     
-            rightH = rightH + marginBullet + 12+height;
+            rightH = rightH + marginSec + 12+height;
             
           }
         }else{
@@ -118,7 +118,7 @@ const workExpInfo = (obj, data, marginSec, marginBullet, marginPage) => {
           obj.right.ids.push(str);
           obj.right.props.push({top: rightH + marginSec, height: 12+height, org: v.org ,type: v.type, startD: v.startDate, endD: v.endDate, desc: v.desc});
 
-          rightH = rightH + marginBullet + 12+height;
+          rightH = rightH + marginSec + 12+height;
         }
     }
     

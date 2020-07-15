@@ -1,7 +1,7 @@
-import LeftBlockContactInfo from "../../../../components/visualresume/expert/template3/resume/LeftBlockContactInfo"
-import LeftBlockHeading from "../../../../components/visualresume/expert/template3/resume/LeftBlockHeading"
+import LeftBlockContactInfo from "../../../../components/visualresume/pro/template3/resume/LeftBlockContactInfo"
+import LeftBlockHeading from "../../../../components/visualresume/pro/template3/resume/LeftBlockHeading"
 import {hobbiesList} from "../../fresher"
-import VL from "../../../../components/visualresume/expert/template3/resume/VL"
+import VL from "../../../../components/visualresume/pro/template3/resume/VL"
 import { FaBookReader } from 'react-icons/fa';
 const hobbiesInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let leftH = obj.leftH;

@@ -1,9 +1,9 @@
 
-import RightBlockHeading from "../../../../components/visualresume/expert/template2/resume/RightBlockHeading"
-import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
-import RightBlockEdu from "../../../../components/visualresume/expert/template2/resume/RightBlockEdu"
-import BlockEdu from "../../../../components/visualresume/expert/template2/resume/BlockEdu"
+import RightBlockHeading from "../../../../components/visualresume/pro/template2/resume/RightBlockHeading"
+import BlockHeading from "../../../../components/visualresume/pro/template2/resume/BlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/pro/template2/resume/RightBlockLogo"
+import RightBlockEdu from "../../../../components/visualresume/pro/template2/resume/RightBlockEdu"
+import BlockEdu from "../../../../components/visualresume/pro/template2/resume/BlockEdu"
 import { FaGraduationCap } from "react-icons/fa";
 
 const educationInfo = (obj, data, marginSec, marginBullet, marginPage) => {

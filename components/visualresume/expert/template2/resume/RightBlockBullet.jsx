@@ -12,7 +12,7 @@ const RightBlockBullet = (props) =>{
   let size = (props.fac * 3.2).toString() + "pt";
   let left = (props.fac * 17).toString() + "px";
   let top = (props.fac * props.props.top).toString() + "px";
-  let top1 = (props.fac * 3).toString() + "px";
+  let top1 = (props.fac * 1.5).toString() + "px";
   let height1 = (props.fac * 2).toString() + "px";
   let left1 = (props.fac * -5.5).toString() + "px";
   
@@ -25,7 +25,9 @@ const RightBlockBullet = (props) =>{
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, position: `absolute`, top: `${top}`, left: `${left}`, color: `${font}`, fontFamily: `calibri`, fontSize: `${size}`, textAlign: `left`}}>
       <div style = {{top: `${top1}`, position: `absolute`, height: `${height1}`, width: `${height1}`, borderRadius: `50%`, backgroundColor: `${bg}`, left: `${left1}`}}></div> 
-      {renderHTML(name)}
+      <div style = {{lineHeight: `${size}`}}>
+        {renderHTML(name)}
+      </div>
       {lineOp && 
         <div style = {{width: `${lineW}`, height: `${lineH}`, backgroundColor: `${bg}`, position: `absolute`, top: `${lineT}`, left: `${lineL}`}}></div>
       }

@@ -1,8 +1,8 @@
-import BlockHeading from "../../../../components/visualresume/expert/template2/resume/BlockHeading"
-import RightBlockHeading from "../../../../components/visualresume/expert/template2/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template2/resume/RightBlockLogo"
-import RightBlockBulletSmall from "../../../../components/visualresume/expert/template2/resume/RightBlockBulletSmall"
-import BlockBulletSmall from "../../../../components/visualresume/expert/template2/resume/BlockBulletSmall"
+import BlockHeading from "../../../../components/visualresume/pro/template2/resume/BlockHeading"
+import RightBlockHeading from "../../../../components/visualresume/pro/template2/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/pro/template2/resume/RightBlockLogo"
+import RightBlockBulletSmall from "../../../../components/visualresume/pro/template2/resume/RightBlockBulletSmall"
+import BlockBulletSmall from "../../../../components/visualresume/pro/template2/resume/BlockBulletSmall"
 import {textWidth} from "./template2";
 const extraInfo = (obj, data, marginSec, marginBullet, marginPage, logo) => {
   let countL = obj.countL;

@@ -138,9 +138,9 @@ const educationInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     }else{
       obj.right.components.push(RightBlockEdu);
       obj.right.ids.push(str);
-      obj.right.props.push({top: rightH + marginSec, height: 20, data: v});
+      obj.right.props.push({top: rightH, height: 20, data: v});
       
-     rightH = rightH + marginSec +  20
+     rightH = rightH  +  20
       
     }
     

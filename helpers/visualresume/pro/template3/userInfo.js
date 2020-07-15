@@ -42,9 +42,9 @@ const userInfo = (obj, name, email, photo, data, marginSec, marginBullet, margin
   
   obj.left.components.push(LeftBlockHeading);
   obj.left.ids.push("contact-dummy");
-  obj.left.props.push({top: leftH + marginSec, name: "CONTACT", height: 9, icon: FaPhone});
+  obj.left.props.push({top: leftH + 2*marginSec, name: "CONTACT", height: 9, icon: FaPhone});
   
-  leftH = leftH + marginSec + 9;
+  leftH = leftH + 2*marginSec + 9;
   
   obj.left.components.push(LeftBlockContactInfo);
   obj.left.ids.push("contact-phone-dummy");

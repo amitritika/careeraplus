@@ -3,14 +3,14 @@ import RightBlockHeading from "../../../../components/visualresume/expert/templa
 import RightBlockLogo from "../../../../components/visualresume/expert/template3/resume/RightBlockLogo"
 import RightBlockProject from "../../../../components/visualresume/expert/template3/resume/RightBlockProject"
 import BlockProject from "../../../../components/visualresume/expert/template3/resume/BlockProject"
-import {textWidth} from "./template3";
+import {textWidth, textWidthL} from "./template3";
 import { FaFolderOpen } from "react-icons/fa";
 const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let countL = obj.countL;
   let countR = obj.countR;
   let leftH = obj.leftH;
   let rightH = obj.rightH;
-  let tH = 0;
+  let tH = 2;
   
   if(rightH > (countR * 297 - 10)){
     countR++;
@@ -129,11 +129,11 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       }
     
     let str = "project-heading-" + i.toString();
-    let arrd = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
+    let arrd = textWidthL("calibri", "normal", "3.2pt", "113px", v.desc);
     let arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
     let height = arrd[0] + arrt[0];
     if(countR > countL){
-      arrd = textWidth("calibri", "normal", "3.2pt", "183px", v.desc);
+      arrd = textWidthL("calibri", "normal", "3.2pt", "183px", v.desc);
       arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
       height = arrd[0] + arrt[0];
       obj.block.components.push(BlockProject);
@@ -143,7 +143,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       if(v.designation.optional || v.client.optional || v.date.optional){
         rightH = rightH + marginSec + height + tH;
       }else{
-        rightH = rightH + marginSec + height;
+        rightH = rightH + marginSec + height + tH;
       }
       
     }else{
@@ -154,7 +154,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       if(v.designation.optional || v.client.optional || v.date.optional){
         rightH = rightH + marginSec + height + tH;
       }else{
-        rightH = rightH + marginSec + height;
+        rightH = rightH + marginSec + height + tH;
       }
       
     }
@@ -176,7 +176,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
               obj.page1.right.ids = obj.right.ids;
               obj.page1.right.props = obj.right.props;
             }
-            arrd = textWidth("calibri", "normal", "3.2pt", "183px", v.desc);
+            arrd = textWidthL("calibri", "normal", "3.2pt", "183px", v.desc);
             arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
             height = arrd[0] + arrt[0];
             obj.block.components.push(BlockProject);
@@ -186,13 +186,13 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             if(v.designation.optional || v.client.optional || v.date.optional){
               rightH = rightH + marginSec + height + tH;
             }else{
-              rightH = rightH + marginSec + height;
+              rightH = rightH + marginSec + height + tH;
             }
           }else{
             obj.block.components.pop();
             obj.block.ids.pop();
             obj.block.props.pop();
-            arrd = textWidth("calibri", "normal", "3.2pt", "183px", v.desc);
+            arrd = textWidthL("calibri", "normal", "3.2pt", "183px", v.desc);
             arrt = textWidth("calibri", "normal", "3.2pt", "183px", v.titile);
             height = arrd[0] + arrt[0];
             obj.block.components.push(BlockProject);
@@ -202,7 +202,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             if(v.designation.optional || v.client.optional || v.date.optional){
               rightH = rightH + marginSec + height + tH;
             }else{
-              rightH = rightH + marginSec + height;
+              rightH = rightH + marginSec + height + tH;
             }
             
           }
@@ -217,7 +217,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
         obj.page1.right.props = obj.right.props;
       }
           
-          arrd = textWidth("calibri", "normal", "3.2pt", "113px", v.desc);
+          arrd = textWidthL("calibri", "normal", "3.2pt", "113px", v.desc);
           arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
           height = arrd[0] + arrt[0];
 
@@ -227,7 +227,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
           if(v.designation.optional || v.client.optional || v.date.optional){
             rightH = rightH + marginSec + height + tH;
           }else{
-            rightH = rightH + marginSec + height;
+            rightH = rightH + marginSec + height + tH;
           }
         }
     }
@@ -240,6 +240,7 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
         obj.page1.right.ids = obj.right.ids;
         obj.page1.right.props = obj.right.props;
       }
+  rightH = rightH + 4;
   obj.countL = countL;
   obj.countR = countR;
   obj.leftH = leftH;

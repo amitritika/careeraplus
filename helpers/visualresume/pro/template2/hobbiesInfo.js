@@ -1,5 +1,5 @@
-import LeftBlockContactInfo from "../../../../components/visualresume/expert/template2/resume/LeftBlockContactInfo"
-import LeftBlockHeading from "../../../../components/visualresume/expert/template2/resume/LeftBlockHeading"
+import LeftBlockContactInfo from "../../../../components/visualresume/pro/template2/resume/LeftBlockContactInfo"
+import LeftBlockHeading from "../../../../components/visualresume/pro/template2/resume/LeftBlockHeading"
 import {hobbiesList} from "../../fresher"
 import { FaBookReader } from 'react-icons/fa';
 const hobbiesInfo = (obj, data, marginSec, marginBullet, marginPage) => {

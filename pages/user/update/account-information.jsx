@@ -238,7 +238,9 @@ const AccountUpdate = () => {
       <Private>
         <div className="container mt-4" >
           <Row>
-           
+           <Col xs = "12">
+            <button onClick = {()=> Router.back()}  className = "btn btn-lg btn-primary mb-2">Go Back</button>
+            </Col>
             <Col xs = "2">
               <img
                             src={imageSrc}

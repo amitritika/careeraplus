@@ -28,9 +28,8 @@ const skillInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     obj.left.ids.push("skill");
     obj.left.props.push({top: leftH + marginSec, name: s.value , rating: rating});
     
-    leftH = leftH + marginSec + 15;
-    console.log(obj.countL, leftH)
-    console.log(obj.left.props[obj.left.props.length-1])
+    leftH = leftH + marginSec + 17;
+    
     if(leftH > (obj.countL * 297)){
       
       obj.countL = obj.countL + 1;
@@ -53,7 +52,7 @@ const skillInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       obj.left.components.push(LeftBlockSkill);
       obj.left.props.push({top: leftH + marginSec, name: s.value , rating: rating});
       
-      leftH = leftH + marginSec + 15;
+      leftH = leftH + marginSec + 17;
     }
     
     

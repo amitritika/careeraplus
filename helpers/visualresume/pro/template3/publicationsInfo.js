@@ -1,8 +1,8 @@
-import BlockHeading from "../../../../components/visualresume/expert/template3/resume/BlockHeading"
-import RightBlockHeading from "../../../../components/visualresume/expert/template3/resume/RightBlockHeading"
-import RightBlockLogo from "../../../../components/visualresume/expert/template3/resume/RightBlockLogo"
-import RightBlockPub from "../../../../components/visualresume/expert/template3/resume/RightBlockPub"
-import BlockPub from "../../../../components/visualresume/expert/template3/resume/BlockPub"
+import BlockHeading from "../../../../components/visualresume/pro/template3/resume/BlockHeading"
+import RightBlockHeading from "../../../../components/visualresume/pro/template3/resume/RightBlockHeading"
+import RightBlockLogo from "../../../../components/visualresume/pro/template3/resume/RightBlockLogo"
+import RightBlockPub from "../../../../components/visualresume/pro/template3/resume/RightBlockPub"
+import BlockPub from "../../../../components/visualresume/pro/template3/resume/BlockPub"
 import {textWidth} from "./template3";
 import { FaBook } from "react-icons/fa";
 const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
@@ -24,25 +24,25 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   if(countR > countL){
     obj.block.components.push(RightBlockLogo);
     obj.block.ids.push("pub-logo");
-    obj.block.props.push({top: rightH + marginSec, name: FaBook});
+    obj.block.props.push({top: rightH + 2*marginSec, name: FaBook});
     
     obj.block.components.push(BlockHeading);
     obj.block.ids.push("pub");
-    obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
+    obj.block.props.push({top: rightH + 2*marginSec, name: data.title , height: 13});
     
     
   }else{
     obj.right.components.push(RightBlockLogo);
     obj.right.ids.push("pub-logo");
-    obj.right.props.push({top: rightH + marginSec, name: FaBook});
+    obj.right.props.push({top: rightH + 2*marginSec, name: FaBook});
     
     obj.right.components.push(RightBlockHeading);
     obj.right.ids.push("pub");
-    obj.right.props.push({top: rightH + marginSec, name: data.title , height: 13});
+    obj.right.props.push({top: rightH + 2*marginSec, name: data.title , height: 13});
   }
   
   
-  rightH = rightH + marginSec + 13;
+  rightH = rightH + 2*marginSec + 13;
   
   if(rightH > (countR * 297 - 10)){
       countR++;
@@ -66,13 +66,13 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             
             obj.block.components.push(RightBlockLogo);
             obj.block.ids.push("project-logo");
-            obj.block.props.push({top: rightH + marginSec, name: FaBook});
+            obj.block.props.push({top: rightH + 2*marginSec, name: FaBook});
 
             obj.block.components.push(RightBlockHeading);
             obj.block.ids.push("project");
-            obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
+            obj.block.props.push({top: rightH + 2*marginSec, name: data.title , height: 13});
             
-            rightH = rightH + marginSec + 13;
+            rightH = rightH + 2*marginSec + 13;
     
           }else{
             obj.block.components.pop();
@@ -85,13 +85,13 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
            
             obj.block.components.push(RightBlockLogo);
             obj.block.ids.push("project-logo");
-            obj.block.props.push({top: rightH + marginSec, name: FaBook});
+            obj.block.props.push({top: rightH + 2*marginSec, name: FaBook});
 
             obj.block.components.push(RightBlockHeading);
             obj.block.ids.push("project");
-            obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
+            obj.block.props.push({top: rightH + 2*marginSec, name: data.title , height: 13});
             
-            rightH = rightH + marginSec + 13;
+            rightH = rightH + 2*marginSec + 13;
           }
         }else{
           obj.right.components.pop();
@@ -111,13 +111,13 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
           
           obj.right.components.push(RightBlockLogo);
           obj.right.ids.push("project-logo");
-          obj.right.props.push({top: rightH + marginSec, name: FaBook});
+          obj.right.props.push({top: rightH + 2*marginSec, name: FaBook});
 
           obj.right.components.push(RightBlockHeading);
           obj.right.ids.push("project");
-          obj.right.props.push({top: rightH + marginSec, name: data.title , height: 13});
+          obj.right.props.push({top: rightH + 2*marginSec, name: data.title , height: 13});
           
-          rightH = rightH + marginSec + 13;
+          rightH = rightH + 2*marginSec + 13;
         
         }
     }
@@ -137,15 +137,15 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
       height = arrj[0] + arrt[0];
       obj.block.components.push(BlockPub);
       obj.block.ids.push(str);
-      obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
-      rightH = rightH + marginSec + height;
+      obj.block.props.push({top: rightH + 2*marginSec, height: height, data: v, line: line});
+      rightH = rightH + 2*marginSec + height;
       
       
     }else{
       obj.right.components.push(RightBlockPub);
       obj.right.ids.push(str);
-      obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
-      rightH = rightH + marginSec + height;
+      obj.right.props.push({top: rightH + 2*marginSec, height: height, data: v, line: line});
+      rightH = rightH + 2*marginSec + height;
       
       
     }
@@ -166,8 +166,8 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             height = arrj[0] + arrt[0];
             obj.block.components.push(BlockPub);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
-            rightH = rightH + marginSec + height;
+            obj.block.props.push({top: rightH + 2*marginSec, height: height, data: v, line: line});
+            rightH = rightH + 2*marginSec + height;
             
           }else{
             obj.block.components.pop();
@@ -178,8 +178,8 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             height = arrj[0] + arrt[0];
             obj.block.components.push(BlockPub);
             obj.block.ids.push(str);
-            obj.block.props.push({top: rightH + marginSec, height: height, data: v, line: line});
-            rightH = rightH + marginSec + height;
+            obj.block.props.push({top: rightH + 2*marginSec, height: height, data: v, line: line});
+            rightH = rightH + 2*marginSec + height;
             
           }
         }else{
@@ -199,8 +199,8 @@ const publicationsInfo = (obj, data, marginSec, marginBullet, marginPage) => {
 
           obj.right.components.push(RightBlockPub);
           obj.right.ids.push(str);
-          obj.right.props.push({top: rightH + marginSec, height: height, data: v, line: line});
-         rightH = rightH + marginSec + height;
+          obj.right.props.push({top: rightH + 2*marginSec, height: height, data: v, line: line});
+         rightH = rightH + 2*marginSec + height;
         }
     }
     

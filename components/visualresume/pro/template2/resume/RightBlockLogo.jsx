@@ -20,14 +20,14 @@ const RightBlockLogo = (props) =>{
   let marginT = (props.fac * 1).toString() + "px";
   let heightI =  (props.fac * 9 *0.8).toString() + "px";
   let left2 = (props.fac * 5.5).toString() + "px";
-  let top2 = (props.fac * 0.5).toString() + "px";
+  let top2 = (props.fac * 0).toString() + "px";
 
   return (
     <div id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
-     <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid ${bg}`,  transform: `rotate(-45deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
+     <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid ${bg}`,  transform: `rotate(0deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
         
       </div> 
-      <div className = "template2-icon-heading" style = {{ position: `absolute`, color: `${bg}`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
+      <div className = "" style = {{ position: `absolute`, color: `${bg}`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
           <IconContext.Provider value={{ color: `${bg}` }}>
             <div style = {{zIndex: `3`}}>
               <Icon />

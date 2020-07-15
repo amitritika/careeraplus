@@ -16,13 +16,15 @@ const BlockBullet = (props) =>{
   let height1 = (props.fac * 2).toString() + "px";
   let left1 = (props.fac * -5.5).toString() + "px";
   
-  let lineT = (props.fac * 0.5).toString() + "px";
+  let lineT = (props.fac * -0.5).toString() + "px";
   let lineL = (props.fac * -6).toString() + "px";
 
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, position: `absolute`, top: `${top}`, left: `${left}`, color: `${font}`, fontFamily: `calibri`, fontSize: `${size}`, textAlign: `left`}}>
       
-      {renderHTML(name)}
+      <div style = {{lineHeight: `${size}`}}>
+        {renderHTML(name)}
+      </div>
       <div style = {{position: `absolute`, color: `${bg}`, fontSize:`${size}`, top: `${lineT}`, left: `${lineL}`}}>
         <i class="fas fa-check"></i>
       </div>

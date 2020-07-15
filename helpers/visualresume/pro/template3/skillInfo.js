@@ -1,6 +1,6 @@
-import LeftBlockHeading from "../../../../components/visualresume/expert/template3/resume/LeftBlockHeading"
-import LeftBlockSkill from "../../../../components/visualresume/expert/template3/resume/LeftBlockSkill"
-import VL from "../../../../components/visualresume/expert/template3/resume/VL"
+import LeftBlockHeading from "../../../../components/visualresume/pro/template3/resume/LeftBlockHeading"
+import LeftBlockSkill from "../../../../components/visualresume/pro/template3/resume/LeftBlockSkill"
+import VL from "../../../../components/visualresume/pro/template3/resume/VL"
 import { FaTools} from 'react-icons/fa';
 const skillInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let leftH = obj.leftH;

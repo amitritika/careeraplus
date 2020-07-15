@@ -8,16 +8,18 @@ import educationInfo from "./educationInfo"
 import extraInfo from "./extraInfo"
 import publicationsInfo from "./publicationsInfo"
 import hobbiesInfo from "./hobbiesInfo"
+import porInfo from "./porInfo"
+import trainingInfo from "./trainingInfo"
 import {FaCertificate, FaAward} from "react-icons/fa"
 
 
-import LeftBlock from "../../../../components/visualresume/expert/template3/pages/LeftBlock"
-import RightBlock from "../../../../components/visualresume/expert/template3/pages/RightBlock"
-import Block from "../../../../components/visualresume/expert/template3/pages/Block"
+import LeftBlock from "../../../../components/visualresume/pro/template3/pages/LeftBlock"
+import RightBlock from "../../../../components/visualresume/pro/template3/pages/RightBlock"
+import Block from "../../../../components/visualresume/pro/template3/pages/Block"
 
 
-import UserPhoto from "../../../../components/visualresume/expert/template3/resume/UserPhoto"
-import UserName from "../../../../components/visualresume/expert/template3/resume/UserName"
+import UserPhoto from "../../../../components/visualresume/pro/template3/resume/UserPhoto"
+import UserName from "../../../../components/visualresume/pro/template3/resume/UserName"
 
 export const colors = [
   {bg: "rgb(0, 141, 125)", font: "rgb(131, 130, 128)"},
@@ -33,7 +35,7 @@ export const componentSequence = (visualresume, name, email, photo)=> {
   let list = visualresume.layout.listLR
   let leftH = 0;
   let rightH = 0;
-  let marginSec = 5;
+  let marginSec = 2;
   let marginBullet = 1;
   let marginPage = 15;
   let arr = [];
@@ -135,6 +137,14 @@ export const componentSequence = (visualresume, name, email, photo)=> {
     if( q == "publicationInfoDisplay" ){
       obj = publicationsInfo(obj, visualresume.publicationInformation, marginSec, marginBullet, marginPage);
     }
+    
+    if( q == "porInfoDisplay" ){
+      obj = porInfo(obj, visualresume.porInformation, marginSec, marginBullet, marginPage);
+    }
+    
+    if( q == "trainingInfoDisplay" ){
+      obj = trainingInfo(obj, visualresume.trainingInformation, marginSec, marginBullet, marginPage);
+    }
   })
   
 
@@ -150,6 +160,21 @@ export const textWidth = (fontf, weight, size, width, name) => {
   t.style.fontWeight = weight;
   t.style.height = "auto";
   t.style.width = width;
+  t.innerHTML = name;
+  //console.log(t.clientHeight + 1, t.clientWidth+1);
+  
+  return [t.clientHeight + 1, t.clientWidth+1]
+}
+
+
+export const textWidthL = (fontf, weight, size, width, name) => {
+  let t = document.getElementById("text");
+  t.style.fontSize = size;
+  t.style.fontFamily = fontf;
+  t.style.fontWeight = weight;
+  t.style.height = "auto";
+  t.style.width = width;
+  t.style.lineHeight = "3.2pt";
   t.innerHTML = name;
   //console.log(t.clientHeight + 1, t.clientWidth+1);
   

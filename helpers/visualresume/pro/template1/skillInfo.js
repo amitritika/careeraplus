@@ -1,5 +1,5 @@
-import LeftBlockHeading from "../../../../components/visualresume/expert/template1/resume/LeftBlockHeading"
-import LeftBlockSkill from "../../../../components/visualresume/expert/template1/resume/LeftBlockSkill"
+import LeftBlockHeading from "../../../../components/visualresume/pro/template1/resume/LeftBlockHeading"
+import LeftBlockSkill from "../../../../components/visualresume/pro/template1/resume/LeftBlockSkill"
 
 const skillInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let leftH = obj.leftH;

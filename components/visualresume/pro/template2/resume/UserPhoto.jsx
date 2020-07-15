@@ -18,9 +18,9 @@ const UserPhoto = (props) =>{
   
   return (
     <div id = {id} style = {{height: `${height}`, width: `${width}`, position: `absolute`, top: `${top}`, left: `${left}`}}>
-      <div style = {{height: `${height}`, width: `${width}`, position: `absolute`, border: `${border} solid white`,  transform: `rotate(-45deg)`, overflow: `hidden`, borderRadius: `${radius}`}}>
-        <div style = {{height: `${height}`, width: `${width}`, position: `absolute`, transform: `rotate(45deg)`, margin: `${marginL} ${marginT} ${marginR} ${marginB}`}}>
-          <img style = {{height: `${height1}`, width: `${width1}`}} src={src} />
+      <div style = {{height: `${height}`, width: `${width}`, position: `absolute`, border: `${border} solid white`, overflow: `hidden`, borderRadius: `${radius}`}}>
+        <div style = {{height: `${height}`, width: `${width}`, position: `absolute`}}>
+          <img style = {{height: `${height}`, width: `${width}`}} src={src} />
         </div>
       </div>
        

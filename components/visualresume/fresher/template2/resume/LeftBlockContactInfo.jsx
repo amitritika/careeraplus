@@ -25,7 +25,7 @@ const LeftBlockContactInfo = (props) =>{
   let iconFont = (props.fac * 3.2).toString() + "pt";
   
   let radius = (props.fac * 1).toString() + "px";
-  let border = (props.fac * 0.5).toString() + "px";
+  let border = (props.fac * 0.25).toString() + "px";
   let left1 = (props.fac * 7).toString() + "px";
   let marginL = (-props.fac * 0).toString() + "px";
   let marginT = (props.fac * 0.5).toString() + "px";
@@ -39,10 +39,10 @@ const LeftBlockContactInfo = (props) =>{
   return (
     <div id = {id} style = {{ height: `${textHeight}`, width: `${width}`,color: `white`, position: `absolute`, top: `${top}`, left: `${left}`, fontFamily: `calibri`, textAlign: `center`, fontWeight: `bold`}}>
       
-      <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid white`,  transform: `rotate(-45deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
+      <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid white`,  transform: `rotate(0deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
         
       </div> 
-     <div className = "template2-icon" style = {{ position: `absolute`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
+     <div className = "" style = {{ position: `absolute`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`}}>
           <IconContext.Provider value={{ color: "white" }}>
             <div style = {{}}>
               <Icon />
