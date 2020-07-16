@@ -23,7 +23,7 @@ const ProjectsInfo = (props) =>{
     let visualresumeCopy = visualresumeexp;
     arr.splice(idx, 1);
     setList(arr);
-    visualresumeCopy.softSkillsInformation.value = arr;
+    visualresumeCopy.projectsInformation.value = arr;
     vr(visualresumeCopy)
   }
   
@@ -186,7 +186,7 @@ const ProjectsInfo = (props) =>{
       <input 
         type = "text"
         className="form-control"
-        defaultValue={visualresumeexp.softSkillsInformation.title}
+        defaultValue={visualresumeexp.projectsInformation.title}
         onChange= {handleTitle}>
       </input>
       {showProjects()}

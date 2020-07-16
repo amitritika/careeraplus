@@ -23,7 +23,7 @@ const ProjectsInfo = (props) =>{
     let visualresumeCopy = visualresumepro;
     arr.splice(idx, 1);
     setList(arr);
-    visualresumeCopy.softSkillsInformation.value = arr;
+    visualresumeCopy.projectsInformation.value = arr;
     vr(visualresumeCopy)
   }
   
