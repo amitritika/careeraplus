@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../public/stylesheets/examplan/index.css';
 import Layout from "../../components/Layout"
 import PricingVisualResume from "../../components/PricingVisualResume";
+import FAQ from "../../components/FAQ";
+import {visualresume} from "../../helpers/faq"
 import {isAuth} from "../../actions/auth"
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 import { payButtons} from '../../actions/payUMoney';
@@ -107,6 +109,7 @@ const Examplan = () => {
       {head()}
       <Layout>
       <PricingVisualResume />
+				<FAQ faq = {visualresume}/>
     </Layout>
     </React.Fragment>
     
