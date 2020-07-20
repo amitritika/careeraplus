@@ -10,6 +10,7 @@ import Router from "next/router"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../public/stylesheets/examplan/index.css';
 import Layout from "../../components/Layout"
+import PricingVisualResume from "../../components/PricingVisualResume";
 import {isAuth} from "../../actions/auth"
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 import { payButtons} from '../../actions/payUMoney';
@@ -105,102 +106,7 @@ const Examplan = () => {
     <React.Fragment>
       {head()}
       <Layout>
-      <div className = "examplan">
-        <h1>Choose Your Resume</h1>
-        <Container>
-          <Row>
-            <Col xs="12" sm="12" md = "4" lg = "4" style= {{}}>
-              <Card className="shadow p-3 mb-5 bg-white rounded ml-1 mr-1">
-                <CardTitle>Fresher</CardTitle>
-                <CardImg top width="100%" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80" alt="Card image cap" />
-                <CardBody>
-									{(fresher.discount == 0) && <h1 className="card-title pricing-card-title">250 INR <small class="text-muted">/ yr</small></h1>}
-									{(fresher.discount !== 0) && <p className="card-title pricing-card-title">{fresher.discount}% Discount</p>}
-									{(fresher.discount !== 0) && <h2 className="card-title pricing-card-title"><del>250 INR<small class="text-muted">/ yr</small></del></h2>}
-									{(fresher.discount !== 0) && <h1 className="card-title pricing-card-title">{fresher.price} INR <small class="text-muted">/ yr</small></h1>}
-                  <ul className="list-unstyled mt-3 mb-4">
-                    <li>1 Page Resume</li>
-                    <li>Unlimited Printing</li>
-                    <li>URL for Resume Sharing</li>
-                    <li>Basic Layout</li>
-                    <li>Layout Change Limited</li>
-                    <li>Ideal For Fresher with No Experience</li>
-                  </ul>
-                  <Button onClick= {()=>{Router.push(`/visualresume/fresher`)}}>Templates</Button>
-                  {!!isAuth() && <div>{renderHTML(fresher.button)}</div>}
-                  {!isAuth() && <div className = "mt-4">
-                    <Button color="info" disabled>Pay Now</Button>
-                    <p>Signin to Pay</p>
-                  </div>}
-                </CardBody>
-              </Card>
-            </Col>
-            <Col xs="12" sm="12" md = "4" lg = "4" style= {{}}>
-              <Card className="shadow p-3 mb-5 bg-white rounded ml-1 mr-1">
-                <CardTitle>Professional</CardTitle>
-                <CardImg top width="100%" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Card image cap" />
-                <CardBody>
-                  {(pro.discount == 0) && <h1 className="card-title pricing-card-title">500 INR <small class="text-muted">/ yr</small></h1>}
-									{(pro.discount !== 0) && <p className="card-title pricing-card-title">{pro.discount}% Discount</p>}
-									{(pro.discount !== 0) && <h2 className="card-title pricing-card-title"><del>500 INR<small class="text-muted">/ yr</small></del></h2>}
-									{(pro.discount !== 0) && <h1 className="card-title pricing-card-title">{pro.price} INR <small class="text-muted">/ yr</small></h1>}
-                  <ul className="list-unstyled mt-3 mb-4">
-                    <li>2 Pages Resume</li>
-                    <li>Unlimited Printing</li>
-                    <li>URL for Resume Sharing</li>
-                    <li>Professional Layout</li>
-                    <li>Layout Change Extensive</li>
-                    <li>Ideal For 0-4 Years Professionls</li>
-                  </ul>
-                  <Button onClick= {()=>{Router.push(`/visualresume/pro`)}}>Templates</Button>
-                  {!!isAuth() && <div>{renderHTML(pro.button)}</div>}
-                  {!isAuth() && <div className = "mt-4">
-                    <Button color="info" disabled>Pay Now</Button>
-                    <p>Signin to Pay</p>
-                  </div>}
-                </CardBody>
-              </Card>
-            </Col>
-            <Col xs="12" sm="12" md = "4" lg = "4" style= {{}}>
-              <Card className="shadow p-3 mb-5 bg-white rounded ml-1 mr-1">
-                <CardTitle>Expert</CardTitle>
-                <CardImg top width="100%" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Card image cap" />
-                <CardBody>
-                  {(expert.discount == 0) && <h1 className="card-title pricing-card-title">1000 INR <small class="text-muted">/ yr</small></h1>}
-									{(expert.discount !== 0) && <p className="card-title pricing-card-title">{expert.discount}% Discount</p>}
-									{(expert.discount !== 0) && <h2 className="card-title pricing-card-title"><del>1000 INR<small class="text-muted">/ yr</small></del></h2>}
-									{(expert.discount !== 0) && <h1 className="card-title pricing-card-title">{expert.price} INR <small class="text-muted">/ yr</small></h1>}
-                  <ul className="list-unstyled mt-3 mb-4">
-                    <li>Unlimited Pages Resume</li>
-                    <li>Unlimited Printing</li>
-                    <li>URL for Resume Sharing</li>
-                    <li>Expert Layout</li>
-                    <li>Layout Change Extensive</li>
-                    <li>Ideal For 4+ Years Professionals</li>
-                  </ul>
-                  <Button onClick= {()=>{Router.push(`/visualresume/expert`)}}>Templates</Button>
-                  {!!isAuth() && <div>{renderHTML(expert.button)}</div>}
-                  {!isAuth() && <div className = "mt-4">
-                    <Button color="info" disabled>Pay Now</Button>
-                    <p>Signin to Pay</p>
-                  </div>}
-                </CardBody>
-              </Card>
-            </Col>
-            <Col xs="12" sm="12" md = "12" lg = "12">
-              <a href = "/visualresume/fresher" className = "btn btn-outline-primary menu-button">Fresher</a>
-            </Col>
-            <Col xs="12" sm="12" md = "12" lg = "12">
-              <a href = "/visualresume/pro" className = "btn btn-outline-primary menu-button">Professional</a>
-            </Col>
-            <Col xs="12" sm="12" md = "12" lg = "12">
-              <a href = "/visualresume/expert" className = "btn btn-outline-primary menu-button">Experienced</a>
-            </Col>
-            
-        </Row>
-          {!isAuth() && <h1>Please Signin to Visit Visual Resume Page</h1>}
-        </Container>
-      </div>
+      <PricingVisualResume />
     </Layout>
     </React.Fragment>
     

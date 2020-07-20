@@ -51,20 +51,25 @@ const Examplan = () => {
               <Col xs="12" sm="12" md = "12" lg = "12" style = {{}}	>
 								{renderHTML(pro.button)}
               </Col>
-              <Col xs="12" sm="12" md = "12" lg = "12">
-                <a href = "/visualresume/pro/template1" className = "btn btn-lg btn-outline-primary menu-button">Template 1</a>
+              <Col xs="12" sm="12" md = "4" lg = "4">
+								<img src = "../../../images/visualresume/pro/Template1.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+                <a href = "/visualresume/pro/template1" className = "btn btn-outline-primary">Template 1</a>
               </Col>
-              <Col xs="12" sm="12" md = "12" lg = "12">
-                <a href = "/visualresume/pro/template2" className = "btn btn-lg btn-outline-primary menu-button">Template 2</a>
+              <Col xs="12" sm="12" md = "4" lg = "4">
+								<img src = "../../../images/visualresume/pro/Template2.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+                <a href = "/visualresume/pro/template2" className = "btn btn-outline-primary">Template 2</a>
               </Col>
-							<Col xs="12" sm="12" md = "12" lg = "12">
-                <a href = "/visualresume/pro/template3" className = "btn btn-lg btn-outline-primary menu-button">Template 3</a>
+							<Col xs="12" sm="12" md = "4" lg = "4">
+								<img src = "../../../images/visualresume/pro/Template3.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+                <a href = "/visualresume/pro/template3" className = "btn btn-outline-primary">Template 3</a>
               </Col>
-							<Col xs="12" sm="12" md = "12" lg = "12">
-                <a href = "/visualresume/pro/template4" className = "btn btn-lg btn-outline-primary menu-button">Template 4</a>
+							<Col xs="12" sm="12" md = "4" lg = "4">
+								<img src = "../../../images/visualresume/pro/Template4.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+                <a href = "/visualresume/pro/template4" className = "btn btn-outline-primary">Template 4</a>
               </Col>
-							<Col xs="12" sm="12" md = "12" lg = "12">
-                <a href = "/visualresume/pro/template5" className = "btn btn-lg btn-outline-primary menu-button">Template 5</a>
+							<Col xs="12" sm="12" md = "4" lg = "4">
+								<img src = "../../../images/visualresume/pro/Template5.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+                <a href = "/visualresume/pro/template5" className = "btn btn-outline-primary">Template 5</a>
               </Col>
           </Row>
             {!isAuth() && <h1>Please Signin to Visit Visual Resume Page</h1>}
