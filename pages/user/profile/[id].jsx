@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Layout from '../../../components/Layout';
+import Layout1 from '../../../components/Layout1';
 import { getPublicProfile } from '../../../actions/user';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
 import { Container, Row, Col, Button, NavLink } from 'reactstrap';
@@ -30,7 +30,7 @@ const UserProfile = ({visualresume, visualresumeexp, photo, name, email, query})
   return (
     <React.Fragment>
       {head()}
-      <Layout>
+      <Layout1>
         <div className = "container">
           <div style = {{boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`, marginTop: `20px`}}>
             <img src = {`${API}/user/resume-photo/${query.id}`} style = {{width: `1050px`}}></img>
@@ -39,7 +39,7 @@ const UserProfile = ({visualresume, visualresumeexp, photo, name, email, query})
             <a href = "/visualresume" className = "btn btn-outline-primary" style = {{fontSize: `2rem`}}>Get Your Visual Resume -></a>
           </div>
         </div>
-      </Layout>
+      </Layout1>
       
     </React.Fragment>
   )

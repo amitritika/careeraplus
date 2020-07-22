@@ -1,11 +1,13 @@
 import Header from "./Header"
-const Layout = ({children}) => {
+import Footer from "./Footer"
+const Layout1 = ({children}) => {
   return (
     <React.Fragment>
       <Header />
         {children}
+      <Footer />
     </React.Fragment>
   )
 }
 
-export default Layout;
+export default Layout1;

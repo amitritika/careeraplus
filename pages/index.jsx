@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
-import Layout from "../components/Layout";
+import Layout1 from "../components/Layout1";
 import PricingVisualResume from "../components/PricingVisualResume";
 import FAQ from "../components/FAQ";
 import {main} from "../helpers/faq"
@@ -51,7 +51,7 @@ const Index = () => {
   return (
     <React.Fragment>
       {head()}
-        <Layout>
+        <Layout1>
           <div data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
           <section id="hero" className="d-flex align-items-center">
               <div className="container position-relative" data-aos="fade-up" data-aos-delay="100">
@@ -359,7 +359,7 @@ const Index = () => {
             </Row>
               }
           </div>
-      </Layout>
+      </Layout1>
     </React.Fragment>
   
 )

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
 import Link from 'next/link';
-import Layout from '../../components/Layout';
+import Layout1 from '../../components/Layout1';
 import { useState, useEffect } from 'react';
 import { singleBlog, listRelated } from '../../actions/blog';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
@@ -73,7 +73,7 @@ const SingleBlog = ({ blog, query }) => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
+            <Layout1>
                 <main>
                     <article>
                         <div className="container-fluid">
@@ -120,7 +120,7 @@ const SingleBlog = ({ blog, query }) => {
                         </div>
                     </article>
                 </main>
-            </Layout>
+            </Layout1>
         </React.Fragment>
     );
 };

@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
+import Layout1 from '../components/Layout1';
 import Link from 'next/link';
 import ContactForm from '../components/form/ContactForm';
 
 const Contact = () => {
     return (
-        <Layout>
+        <Layout1>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-8 offset-md-2">
@@ -14,7 +14,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </Layout>
+        </Layout1>
     );
 };
 

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
-import Layout from '../../components/Layout';
+import Layout1 from '../../components/Layout1';
 import { useState } from 'react';
 import { listBlogsWithCategoriesAndTags } from '../../actions/blog';
 import Card from '../../components/blog/Card';
@@ -101,7 +101,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
     return (
         <React.Fragment>
             {head()}
-            <Layout>
+            <Layout1>
                 <main>
                     <div className="container-fluid">
                         <header>
@@ -123,7 +123,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                     <div className="container-fluid">{showLoadedBlogs()}</div>
                     <div className="text-center pt-5 pb-5">{loadMoreButton()}</div>
                 </main>
-            </Layout>
+            </Layout1>
         </React.Fragment>
     );
 };

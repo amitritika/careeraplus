@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Layout from "../components/Layout"
+import Layout1 from "../components/Layout1"
 import {Card, CardImg, CardText, CardBody, CardLink,
   CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
 
 const Index = () => {
   return (
-  <Layout>
+  <Layout1>
       <div className="container1">
         <img src="images/Aboutus.png" className = "about-image"></img>
       </div>
@@ -41,7 +41,7 @@ const Index = () => {
         </Card>
       </Col>
     </Row>
-  </Layout>
+  </Layout1>
 )
 }
 

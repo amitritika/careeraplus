@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import Router from "next/router"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../public/stylesheets/examplan/index.css';
-import Layout from "../../components/Layout"
+import Layout1 from "../../components/Layout1"
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 
 const Examplan = () => {
@@ -34,7 +34,7 @@ const Examplan = () => {
   return (
     <React.Fragment>
       {head()}
-      <Layout>
+      <Layout1>
       <div className = "examplan">
         <h1>Choose Your Goal</h1>
         <Container>
@@ -51,7 +51,7 @@ const Examplan = () => {
         </Row>
         </Container>
       </div>
-    </Layout>
+    </Layout1>
     </React.Fragment>
     
   )
