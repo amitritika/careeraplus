@@ -5,6 +5,7 @@ import Router from "next/router"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../public/stylesheets/examplan/index.css';
 import Layout1 from "../../../components/Layout1"
+import LayoutImages from "../../../components/visualresume/pro/layout/LayoutImages"  
 import Private from "../../../components/auth/Private"
 import {isAuth} from "../../../actions/auth"
 import { payButtons} from '../../../actions/payUMoney';
@@ -72,6 +73,7 @@ const Examplan = () => {
                 <a href = "/visualresume/pro/template5" className = "btn btn-outline-primary">Template 5</a>
               </Col>
           </Row>
+						<LayoutImages />
             {!isAuth() && <h1>Please Signin to Visit Visual Resume Page</h1>}
           </Container>
         </div>

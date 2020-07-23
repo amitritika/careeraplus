@@ -9,7 +9,7 @@ import {
 import Router from "next/router"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../public/stylesheets/examplan/index.css';
-import Layout from "../../components/Layout"
+import Layout1 from "../../components/Layout1"
 import PricingVisualResume from "../../components/PricingVisualResume";
 import FAQ from "../../components/FAQ";
 import {visualresume} from "../../helpers/faq"
@@ -107,10 +107,10 @@ const Examplan = () => {
   return (
     <React.Fragment>
       {head()}
-      <Layout>
+      <Layout1>
       <PricingVisualResume />
 				<FAQ faq = {visualresume}/>
-    </Layout>
+    </Layout1>
     </React.Fragment>
     
   )
