@@ -106,6 +106,11 @@ const PscComponent = (props) => {
         </div>
     );
 	
+	useEffect(()=>{
+		subjectWeightagePrint();
+		
+	}, [])
+	
 	const subjectWeightagePrint =()=> {
 		
 		let subjectName1 = subjectName[exam[0]][stream[0]]["subjectName"];
@@ -156,7 +161,7 @@ const PscComponent = (props) => {
 	}
 		setSubjectW(subjectTopicSequence);
 		setShowSubjectW(true);
-		console.log(subjectTopicSequence);
+		//console.log(subjectTopicSequence);
 		
 		
 		
@@ -220,7 +225,7 @@ const PscComponent = (props) => {
 	if(cal){
 	cal1 = 	<React.Fragment>
 			<div style = {{backgroundColor: `#721c24`, borderRadius: `10px`, margin: `10px`, border: `1px solid black`, height: `50px`, color: `white`}}>
-				Calendar for {exam[1]} {stream[1]} for {user.name}
+				Calendar for {exam[1]} {stream[1]}
 			</div>
 			<YearComponent
 				monthName = {calendar1.monthName}
@@ -257,7 +262,6 @@ const PscComponent = (props) => {
 					<br></br>
 					<Button outline color="warning" size="md" className = "mr-4" onClick = {()=> {calendar()}}>Submit</Button>
 					<Button outline color="warning" size="md" className = "mr-4" onClick = {()=> {subjectWeightagePrint()}}>Subject Weightage</Button>
-					{saveBtn}
 
 					{cal1}
 			

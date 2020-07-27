@@ -46,7 +46,6 @@ const Footer = (props) => {
               <li><i className="fas fa-angle-right"></i> <a href="/aboutus">About Us</a></li>
               <li><i className="fas fa-angle-right"></i> <a href="/contactus">Contact Us</a></li>
               <li><i className="fas fa-angle-right"></i> <a href="/blogs">Blogs</a></li>
-              <li><i className="fas fa-angle-right"></i> <a href="/">Terms of service</a></li>
             </ul>
           </div>
 

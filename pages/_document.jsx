@@ -26,7 +26,7 @@ class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163398934-1"></script>
             <script dangerouslySetInnerHTML={this.setGoogleTags()} />
-          <script data-ad-client="ca-pub-1792623713572003" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          
           
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
           <link href="../../../vendor/icofont/icofont.min.css" rel="stylesheet" />
@@ -40,7 +40,6 @@ class MyDocument extends Document {
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
           <script src="../../../vendor/jquery/jquery.min.js"></script>
           <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-          <script src="../../../vendor/jquery.easing/jquery.easing.min.js"></script>
           <script src="../../../vendor/php-email-form/validate.js"></script>
           <script src="../../../vendor/waypoints/jquery.waypoints.min.js"></script>
           <script src="../../../vendor/counterup/counterup.min.js"></script>
@@ -49,8 +48,8 @@ class MyDocument extends Document {
           <script src="../../../vendor/isotope-layout/isotope.pkgd.min.js"></script>
           <script src="../../../vendor/aos/aos.js"></script>
 
- 
-          <script src="../../../js/main.js"></script>
+           <script src="../../../js/main.js"></script>
+          
         </Head>
         <body>
           <Main />

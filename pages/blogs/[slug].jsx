@@ -31,6 +31,7 @@ const SingleBlog = ({ blog, query }) => {
             <title>
                 {blog.title} | {APP_NAME}
             </title>
+            <script data-ad-client="ca-pub-1792623713572003" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <meta name="description" content={blog.mdesc} />
             <link rel="canonical" href={`${DOMAIN}/blogs/${query.slug}`} />
             <meta property="og:title" content={`${blog.title}| ${APP_NAME}`} />

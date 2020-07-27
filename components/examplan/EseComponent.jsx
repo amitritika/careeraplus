@@ -116,6 +116,11 @@ const EseComponent = (props) => {
         </div>
     );
   
+	useEffect(()=>{
+		subjectWeightagePrint();
+		
+	}, [])
+	
   const calendar = () => {
 		const subjectObj = {
 			startDate: startDateObj,
@@ -305,7 +310,6 @@ const EseComponent = (props) => {
 				<br></br>
         <Button outline color="warning" size="md" className = "mr-4" onClick = {()=> {calendar()}}>Submit</Button>
 			<Button outline color="warning" size="md" className = "mr-4" onClick = {()=> {subjectWeightagePrint()}}>Subject Weightage</Button>
-        {saveBtn}
         {cal1}
 			
 			{showSubjectW && 

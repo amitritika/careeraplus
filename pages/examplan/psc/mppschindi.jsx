@@ -10,9 +10,9 @@ const MppscHindiExamplan = () => {
   
   return (
     <Layout>
-			<Private>
+
 				<PscComponent exam = {exam} stream = {stream}/>
-			</Private>
+
     </Layout>
   )
 }

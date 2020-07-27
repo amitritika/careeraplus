@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../public/stylesheets/blog.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
@@ -30,6 +31,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
             <meta property="og:image:secure_url" content={`${DOMAIN}/static/images/seoblog.jpg`} />
             <meta property="og:image:type" content="image/jpg" />
             <meta property="fb:app_id" content={`${FB_APP_ID}`} />
+        <script data-ad-client="ca-pub-1792623713572003" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
     );
 

@@ -20,7 +20,6 @@ const PscExamplan = () => {
               <a href = "/examplan/psc/mppscenglish" className = "btn btn-outline-primary menu-button">MPPSC English</a>
             </Col>
         </Row>
-          {!isAuth() && <h1>Please Signin to Visit Calendar Page</h1>}
         </Container>
       </div>
     </Layout>
