@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "compile:sass:visualresume": "node-sass public/sass/visualresume/main.scss public/stylesheets/visualresume/main.css",
+    "compile:sass": "node-sass public/sass/main.scss public/stylesheets/main/main.css"
   },
   "keywords": [],
   "author": "",
@@ -21,10 +23,12 @@
     "html2canvas": "^1.0.0-rc.5",
     "isomorphic-fetch": "^2.2.1",
     "js-cookie": "^2.2.1",
+    "json-fn": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "next": "^9.1.1",
     "next-transpile-modules": "^2.3.1",
+    "node-sass": "^4.14.1",
     "path": "^0.12.7",
     "react": "^16.11.0",
     "react-calendar": "^2.19.2",
@@ -38,6 +42,7 @@
     "react-image-crop": "^8.5.0",
     "react-quill": "^1.3.3",
     "react-render-html": "^0.6.0",
+    "react-scroll": "^1.8.1",
     "react-share": "^4.1.0",
     "reactjs-popup": "^1.5.0",
     "reactstrap": "^8.1.1"

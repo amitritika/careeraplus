@@ -102,6 +102,7 @@ const UserInformation = forwardRef((props, ref) => {
 								vdata = visualresumedata
 								vdata.colors = {bg: props.bg, font: props.font}
 								props.vr(vdata, layoutInfoDisplay, userInfoDisplay);
+								
 							}
 					}
 					

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 export const visualresumepath = {
   fresher: {
     template1 : {
@@ -21,4 +22,10 @@ export const visualresumepath = {
       font: "rgb(75, 172, 198)",
     }
   },
+}
+
+export const comp = {
+  fresher: {
+    template1 : dynamic(() => import('../../components/visualresume/fresher/template1/Profile'))
+  }
 }

@@ -7,7 +7,7 @@ import Private from "../../../components/auth/Private"
 import UserInformation from "../../../components/visualresume/fresher/UserInformation"
 import LayoutLRInfo from "../../../components/visualresume/fresher/LayoutLRInfo"
 import MainBlock from "../../../components/visualresume/fresher/MainBlock"
-import { getProfile, updateprofile } from '../../../actions/user';
+import { getProfile, updateprofile, updateprofileResume } from '../../../actions/user';
 import {hobbies, areaOfIntrest, visualresumedata} from "../../../helpers/visualresume/fresher"
 import { getCookie, isAuth , updateUser, forgotPassword} from '../../../actions/auth';
 import {base64StringtoFile,
@@ -20,6 +20,8 @@ import imageCompression from 'browser-image-compression';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../../config';
 import { payButtons} from '../../../actions/payUMoney';
 import renderHTML from 'react-render-html';
+import JSONfn from 'json-fn';
+
 const Template = (props) => {
   const [values, setValues] = useState({
     name: "",
@@ -213,7 +215,23 @@ const Template = (props) => {
   
   const handleShare = () => {
     let data = document.getElementById("resume").innerHTML;
-    popup2(data);
+		let user = {
+			list: props.componentSequence(visualresume, name, "dummyemail@abc.com.", photo),
+			bg: bg,
+			font: font
+		}
+		
+		let userJ = JSONfn.stringify(user);
+		console.log(userJ);
+		updateprofileResume(token, user).then(data => {
+			if (data.error) {
+					setValues({ ...values, error: data.error, success: false, loading: false });
+			} else {
+					setValues({...values, sharePopup: true});
+					console.log(data);
+			}
+	});
+    //popup2(data);
   }
 	
 	const closeShare = () => {
@@ -357,7 +375,7 @@ const Template = (props) => {
 								</Col>}
 								
 								<Col xs= "12" lg = "4">
-                  <UserInformation vr = {setVisualresume} pr = {personalInformation} type = {props.type} template = {props.template} userInfoDisplay = {userInfoDisplay} ref = {editSection}></UserInformation>
+                  <UserInformation vr = {setVisualresume} pr = {personalInformation} type = {props.type} template = {props.template} userInfoDisplay = {userInfoDisplay} ref = {editSection} bg = {bg} font = {font}></UserInformation>
                   
                 </Col>
 								{layoutInfoDisplay && <Col xs= "12" lg = "8">

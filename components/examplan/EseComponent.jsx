@@ -160,7 +160,7 @@ const EseComponent = (props) => {
 	if(cal){
 	cal1 = 	<React.Fragment>
 			<div style = {{backgroundColor: `#721c24`, borderRadius: `10px`, margin: `10px`, border: `1px solid black`, height: `50px`, color: `white`}}>
-				Calendar for {exam[1]} {stream[1]} for {user.name}
+				Calendar for {exam[1]} {stream[1]}
 			</div>
 			<YearComponent
 				monthName = {calendar1.monthName}
