@@ -29,7 +29,7 @@ const UserProfile = ({visualresumedata, photo, name, email, query}) => {
     if(visualresumedata !== null){
       const BlockComponent = comp["fresher"]["template1"];
       console.log(path)
-      setValues({...values, Resume: BlockComponent, bg: visualresumedata.data.colors.bg, font: visualresumedata.data.colors.font, showResume: true});
+      setValues({...values, Resume: BlockComponent, bg: visualresumedata.data.colors.bg, font: visualresumedata.data.colors.font, showResume: false});
     }
   }
   useEffect(()=>{
