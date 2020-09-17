@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../../../public/stylesheets/visualresume/main.css"
+//import "../../../public/stylesheets/visualresume/main.css"
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
