@@ -31,7 +31,7 @@ const EseComponent = (props) => {
 	const [endDateVacObj, setendDateVacObj] = useState(new Date(2020,9,31));
 	const [calendar1, setcalendar1] = useState([]);
 	const [cal, setcal] = useState(false);
-  const [classSelected,  setclassSelected] = useState("0");
+  const [classSelected,  setclassSelected] = useState("2");
 	const user = isAuth();
 	const token = getCookie('token');
 	const [data, setdata] = useState({});
@@ -205,24 +205,31 @@ const EseComponent = (props) => {
 		let k = 0
 		let marks = 85
 		
-		if(classSelected === "0"){
+// 		if(classSelected === "0"){
+// 		marks = 300
+// 	}
+	
+// 	if(classSelected === "1"){
+// 		marks = 200
+// 	}
+	
+// 	if(classSelected === "2"){
+// 	fac = 1/(1-subjectWeightage[0])
+// 			marks = 300
+// 	}
+		
+		fac = 1/(1-subjectWeightage[0])
 		marks = 300
-	}
-	
-	if(classSelected === "1"){
-		marks = 200
-	}
-	
-	if(classSelected === "2"){
-	fac = 1/(1-subjectWeightage[0])
-			marks = 300
-	}
 		
 		let subjectMarks = [];
 		let subjectTopicsMarks = [];
 		let subjectTopicsMarks1 = [];
 		let subjectLocation = [];
 		let subjectTopicSequence = [];
+		subjectName = subjectName1[exam[0]][stream[0]]["subjectName"][2];
+		subjectWeightage = subjectName1[exam[0]][stream[0]]["subjectWeightage"][2];
+		subjectTopicsName = subjectName1[exam[0]][stream[0]]["subjectTopicsName"][2];
+		subjectTopicsWeightage = subjectName1[exam[0]][stream[0]]["subjectTopicsWeightage"][2];
 		
 		for (var i = start; i<subjectName.length; i++){
 		subjectMarks.push(subjectWeightage[i]*fac*marks);
@@ -254,7 +261,7 @@ const EseComponent = (props) => {
 		
 	}
 		setSubjectW(subjectTopicSequence);
-		setShowSubjectW(true);
+		setShowSubjectW(false);
 		console.log(subjectTopicSequence);
 		
 		
