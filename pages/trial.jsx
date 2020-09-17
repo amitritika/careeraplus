@@ -1,4 +1,4 @@
-import "../public/stylesheets/main/main.css"
+//import "../public/stylesheets/main/main.css"
 import Head from "next/head"
 
 const Trial = ()=> {
