@@ -14,10 +14,10 @@ const PscExamplan = () => {
         <Container>
           <Row>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/psc/mppschindi" className = "btn btn-outline-primary menu-button">MPPSC Hindi</a>
+              <a href = "/examplan/psc/mppschindi" className = "button-primary-w1">MPPSC Hindi</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/psc/mppscenglish" className = "btn btn-outline-primary menu-button">MPPSC English</a>
+              <a href = "/examplan/psc/mppscenglish" className = "button-primary-w1">MPPSC English</a>
             </Col>
         </Row>
         </Container>

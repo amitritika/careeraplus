@@ -1,0 +1,147 @@
+.icon-box-2 {
+  text-align: center;
+  padding: 7rem 2rem 8rem 2rem;
+  transition: all ease-in-out 0.3s;
+  background: $color-white;
+  box-shadow: 0px .5rem 9rem 0px rgba($color-grey-dark, 0.1);
+  
+  &__icon {
+    margin: 0 auto;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.3s;
+    position: relative;
+    
+    &--1{
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+      path {
+        transition: 0.5s;
+        fill: $color-grey-light-1;
+      }
+    }
+    
+    &--2 {
+      font-size: 36px;
+      transition: 0.5s;
+      position: relative;
+    }
+  }
+  
+  h4{
+    font-weight: 400 !important;
+    margin: 1rem 0 1.5rem 0;
+    font-size: $font-size-2;
+    
+    a {
+      color: $color-secondary;
+      transition: ease-in-out 0.3s;
+    }
+  }
+  
+  p {
+    line-height: $font-size-2;
+    font-size: $defualt-font-size;
+    margin-bottom: 0;
+  }
+  
+  &:hover{
+    border-color: $color-white;
+    box-shadow: 0px 0 3.5rem 0 rgba($color-black, 0.1);
+  }
+}
+
+.iconbox-2-blue {
+  .icon-box-2__icon--2 {
+    color: $color-blue-1;
+  }
+  
+  &:hover{
+    .icon-box-2__icon--1 path {
+      fill: $color-blue-1;
+   }
+    .icon-box-2__icon--2 {
+      color: $color-white;
+   }
+  }
+}
+
+.iconbox-2-orange {
+  .icon-box-2__icon--2 {
+    color: $color-orange-1;
+  }
+  
+  &:hover{
+    .icon-box-2__icon--1 path {
+      fill: $color-orange-1;
+   }
+    .icon-box-2__icon--2 {
+      color: $color-white;
+   }
+  }
+}
+
+.iconbox-2-pink {
+  .icon-box-2__icon--2 {
+    color: $color-pink-1;
+  }
+  
+  &:hover{
+    .icon-box-2__icon--1 path {
+      fill: $color-pink-1;
+   }
+    .icon-box-2__icon--2 {
+      color: $color-white;
+   }
+  }
+}
+
+.iconbox-2-yellow {
+  .icon-box-2__icon--2 {
+    color: $color-yellow-1;
+  }
+  
+  &:hover{
+    .icon-box-2__icon--1 path {
+      fill: $color-yellow-1;
+   }
+    .icon-box-2__icon--2 {
+      color: $color-white;
+   }
+  }
+}
+
+.iconbox-2-orange-red {
+  .icon-box-2__icon--2 {
+    color: $color-orange-red-1;
+  }
+  
+  &:hover{
+    .icon-box-2__icon--1 path {
+      fill: $color-orange-red-1;
+   }
+    .icon-box-2__icon--2 {
+      color: $color-white;
+   }
+  }
+}
+
+.iconbox-2-teal {
+  .icon-box-2__icon--2 {
+    color: $color-teal-1;
+  }
+  
+  &:hover{
+    .icon-box-2__icon--1 path {
+      fill: $color-teal-1;
+   }
+    .icon-box-2__icon--2 {
+      color: $color-white;
+   }
+  }
+}

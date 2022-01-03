@@ -41,16 +41,16 @@ const EseExamplan = () => {
         <Container>
           <Row>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/ese/mechanical" className = "btn btn-outline-primary menu-button">Mechanical</a>
+              <a href = "/examplan/ese/mechanical" className = "button-primary-w1">Mechanical</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-             <a href = "/examplan/ese/civil" className = "btn btn-outline-primary menu-button">Civil</a>
+             <a href = "/examplan/ese/civil" className = "button-primary-w1">Civil</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/ese/electronics" className = "btn btn-outline-primary menu-button">Electronics & Communication</a>
+              <a href = "/examplan/ese/electronics" className = "button-primary-w1">Electronics & Communication</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/ese/electrical" className = "btn btn-outline-primary menu-button">Electrical</a>
+              <a href = "/examplan/ese/electrical" className = "button-primary-w1">Electrical</a>
             </Col>
         </Row>
           

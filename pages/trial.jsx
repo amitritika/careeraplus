@@ -1,4 +1,4 @@
-//import "../public/stylesheets/main/main.css"
+//import "../public/stylesheets/main/main1.css"
 import Head from "next/head"
 
 const Trial = ()=> {
@@ -6,7 +6,6 @@ const Trial = ()=> {
   const head = () => (
         <Head>
              <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
             <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
 
@@ -97,9 +96,6 @@ const Trial = ()=> {
     <div id = "trial">
       {head()}
       {header()}
-      <div className = "main">
-      {sectionAbout()}
-      </div>
     </div>
   )
 }

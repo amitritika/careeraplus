@@ -1,16 +1,22 @@
 .navbar-brand {
      padding-top: 0; 
      padding-bottom: 0; 
+	width: 15rem;
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: #004085;
 }
-.navbar-light .navbar-brand span{
+
+.navbar-brand__text {
+	    font-family: Poppins, sans-serif;
+    position: absolute;
+    left: 6rem;
+    top: 1.3rem;
+    font-size: 1.6rem;
     color: #004085;
-    font-size: 1rem;
-    margin-left: 0.5rem;
 }
+
 
 .container1{
 	position: relative;
@@ -27,9 +33,7 @@
 	font-size: 4.5rem;
 }
 
-.main-page-signin{
-	display: none;
-}
+
 
 .ql-editor {
     min-height: 300px;
@@ -91,9 +95,7 @@
 		width: 90px;
 		border-radius: 45px;
 	}
-	.main-page-signin{
-		display: block;
-	}
+	
 	.display-3{
 	font-size: 4rem;
 }
@@ -111,9 +113,7 @@
 		width: 80px;
 		border-radius: 40px;
 	}
-	.main-page-signin{
-		display: block;
-	}
+	
 	
 		.display-3{
 	font-size: 3.5rem;
@@ -135,9 +135,7 @@
 		width: 50px;
 		border-radius: 35px;
 	}
-	.main-page-signin{
-		display: block;
-	}
+	
 			.display-3{
 	font-size: 3rem;
 }
@@ -156,9 +154,6 @@
 		border-radius: 30px;
 	}
 	
-	.main-page-signin{
-		display: block;
-	}
 	
  .display-3{
 	font-size: 2.5rem;

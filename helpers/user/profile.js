@@ -27,5 +27,11 @@ export const visualresumepath = {
 export const comp = {
   fresher: {
     template1 : dynamic(() => import('../../components/visualresume/fresher/template1/Profile'))
+  },
+  pro:{
+    template1 : dynamic(() => import('../../components/visualresume/pro/template1/Profile'))
+  },
+  expert:{
+    template1 : dynamic(() => import('../../components/visualresume/expert/template1/Profile'))
   }
 }

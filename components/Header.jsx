@@ -27,7 +27,8 @@ const Header = (props) => {
       <Navbar style= {{padding: `0`, boxShadow: `0px 2px 10px grey` , cursor: `pointer`}}color="purple" light expand="md">
         <Link href="/">
           <div className = "navbar-brand">
-            <img style = {{height: `50px`}} src = "../../../../../images/Logo.png"></img><span style = {{fontFamily: `"Poppins", sans-serif`}}>{APP_NAME}</span>
+            <img style = {{height: `50px`}} src = "../../../../../images/Logo.png"></img>
+            <div className = "navbar-brand__text">{APP_NAME}</div>
           </div>
         </Link>
         <NavbarToggler onClick={toggle} />

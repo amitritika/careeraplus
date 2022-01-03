@@ -1,0 +1,28 @@
+.button-buy {
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 4px;
+  color: $color-primary;
+  transition: none;
+  font-size: $defualt-font-size;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 2px solid $color-primary;
+  
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+  }
+}
+
+.u-featured .button-buy {
+  color: $color-white;
+  border: 2px solid $color-white;
+}
+
+.u-featured .button-buy:hover {
+  background: $color-white;
+  color: $color-primary;
+}

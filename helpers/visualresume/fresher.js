@@ -3,6 +3,36 @@ import { FaRunning, FaBaseballBall, FaTableTennis, FaRegFutbol,FaChessKnight, Fa
 			 FaWifi, FaFilm,  FaSeedling, FaPaw} from 'react-icons/fa';
 
 
+export const hobbiesListIcon = {
+"Exercise" : "fas fa-running",
+"Running" : "fas fa-running",
+"Tennis" : "fas fa-baseball-ball",
+"Table Tennis" : "fas fa-table-tennis",
+"Cricket" : "fas fa-baseball-ball",
+"Football" : "fas fa-reg-futbol",
+"Chess" : "fas fa-chess-knight",
+"Swimming" : "fas fa-swimmer",
+"Listening Music" : "fas fa-music",
+"Playing Guitar" : "fas fa-guitar",
+"Playing Keyboard" : "fas fa-music",
+"Playing Violin" : "fas fa-music",
+"Playing Flute" : "fas fa-music",
+"Singing" : "fas fa-music",
+"Dancing" : "fas fa-shoe-prints",
+"Travelling" : "fas fa-plane",
+"Social Work" : "fas fa-hands",
+"Drama" : "fas fa-theater-masks",
+"Acting" : "fas fa-theater-masks",
+"Painting" : "fas fa-paint-brush",
+"Reading" : "fas fa-book",
+"Writing" : "fas fa-pen-alt",
+"Gaming" : "fas fa-gamepad",
+"Browsing" : "fas fa-wifi",
+"Movies" : "fas fa-film",
+"Gardening" : "fas fa-seedling",
+"Animal Care" : "fas fa-paw"
+}
+
 export const hobbiesList = {
 "Exercise" : FaRunning,
 "Running" : FaRunning,

@@ -83,14 +83,6 @@ const Template = (props) => {
 		
 			
 		setSkills({fac, fac1});
-		payButtons("fresher").then( data=>{
-			if(data.error){
-				console.log(data.error)
-			}else{
-				setPay(data.button);
-			}
-		})
-		
   }, []);
 	
 	const editClick = (c) =>{
@@ -223,7 +215,7 @@ const Template = (props) => {
 		
 		let userJ = JSONfn.stringify(user);
 		console.log(userJ);
-		updateprofileResume(token, user).then(data => {
+		updateprofileResume(token, userJ).then(data => {
 			if (data.error) {
 					setValues({ ...values, error: data.error, success: false, loading: false });
 			} else {
@@ -365,7 +357,7 @@ const Template = (props) => {
 								</Col>}
 								{showLeftBlock && !visualresume.payment.status && <Col xs = "4" lg = "4">
 									<div className = "mt-4 text-center">
-										{renderHTML(pay)}
+										<a href="/user/payment/visualresume/fresher" className="button-buy">Buy Now</a>
 									</div>
 								</Col>}
 								{showLeftBlock && !visualresume.payment.status && <Col xs = "4" lg = "4">

@@ -12,6 +12,8 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let rightH = obj.rightH;
   let tH = 0;
   
+  
+  
   if(rightH > countR * 297){
     countR++;
     rightH = 297 * (countR - 1) + marginPage;
@@ -43,7 +45,6 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   
   
   rightH = rightH + marginSec + 13;
-  
   if(rightH > countR * 297){
       countR++;
       
@@ -121,12 +122,13 @@ const projectInfo = (obj, data, marginSec, marginBullet, marginPage) => {
         
         }
     }
- 
+  
   data.value.map((v, i)=>{
     
     let str = "project-heading-" + i.toString();
     let arrd = textWidth("calibri", "normal", "2.5pt", "113px", v.desc);
     let arrt = textWidth("calibri", "normal", "3.2pt", "113px", v.titile);
+    
     let height = arrd[0] + arrt[0] + 1;
     if(countR > countL){
       arrd = textWidth("calibri", "normal", "2.5pt", "183px", v.desc);

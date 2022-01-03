@@ -20,7 +20,7 @@ const GateExamplan = () => {
               <Button outline color="primary" size="md">NEET</Button>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <Button outline color="primary" size="md">NDS</Button>
+              <Button outline color="primary" size="md">NDA</Button>
             </Col>
         </Row>
         </Container>

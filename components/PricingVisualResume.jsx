@@ -80,7 +80,7 @@ const Pricing = (props) => {
 
         <div className="row">
 
-          <div className="col-lg-4 col-md-6" data-aos="zoom-im" data-aos-delay="100">
+          <div className="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div className="box">
               <h3>Fresher</h3>
               <img top width="100%" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80" alt="Card image cap" />

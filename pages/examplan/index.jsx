@@ -40,13 +40,13 @@ const Examplan = () => {
         <Container>
           <Row>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate" className = "btn btn-outline-primary menu-button">GATE</a>
+              <a href = "/examplan/gate" className = "button-menu">GATE</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/ese" className = "btn btn-outline-primary menu-button">ESE</a>
+              <a href = "/examplan/ese" className = "button-menu">ESE</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/psc" className = "btn btn-outline-primary menu-button">PSC</a>
+              <a href = "/examplan/psc" className = "button-menu">PSC</a>
             </Col>
         </Row>
         </Container>

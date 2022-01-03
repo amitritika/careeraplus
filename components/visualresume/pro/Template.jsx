@@ -85,13 +85,6 @@ const Template = (props) => {
 		
 			
 		setSkills({fac, fac1});
-		payButtons("pro").then( data=>{
-			if(data.error){
-				console.log(data.error)
-			}else{
-				setPay(data.button);
-			}
-		})
   }, []);
 	
   const editSection = useRef();
@@ -409,7 +402,7 @@ const Template = (props) => {
 								</Col>}
 								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "4" lg = "4">
 									<div className = "mt-4 text-center">
-										{renderHTML(pay)}
+										<a href="/user/payment/visualresume/pro" className="button-buy">Buy Now</a>
 									</div>
 								</Col>}
 								{showLeftBlock && !visualresumepro.payment.status && <Col xs = "4" lg = "4">

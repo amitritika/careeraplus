@@ -1,0 +1,27 @@
+.pro-template1-education {
+  
+  margin: 5rem;
+  &-vl {
+    width: 0.2rem;
+    margin: 2rem calc((100% - 0.2rem)/2);
+  }
+  
+  &-1{
+    position: absolute;
+    left: 50%;
+    padding: 0 1rem;
+  }
+  
+  &-2{
+    position: absolute;
+    right: 50%;
+    padding: 0 1rem;
+    text-align: right;
+  }
+  
+  &-3{
+    position: absolute;
+    left: 50%;
+    padding: 0 1rem;
+  }
+}

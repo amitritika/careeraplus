@@ -1,0 +1,17 @@
+.btn btn-sm btn-success w-75 mt-2 {
+  font-weight: 500;
+  font-size: $defualt-font-size;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 1.4rem 5rem;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin-top: 1rem;
+  color: $color-white;
+  background: $color-teal-1;
+  
+  &:hover{
+    background: $color-teal-1-dark;
+    color: $color-white;
+  }
+}

@@ -1,0 +1,28 @@
+@import "profile/hero";
+@import "profile/nav";
+@import "profile/contact";
+@import "profile/skills";
+@import "profile/education";
+@import "profile/resume";
+@import "profile/hobbies";
+@import "profile/section-heading";
+  
+  .fresher-template1-main{
+    position: relative;
+}
+
+.move-to-top-1 {
+   position: fixed;
+   bottom: 6rem;
+   right: 6rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10rem;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 2rem;
+  line-height: 5rem;
+  text-align: center;
+  cursor: pointer;
+}
+

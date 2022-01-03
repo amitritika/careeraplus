@@ -133,7 +133,7 @@ const areaInfo = (obj, data, marginSec, marginBullet, marginPage) => {
     
     if(countR > countL){
       
-      obj.block.components.push(BlockEdu);
+      obj.block.components.push(RightBlockArea);
       obj.block.ids.push(str);
       obj.block.props.push({top: rightH + marginSec, height: 10, data: v});
       
@@ -160,7 +160,7 @@ const areaInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             obj.right.ids.pop();
             obj.right.props.pop();
             
-            obj.block.components.push(BlockEdu);
+            obj.block.components.push(RightBlockArea);
             obj.block.ids.push(str);
             obj.block.props.push({top: rightH + marginSec, height: 10, data: v});
     
@@ -172,7 +172,7 @@ const areaInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             
             
             
-            obj.block.components.push(BlockEdu);
+            obj.block.components.push(RightBlockArea);
             obj.block.ids.push(str);
             obj.block.props.push({top: rightH + marginSec, height: 10, data: v});
     

@@ -1,0 +1,155 @@
+#port-filters {
+  padding: 0;
+  margin: 0 auto 3.5rem auto;
+  list-style: none;
+  text-align: center;
+  border-radius: 5rem;
+  padding: 2px 15px;
+  
+  li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 15px 8px 15px;
+    font-size: $defualt-font-size;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $color-grey-dark;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover, &.filter-active {
+      color: $color-primary;
+    }
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+.port .port-item {
+  margin-bottom: 30px;
+}
+
+.port-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+  &::before{
+    content: "";
+    background: rgba($color-primary, 0.6);
+    position: absolute;
+    left: 3rem;
+    right: 3rem;
+    top: 3rem;
+    bottom: 3rem;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+  }
+  
+  &__info{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    &::before{
+      display: block;
+      content: "";
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      top: 35px;
+      left: 35px;
+      border-top: 3px solid $color-white;
+      border-left: 3px solid $color-white;
+      transition: all 0.5s ease 0s;
+      z-index: 9994;
+    }
+    
+    &::after {
+      display: block;
+      content: "";
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      bottom: 35px;
+      right: 35px;
+      border-bottom: 3px solid $color-white;
+      border-right: 3px solid $color-white;
+      transition: all 0.5s ease 0s;
+      z-index: 9994;
+    }
+    
+    h4 {
+      font-size: $font-size-2;
+      color: $color-white;
+      font-weight: 600 !important;
+    }
+    
+    p {
+      color: $color-white;
+      font-size: $defualt-font-size;
+      text-transform: uppercase;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  
+  &__links{
+    text-align: center;
+    z-index: 4;
+    
+    a {
+      color: rgba($color-white, 0.6);
+      margin: 0 2px;
+      font-size: $double-font-size;
+      display: inline-block;
+      transition: 0.3s;
+      
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+  
+  &:hover {
+    &::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 1;
+    }
+    
+    .port-wrap__info {
+      opacity: 1;
+      
+      &::before {
+        top: 15px;
+        left: 15px;
+      }
+      
+      &::after{
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,36 @@
+.fresher-template1-hero {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color-black, .8);
+  background-size: cover;
+  background-position: top;
+  text-align: center;
+  &__image {
+    width: 20%;
+    height: 20%;
+    margin: 0 40%;
+    &__i {
+      margin-top: 2rem;
+      width: 20rem;
+      height: 20rem;
+      border-radius: 100%;
+      box-shadow: 0rem 2rem 10rem rgba(0,0,0, 0.2);
+    }
+  }
+  
+  &__name {
+    margin-top: 10rem;
+    font-size: 6rem;
+  }
+  
+  &__desg {
+        font-weight: bold;
+        font-size: 3rem;
+  }
+  
+  &__about {
+    font-size: 3rem;
+    width: 60%;
+    margin: 2rem 20%;
+  }
+}

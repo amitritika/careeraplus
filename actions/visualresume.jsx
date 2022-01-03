@@ -65,3 +65,18 @@ export const updateVisualResumePro = (token, user) => {
         .catch(err => console.log(err));
 };
 
+export const contactFormUserProfile = (user) => {
+    return fetch(`${API}/visualresume/user-contact`, {
+        method: 'POST',
+      headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+

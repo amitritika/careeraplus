@@ -127,7 +127,7 @@ export const textWidth = (fontf, weight, size, width, name) => {
   t.style.height = "auto";
   t.style.width = width;
   t.innerHTML = name;
-  //console.log(t.clientHeight + 1, t.clientWidth+1);
+  console.log(t.clientHeight + 1, t.clientWidth+1, name);
   
   return [t.clientHeight + 1, t.clientWidth+1]
 }

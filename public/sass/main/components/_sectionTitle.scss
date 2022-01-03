@@ -1,0 +1,19 @@
+.section-title-1{
+   text-align: center;
+   padding-bottom: 3rem;
+   
+  h2{
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    color: $color-secondary;
+  }
+  
+  p{
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    color: $color-brown-light;
+  }
+}

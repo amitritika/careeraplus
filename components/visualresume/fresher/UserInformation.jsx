@@ -95,7 +95,9 @@ const UserInformation = forwardRef((props, ref) => {
 								vdata = version1(vdata);
 							}
 							vdata.colors = {bg: props.bg, font: props.font}
+							console.log(vdata);
 							 props.vr(vdata, layoutInfoDisplay, userInfoDisplay);
+							
 							
 							}else{
 								

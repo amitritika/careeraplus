@@ -1,27 +1,8 @@
-import {APP_NAME} from "../config"
-import"../public/stylesheets/index.css";
-import React, { useState } from 'react';
-import Link from "next/link"
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
-
-import { signout, isAuth } from '../actions/auth';
-import Router from 'next/router';
+import {APP_NAME} from "../config";
+import { FaYoutube, FaYoutubeSquare, FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn} from "react-icons/fa";
 
 const Footer = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+  
   return (
     <footer id="footer">
 
@@ -79,12 +60,12 @@ const Footer = (props) => {
         </div>
       </div>
       <div className="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="https://www.youtube.com/channel/UCjauxsnDfKWEXvKA1Rl_E8A" className="twitter"><i className="fab fa-youtube"></i></a>
-        <a href="https://www.youtube.com/channel/UC6H0Dk6nvBcRrLSwJAqVbpA" className="twitter"><i className="fab fa-youtube-square"></i></a>
-        <a href="https://twitter.com/Career_O" className="twitter"><i className="fab fa-twitter"></i></a>
-        <a href="https://www.facebook.com/careeraplus/" className="facebook"><i className="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/careeraplus/" className="instagram"><i className="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/56403348" className="linkedin"><i className="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/channel/UCjauxsnDfKWEXvKA1Rl_E8A" className="twitter"><FaYoutube /></a>
+        <a href="https://www.youtube.com/channel/UC6H0Dk6nvBcRrLSwJAqVbpA" className="twitter"><FaYoutubeSquare /></a>
+        <a href="https://twitter.com/Career_O" className="twitter"><FaTwitter /></a>
+        <a href="https://www.facebook.com/careeraplus/" className="facebook"><FaFacebookF /></a>
+        <a href="https://www.instagram.com/careeraplus/" className="instagram"><FaInstagram /></a>
+        <a href="https://www.linkedin.com/company/56403348" className="linkedin"><FaLinkedinIn /></a>
       </div>
     </div>
   </footer>

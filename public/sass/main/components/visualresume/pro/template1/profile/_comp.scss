@@ -1,0 +1,32 @@
+.pro-template1-comp {
+  &__l{
+    position: absolute;
+    width: 20rem;
+    font-size: 1.6rem;
+    right: 50%;
+    color: $color-white;
+    text-align: right;
+    height: 3rem;
+    line-height: 3rem;
+    padding-left: 0.5rem;
+  }
+  
+  &__r{
+    position: absolute;
+    width: 20rem;
+    font-size: 1.6rem;
+    left: 50%;
+    color: $color-white;
+    text-align: left;
+    height: 3rem;
+    line-height: 3rem;
+    padding-left: 0.5rem;
+  }
+ 
+  
+  &-vl {
+    width: 0.2rem;
+    margin: 2rem calc((100% - 0.2rem)/2);
+  }
+}
+

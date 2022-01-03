@@ -1,0 +1,43 @@
+.icon-box-1 {
+  padding: 5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  background: $color-white;
+  box-shadow: 0 0 3rem 0 rgba($color-grey-dark, 0.2);
+  transition: all 0.3s ease-in-out;
+  border-radius: 1rem;
+  z-index: 1;
+  
+  &-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: $font-size-2;
+    a{
+      color: $color-secondary;
+      transition: 0.3s;
+    }
+  }
+  
+  &-description {
+    font-size: $defualt-font-size;
+    line-height: 2.8rem;
+    margin-bottom: 0;
+  }
+  
+  &-icon {
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    font-size: $double-font-size;
+    line-height: 1;
+    color: $color-primary;
+  }
+  
+  &:hover{
+    transform: scale(1.08);
+    .icon-box-1-title a{
+      color: $color-primary;
+    }
+  }
+}

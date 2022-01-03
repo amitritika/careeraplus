@@ -21,22 +21,6 @@ const Examplan = () => {
 	});
   
   useEffect(()=>{
-    
-    let price =0
-    payButtons("expert").then( data=>{
-			if(data.error){
-				console.log(data.error)
-			}else{
-				if(data.discount !== 0){
-					price = 1000 - (1000 * (data.discount)/100);
-					setExpert({button: data.button, price: price, discount: data.discount})
-				}else{
-					setExpert({button: data.button, price: 1000, discount: data.discount})
-				}
-				
-      }
-		})
-    
   }, [])
   return (
     <Layout1>
@@ -52,28 +36,48 @@ const Examplan = () => {
 									{(expert.discount !== 0) && <h1 className="card-title pricing-card-title">{expert.price} INR <small class="text-muted">/ yr</small></h1>}
               </Col>
               <Col xs="12" sm="12" md = "12" lg = "12" style = {{}}	>
-								{renderHTML(expert.button)}
+								<a href="/user/payment/visualresume/expert" className="button-buy">Buy Now</a>
               </Col>
               <Col xs="12" sm="12" md = "4" lg = "4">
-								<img src = "../../../images/visualresume/expert/Template1.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
-                <a href = "/visualresume/expert/template1" className = "btn btn-outline-primary">Template 1</a>
+								<div>
+									<img src = "../../../images/visualresume/expert/Template1.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+								</div>
+								<div>
+									<a href = "/visualresume/expert/template1" className = "button-secondary">Template 1</a>
+								</div>
               </Col>
               <Col xs="12" sm="12" md = "4" lg = "4">
-								<img src = "../../../images/visualresume/expert/Template2.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
-                <a href = "/visualresume/expert/template2" className = "btn btn-outline-primary">Template 2</a>
+								<div>
+									<img src = "../../../images/visualresume/expert/Template2.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+								</div>
+								<div>
+									<a href = "/visualresume/expert/template2" className = "button-secondary">Template 2</a>
+								</div>
               </Col>
 							<Col xs="12" sm="12" md = "4" lg = "4">
-								<img src = "../../../images/visualresume/expert/Template3.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
-                <a href = "/visualresume/expert/template3" className = "btn btn-outline-primary">Template 3</a>
-              </Col>
+								<div>
+									<img src = "../../../images/visualresume/expert/Template3.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+								</div>
+								<div>
+									<a href = "/visualresume/expert/template3" className = "button-secondary">Template 3</a>
+								</div>
+							</Col>
 							<Col xs="12" sm="12" md = "4" lg = "4">
-								<img src = "../../../images/visualresume/expert/Template4.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
-                <a href = "/visualresume/expert/template4" className = "btn btn-outline-primary">Template 4</a>
-              </Col>
+								<div>
+									<img src = "../../../images/visualresume/expert/Template4.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+								</div>
+								<div>
+									<a href = "/visualresume/expert/template4" className = "button-secondary">Template 4</a>
+								</div>
+							</Col>
 							<Col xs="12" sm="12" md = "4" lg = "4">
-								<img src = "../../../images/visualresume/expert/Template5.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
-                <a href = "/visualresume/expert/template5" className = "btn btn-outline-primary">Template 5</a>
-              </Col>
+								<div>
+									<img src = "../../../images/visualresume/expert/Template5.JPG" style = {{height: `400px`, marginBottom: `10px`, boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`}}></img>
+								</div>
+								<div>
+									<a href = "/visualresume/expert/template5" className = "button-secondary">Template 5</a>
+								</div>
+							</Col>
           </Row>
 						<LayoutImages />
             {!isAuth() && <h1>Please Signin to Visit Visual Resume Page</h1>}

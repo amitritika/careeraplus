@@ -11,7 +11,7 @@ const educationInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   let leftH = obj.leftH;
   let rightH = obj.rightH;
   let tH = 0;
-  
+  //console.log(obj);
   if(rightH > countR * 297){
     countR++;
     rightH = 297 * (countR - 1) + marginPage;
@@ -92,6 +92,7 @@ const educationInfo = (obj, data, marginSec, marginBullet, marginPage) => {
             obj.block.props.push({top: rightH + marginSec, name: data.title , height: 13});
             
             rightH = rightH + marginSec + 13;
+            console.log(rightH);
           }
         }else{
           obj.right.components.pop();
@@ -218,6 +219,7 @@ const educationInfo = (obj, data, marginSec, marginBullet, marginPage) => {
   obj.countR = countR;
   obj.leftH = leftH;
   obj.rightH = rightH;
+  
   
   return obj;
 }

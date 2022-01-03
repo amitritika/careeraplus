@@ -1,22 +1,22 @@
 import React from 'react';
 import {useEffect, useState} from 'react'
 import Head from 'next/head';
-import { Container, Row, Col} from 'reactstrap';
 import {
+	Container, Row, Col,
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-import Router from "next/router"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../public/stylesheets/examplan/index.css';
+import Router from "next/router";
 import Layout1 from "../../components/Layout1"
-import PricingVisualResume from "../../components/PricingVisualResume";
-import FAQ from "../../components/FAQ";
+import PricingVisualResume from "../../components/common/PricingVisualResume";
+import FAQ from "../../components/common/FAQ";
 import {visualresume} from "../../helpers/faq"
 import {isAuth} from "../../actions/auth"
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 import { payButtons} from '../../actions/payUMoney';
 import renderHTML from 'react-render-html';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 const Examplan = () => {
@@ -36,6 +36,11 @@ const Examplan = () => {
 		discount: 0,
 		price: 1000
 	})
+	
+	useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 	
 	
   const head = () => (

@@ -1,0 +1,16 @@
+.pro-template1-training {
+  margin: 5rem 10rem;
+  &-list{
+    margin-bottom: 2rem;
+    &__date {
+      font-style: italic;
+      font-size: $defualt-font-size;
+    }
+    &__client{
+      font-size: $defualt-font-size;
+    }
+    &__desc{
+      font-size: $defualt-font-size;
+    }
+  }
+}

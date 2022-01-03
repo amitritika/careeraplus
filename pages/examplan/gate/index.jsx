@@ -43,25 +43,25 @@ const GateExamplan = () => {
         <Container>
           <Row>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate/mechanical" className = "btn btn-outline-primary menu-button">Mechanical</a>
+              <a href = "/examplan/gate/mechanical" className = "button-primary-w1">Mechanical</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate/civil" className = "btn btn-outline-primary menu-button">Civil</a>
+              <a href = "/examplan/gate/civil" className = "button-primary-w1">Civil</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate/electronics" className = "btn btn-outline-primary menu-button">Electronics & Communication</a>
+              <a href = "/examplan/gate/electronics" className = "button-primary-w1">Electronics & Communication</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate/computerscience" className = "btn btn-outline-primary menu-button">Computer Science</a>
+              <a href = "/examplan/gate/computerscience" className = "button-primary-w1">Computer Science</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-             <a href = "/examplan/gate/electrical" className = "btn btn-outline-primary menu-button">Electrical</a>
+             <a href = "/examplan/gate/electrical" className = "button-primary-w1">Electrical</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate/chemical" className = "btn btn-outline-primary menu-button">Chemical</a>
+              <a href = "/examplan/gate/chemical" className = "button-primary-w1">Chemical</a>
             </Col>
             <Col xs="12" sm="12" md = "6" lg = "4">
-              <a href = "/examplan/gate/instrumentation" className = "btn btn-outline-primary menu-button">Instrumentation</a>
+              <a href = "/examplan/gate/instrumentation" className = "button-primary-w1">Instrumentation</a>
             </Col>
         </Row>
           <div style = {{textAlign: `left`}}>

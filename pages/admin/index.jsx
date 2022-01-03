@@ -53,6 +53,13 @@ const AdminIndex = () => {
                 <a href = "/admin/crud/images/visualresume" className = "btn btn-outline-primary mt-2">Update Visual Resume</a>
                 <a href = "/admin/crud/images/examplan" className = "btn btn-outline-primary mt-2">Update Exam Plan</a>
               </Card>
+              
+              <Card body>
+                <CardTitle className="text-center">Discount</CardTitle>
+                <CardText></CardText>
+                <a href = "/admin/crud/discount/discount" className = "btn btn-outline-primary">Create Discount</a>
+                <a href = "/admin/crud/discount/discounts" className = "btn btn-outline-primary">Remove Discounts</a>
+              </Card>
             </Col>
           </Row>
         </div>
