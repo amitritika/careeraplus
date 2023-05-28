@@ -78,7 +78,7 @@ export default async (req, res) => {
         });
 
         const stream = new SitemapStream({
-          hostname: `https://${req.headers.host}`,
+          hostname: `https://careeraplus.in`,
         });
     
         res.writeHead(200, {
