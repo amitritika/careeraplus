@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "compile:sass:main": "node-sass public/sass/main/main.scss public/stylesheets/stylesheetmain.css",
-    "compile:sass": "node-sass public/sass/main.scss public/stylesheets/main/main1.css"
+    "compile:sass": "node-sass public/sass/main.scss public/stylesheets/main/main1.css",
+    "postbuild": "next-sitemap"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +48,7 @@
     "react-transition-group": "^4.4.2",
     "reactjs-popup": "^1.5.0",
     "reactstrap": "^8.5.1",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "sitemap": "^7.1.1"
   }
 }

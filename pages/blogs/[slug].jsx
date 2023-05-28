@@ -44,6 +44,32 @@ const SingleBlog = ({ blog, query }) => {
             <meta property="og:image:secure_url" content={`${API}/blog/photo/${blog.slug}`} />
             <meta property="og:image:type" content="image/jpg" />
             <meta property="fb:app_id" content={`${FB_APP_ID}`} />
+            <script type="application/ld+json">
+            {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `${DOMAIN}/blogs/${query.slug}`
+            },
+            "headline": `${blog.title}`,
+            "description": `${blog.mdesc}`,
+            "image": `${API}/blog/photo/${blog.slug}`,
+            "author": {
+              "@type": "Person",
+              "name": `${blog.postedBy}`
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Career A+",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://careeraplus.in/images/Logo.png"
+              }
+            },
+            "datePublished": `${blog.createdAt}`
+          })}
+        </script>
         </Head>
     );
 
