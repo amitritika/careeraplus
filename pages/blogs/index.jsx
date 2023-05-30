@@ -21,7 +21,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
             <meta property="og:title" content={`Latest web developoment tutorials | ${APP_NAME}`} />
             <meta
                 property="og:description"
-                content="Programming blogs and tutorials on react node next vue php laravel and web developoment"
+                content="Discover insightful career advice and guidance on the Career A+ blog page. Explore articles covering job search strategies, Exam Plan and Visual Resume. Boost your career with our expert insights."
             />
             <meta property="og:type" content="webiste" />
             <meta property="og:url" content={`${DOMAIN}${router.pathname}`} />
