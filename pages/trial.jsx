@@ -28,7 +28,7 @@ const Trial = ()=> {
             <span className = "heading-primary--sub">is where life happens</span>
           </h1>
           
-          <a href = "#" className = "btn btn--white btn--animate">Discover Our Tours</a>
+          <a href = "#" className = "btn btn--white btn--animate">Discover Our Tours Test1</a>
         </div>
       </div>
     )
