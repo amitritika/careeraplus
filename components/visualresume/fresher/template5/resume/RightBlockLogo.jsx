@@ -15,7 +15,7 @@ const RightBlockLogo = (props) =>{
   
 
   return (
-    <div id = {id} style = {{position: `absolute`, height: `${height}`, width: `${width}`, top: `${top}`, left: `${left}`, textAlign: `center`, borderRadius: `50%`, zIndex: `2`}}>
+    <div className = "template5-logo-right" id = {id} style = {{position: `absolute`, height: `${height}`, width: `${width}`, top: `${top}`, left: `${left}`, textAlign: `center`, borderRadius: `50%`, zIndex: `2`}}>
      
     </div>
   )

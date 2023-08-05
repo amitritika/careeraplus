@@ -36,8 +36,36 @@ p{
       padding: 0;
     }
   
-  .template2-icon-heading{
-    top: 10px;
+  .template2-icon-heading svg{
+    position: absolute;
+    top: 13px;
+  }
+
+  .template3-icon-heading svg{
+    font-size: 18px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+
+  .template1-logo-right svg {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+  }
+
+  .template2-logo-right svg {
+    font-size: 30px;
+    position: absolute;
+    top: 5px;
+    left: -3px;
+  }
+
+  .template3-logo-right svg {
+    font-size: 24px;
+    position: absolute;
+    top: 6px;
+    left: 6px;
   }
 }
 
