@@ -15,7 +15,7 @@ const RightBlockLogo = (props) =>{
   
 
   return (
-    <div id = {id} style = {{height: `${height}`, width: `${width}`,position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, borderRadius: `50%`, backgroundColor: `${bg}`, zIndex: `2`}}>
+    <div className = "template1-logo-right" id = {id} style = {{height: `${height}`, width: `${width}`,position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, borderRadius: `50%`, backgroundColor: `${bg}`, zIndex: `2`}}>
       <IconContext.Provider value={{ color: "white" }}>
           <div style = {{fontSize: `${size}`, zIndex: `3` , lineHeight: `${line}`}}>
             <Icon />

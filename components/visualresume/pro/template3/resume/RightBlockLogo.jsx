@@ -23,7 +23,7 @@ const RightBlockLogo = (props) =>{
   let top2 = (props.fac * 0).toString() + "px";
 
   return (
-    <div id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
+    <div className = "template3-logo-right" id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
      <div className = "template3-icon-heading" style = {{ height: `${heightI}`, width: `${heightI}`, position: `absolute`, lineHeight: `${line}`,textAlign: `center`, color: `white`, fontSize: `${size1}`, top: `${top2}`, left: `${left2}`, borderRadius: `50%`, backgroundColor: `${bg}`}}>
           <IconContext.Provider value={{ color: "white" }}>
             <div style = {{fontSize: `${size1}`}}>

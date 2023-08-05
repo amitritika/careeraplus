@@ -23,7 +23,7 @@ const RightBlockLogo = (props) =>{
   let top2 = (props.fac * 0).toString() + "px";
 
   return (
-    <div id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
+    <div className = "template2-logo-right" id = {id} style = {{position: `absolute`, top: `${top}`, left: `${left}`, textAlign: `center`, zIndex: `2`}}>
      <div style = {{height: `${heightI}`, width: `${heightI}`, position: `absolute`, border: `${border} solid ${bg}`,  transform: `rotate(0deg)`, borderRadius: `${radius}`, left: `${left1}`}}>
         
       </div> 
